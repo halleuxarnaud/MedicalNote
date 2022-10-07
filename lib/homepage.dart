@@ -15,7 +15,6 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: _BuildAppbar(),
       body: BuildBody(),
-      bottomNavigationBar: BuildBottomnav(),
     );
   }
 
@@ -23,7 +22,7 @@ class HomePage extends StatelessWidget {
     return AppBar(
       backgroundColor: kDefaultcolor,
       toolbarHeight: 80,
-      //elevation: 0,
+      elevation: 0,
       flexibleSpace: SafeArea(
         child: Padding(
           padding: EdgeInsets.only(
@@ -37,7 +36,7 @@ class HomePage extends StatelessWidget {
               Row(
                 children: [
                   Padding(
-                    padding: EdgeInsets.all(kDefaultpadding),
+                    padding: EdgeInsets.all(3),
                     child: CircleAvatar(
                       radius: 30,
                       backgroundImage:

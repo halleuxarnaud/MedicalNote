@@ -9,14 +9,8 @@ class BuildBottomnav extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 80,
-      decoration: BoxDecoration(color: Colors.black),
-      child: Center(
-        child: Text(
-          'Navigation Bar',
-          style: TextStyle(color: Colors.white),
-        ),
-      ),
+      color: Colors.blue,
+      height: 40,
     );
   }
 }
