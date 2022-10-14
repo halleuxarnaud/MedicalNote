@@ -15,7 +15,6 @@ class AddPatients extends StatefulWidget {
 }
 
 class _AddPatientsState extends State<AddPatients> {
-  final List<Patients> newpatient = [];
   void _addPatient(String newname, String newfirstname, String newdateofbirth,
       String newemail, String newnumero) {
     final newPT = Patients(
@@ -29,15 +28,18 @@ class _AddPatientsState extends State<AddPatients> {
     );
 
     setState(() {
-      newpatient.add(newPT);
+      patientList.add(newPT);
     });
   }
 
   void _bottomnewpatient(BuildContext ctx) {
     showModalBottomSheet(
         context: ctx,
-        builder: (bCtx) {
-          return NewPatient(_addPatient);
+        builder: (_) {
+          return GestureDetector(
+              onTap: () {},
+              child: NewPatient(_addPatient),
+              behavior: HitTestBehavior.opaque);
         });
   }
 

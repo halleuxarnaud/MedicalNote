@@ -15,6 +15,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: _BuildAppbar(),
       body: BuildBody(),
+      bottomNavigationBar: BuildBottomnav(),
     );
   }
 
