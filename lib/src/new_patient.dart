@@ -1,18 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/widgets.dart';
 
-class NewPatient extends StatelessWidget {
+class NewPatient extends StatefulWidget {
   final Function addPT;
-  final namecontroller = TextEditingController();
-  final firstnamecontroller = TextEditingController();
-  final dateofbirthcontroller = TextEditingController();
-  final emailcontroller = TextEditingController();
-  final phonenumbercontroller = TextEditingController();
 
   NewPatient(this.addPT);
+
+  @override
+  State<NewPatient> createState() => _NewPatientState();
+}
+
+class _NewPatientState extends State<NewPatient> {
+  final namecontroller = TextEditingController();
+
+  final firstnamecontroller = TextEditingController();
+
+  final dateofbirthcontroller = TextEditingController();
+
+  final emailcontroller = TextEditingController();
+
+  final phonenumbercontroller = TextEditingController();
 
   void _submitData() {
     final enteredname = namecontroller.text;
@@ -29,13 +35,15 @@ class NewPatient extends StatelessWidget {
       print('No input');
       return;
     }
-    addPT(
+    widget.addPT(
       enteredname,
       enteredfirstname,
       entereddateofbirth,
       enteredemail,
       enteredphonenumber,
     );
+
+    Navigator.of(context).pop();
   }
 
   @override
