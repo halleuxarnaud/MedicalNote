@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:newcalendar/component/component.dart';
-import 'package:newcalendar/homepage.dart';
+import 'package:newcalendar/screens/homepage.dart';
 
 void main() {
   runApp(const MyApp());
