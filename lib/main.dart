@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:newcalendar/component/component.dart';
-import 'package:newcalendar/screens/homepage.dart';
+import 'package:MedicalNote/component/component.dart';
+import 'package:MedicalNote/screens/homepage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +18,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'NewCalendar',
+      title: 'MedicalNote',
       theme: ThemeData(scaffoldBackgroundColor: kDefaultcolor),
       home: HomePage(),
     );

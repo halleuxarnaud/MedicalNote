@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:newcalendar/component/component.dart';
-import 'package:newcalendar/screens/bottomnavbar.dart';
+import 'package:MedicalNote/component/component.dart';
+import 'package:MedicalNote/screens/bottomnavbar.dart';
 
-import '../src/patient_list.dart';
+import 'patient_list.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -91,9 +91,10 @@ class HomePage extends StatelessWidget {
                           null;
                         },
                         icon: SvgPicture.asset(
-                          'assets/icons/notification.svg',
-                          height: 26,
-                          width: 26,
+                          'assets/icons/settings.svg',
+                          color: Colors.white,
+                          height: 28,
+                          width: 28,
                         ),
                       ),
                     ],

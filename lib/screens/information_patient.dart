@@ -1,27 +1,88 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:newcalendar/models/listpatient.dart';
+import 'package:flutter_svg/svg.dart';
+
+import 'package:MedicalNote/models/listpatient.dart';
 
 import '../component/component.dart';
 
-class InformationPatient extends StatelessWidget {
+class InformationPatient extends StatefulWidget {
   final Patients patients;
 
   InformationPatient(this.patients);
+
+  @override
+  State<InformationPatient> createState() => _InformationPatientState();
+}
+
+class _InformationPatientState extends State<InformationPatient> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
+      appBar: _Appbar(),
+      body: _body(),
+      bottomNavigationBar: _savepdf(),
+    );
+  }
+
+  _Appbar() {
+    return AppBar(
       title: Text(
-        patients.name + ' ' + patients.firstname,
+        widget.patients.name + ' ' + widget.patients.firstname,
         style: TextStyle(
           fontWeight: FontWeight.bold,
           fontSize: 22,
         ),
       ),
       backgroundColor: kDefaultcolor,
-    ));
+    );
+  }
+
+  _body() {
+    return Column(
+      children: <Widget>[
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: IconButton(
+                onPressed: () {},
+                icon: SvgPicture.asset(
+                  'assets/icons/settings.svg',
+                  color: Colors.white,
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: IconButton(
+                  onPressed: () {},
+                  icon: SvgPicture.asset(
+                    'assets/icons/note.svg',
+                    color: Colors.white,
+                  )),
+            )
+          ],
+        ),
+        Expanded(
+          child: ListView(children: [Card(child: Text('data'))]),
+        ),
+      ],
+    );
+  }
+
+  _savepdf() {
+    return Container(
+      child: ElevatedButton(
+        onPressed: () {},
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Text(
+            'Save to PDF',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+        ),
+      ),
+    );
   }
 }

@@ -1,12 +1,14 @@
+import 'package:flutter/material.dart';
+
 class Patients {
   final String name;
+  final List<ListNote>? listOfNotes;
   final String firstname;
   final String dateofbirth;
   final String email;
   final String numero;
   final String id;
   final DateTime date;
-  String? anamenese;
 
   Patients(
       {required this.name,
@@ -16,26 +18,41 @@ class Patients {
       required this.numero,
       required this.id,
       required this.date,
-      this.anamenese});
+      this.listOfNotes});
+}
+
+class ListNote {
+  final String? title;
+  final String? note;
+  final String? conclusion;
+
+  ListNote({
+    this.title,
+    this.note,
+    this.conclusion,
+  });
 }
 
 final List<Patients> patientList = [
   Patients(
     name: 'Halleux',
     firstname: 'Arnaud',
-    dateofbirth: '20/02/1998',
-    email: 'Halleuxarnaud4@gmail.com',
-    numero: '0472308913',
+    dateofbirth: '***********',
+    email: '***********',
+    numero: '***********',
     date: DateTime.now(),
     id: '080283820',
-  ),
-  Patients(
-    name: 'Perillo',
-    firstname: 'Stéphanie',
-    dateofbirth: '20/02/1998',
-    email: 'stéphanie.perillo.be',
-    numero: '0472389856',
-    date: DateTime.now(),
-    id: '678565789789',
+    listOfNotes: [
+      ListNote(
+          title: 'Test0',
+          note: 'djdojzodjojdiozjdoizdozdzhdhzdhzdhzdhzdh',
+          conclusion: 'Je suis pas malade'),
+      ListNote(
+        title: 'Test1',
+        note:
+            'Hello jsssjsjsjsjsjsjsjsjsjsjsjsjsjsjsjdzdjzpdjzjiazdozaoidhzodhoazhdouzhdozahdouazhduozahuodhzaudhzahdmazhdzhdhazhdomzahdmzahmdzhamdhzadhzamdhiazhdiahz',
+        conclusion: 'Je suis malade',
+      )
+    ],
   ),
 ];

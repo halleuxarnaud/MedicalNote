@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:newcalendar/component/component.dart';
+import 'package:MedicalNote/component/component.dart';
 
 class BuildBottomnav extends StatelessWidget {
   const BuildBottomnav({Key? key}) : super(key: key);

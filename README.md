@@ -1,4 +1,4 @@
-# newcalendar
+# MedicalNote
 
 A new Flutter project.
 
