@@ -46,7 +46,7 @@
 		</data>
 		<key>Frameworks/App.framework/App</key>
 		<data>
-		+Ef5PHt25Sb0/WaE1hPvkOeXuUs=
+		CvtoF5jutIRFQ4E7iMGKTI2lThQ=
 		</data>
 		<key>Frameworks/App.framework/Info.plist</key>
 		<data>
@@ -54,11 +54,11 @@
 		</data>
 		<key>Frameworks/App.framework/_CodeSignature/CodeResources</key>
 		<data>
-		myWU8fZLGtH0N2Hnm3rTD6q0JTU=
+		JaIIyQQt6O5mylh/QqB4Sd0UfVs=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
 		<data>
-		dv8HRmT5mlxmR4JM0lwNoViQKTk=
+		u7zOqZ+NDy3uuUxZvFE4l++AcWQ=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/FontManifest.json</key>
 		<data>
@@ -67,6 +67,18 @@
 		<key>Frameworks/App.framework/flutter_assets/NOTICES.Z</key>
 		<data>
 		jQqXo84yMKNoxNSE4B3H7+dHWgg=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/icons/documents.svg</key>
+		<data>
+		WFL3xTpWgkbl/CCgYPdixgFLY9s=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/icons/false.svg</key>
+		<data>
+		RLqbVP8j1y8j0T/vUC5e4JALayk=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/icons/note.svg</key>
+		<data>
+		HWM4MTO8RDzKx7eA1/Z/nkAQmIk=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/assets/icons/notification.svg</key>
 		<data>
@@ -79,6 +91,14 @@
 		<key>Frameworks/App.framework/flutter_assets/assets/icons/search.svg</key>
 		<data>
 		t365wV2cw0S2IqhGGclwOBhS5vo=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/icons/settings.svg</key>
+		<data>
+		L4Xd98P+8ULiZA8PdS6VtkqNRNk=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/icons/validate.svg</key>
+		<data>
+		eLUAFmaHo6Cal1EHJ+9zVceog3M=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/assets/images/ahalleux.jpeg</key>
 		<data>
@@ -94,7 +114,7 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/kernel_blob.bin</key>
 		<data>
-		oLjTQUqKCErZVmAm3xXajv4V8+4=
+		08bYV6/pbPGl3cwmB27gDofMoJ4=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -110,7 +130,7 @@
 		</data>
 		<key>Frameworks/Flutter.framework/Flutter</key>
 		<data>
-		Xb2xe+oyWxOoyUJQq6SrB1qLWFg=
+		yKO1V3FBwzM9VERRmJWC0d9JX2c=
 		</data>
 		<key>Frameworks/Flutter.framework/Headers/Flutter.h</key>
 		<data>
@@ -194,7 +214,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		eeHFzkp9udYd6gkIUlzHhJU+oBQ=
+		YXkZAGolmqdLR/c0YA8seIERtMo=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -277,7 +297,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			SYdNs5oKz+rEaAB5cHF9OSdHwO8nxPdGaucD4slNaqs=
+			/CtN7AlYitrP/RZV1b8RlEfGxwB45GvQ2UCvBeCCQe4=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/Info.plist</key>
@@ -291,14 +311,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			yvVUgmU6Cnw+S82tm0dtTuno4lNNxq+vpkZZJeftEvs=
+			mt/Op57o1UK2Y5Dy9wlVa9HZ8+ggrZYLSFoV8YG9KNk=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Ev0TGU3t5ZhVRJx8VHrZ24MRuY9Xxak3WTIOW7FXtxE=
+			PJFbqtBQiag5zxtuLiKvCeDT3aygLQUiSC8ol2tkxI8=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/FontManifest.json</key>
@@ -313,6 +333,27 @@
 			<key>hash2</key>
 			<data>
 			i12aBqkQBg7w0BEWedtTAgGaQ/AzntlqYi/ZI2NM/8k=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/icons/documents.svg</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			37MZoPywlNVZPzFh9XXGt80IK7/FFtRutgbtYjYFRrQ=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/icons/false.svg</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			CuV3m04aV4VL76cigYgCa2RwUtSMWIrtSCOJNwQsgco=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/icons/note.svg</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			GoMWcGK39Jswu01Z+ISFJ4kIly8OQYtvhJzUpI8AXcY=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/assets/icons/notification.svg</key>
@@ -334,6 +375,20 @@
 			<key>hash2</key>
 			<data>
 			BkEngZaOCRHoULgk8t6+OFANq3IkTLH8+1ia0TcNHXc=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/icons/settings.svg</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			E8Eu6vvTkshB0FOcqRsRR56wR3rs1Ty1YEyR0RLY+qk=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/icons/validate.svg</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			z8Tz9JuovFOAaELceJob2/o7QjQRTW6S10csES/lq94=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/assets/images/ahalleux.jpeg</key>
@@ -361,7 +416,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			M2hH/8kAl+935HLf56NXsEJfT0teILenQUZEVT90hYY=
+			ffA68sriUQ6+Au+keL6uX1nfKATd2mpVb/BWlxVItrU=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
@@ -389,7 +444,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			t2W8K/y98B9HHkEOJ6KBFSSwYBNNzVELiLu5OJKUqZY=
+			zLUEadllsmPLeWLynj/xuCJq81FEi5CKdWPdMl9YN4Q=
 			</data>
 		</dict>
 		<key>Frameworks/Flutter.framework/Headers/Flutter.h</key>

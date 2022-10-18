@@ -26,6 +26,17 @@ class _InformationPatientState extends State<InformationPatient> {
 
   _Appbar() {
     return AppBar(
+      automaticallyImplyLeading: false,
+      leading: Navigator.canPop(context)
+          ? IconButton(
+              icon: const Icon(
+                Icons.arrow_back,
+                color: Colors.white,
+                size: 30,
+              ),
+              onPressed: () => Navigator.of(context).pop(),
+            )
+          : null,
       title: Text(
         widget.patients.name + ' ' + widget.patients.firstname,
         style: TextStyle(
