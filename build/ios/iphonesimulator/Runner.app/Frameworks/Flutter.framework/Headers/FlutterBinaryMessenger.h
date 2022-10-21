@@ -46,7 +46,6 @@ typedef int64_t FlutterBinaryMessengerConnection;
  */
 FLUTTER_DARWIN_EXPORT
 @protocol FlutterBinaryMessenger <NSObject>
-/// TODO(gaaclarke): Remove optional when macos supports Background Platform Channels.
 @optional
 - (NSObject<FlutterTaskQueue>*)makeBackgroundTaskQueue;
 

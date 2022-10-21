@@ -26,8 +26,8 @@ class _PatientListState extends State<PatientList> {
       email: newemail,
       numero: newnumero,
       date: DateTime.now(),
-      id: DateTime.now().toString(),
-      listOfNotes: [],
+      //id: DateTime.now().toString(),
+      //listOfNotes: [],
     );
 
     setState(() {
@@ -147,11 +147,13 @@ class _PatientListState extends State<PatientList> {
                                 bottom: 3,
                                 left: 5,
                               ),
+                              /*
                               child: Text(
                                 'ID #' + patientList[index].id.toString(),
                                 style: TextStyle(
                                     color: Colors.black.withOpacity(0.5)),
                               ),
+                              */
                             ),
                           ],
                         ),

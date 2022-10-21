@@ -1,24 +1,44 @@
-import 'package:flutter/material.dart';
-
 class Patients {
   final String name;
-  final List<ListNote>? listOfNotes;
   final String firstname;
   final String dateofbirth;
   final String email;
   final String numero;
-  final String id;
-  final DateTime date;
+  //final String id;
+  final DateTime? date;
+  //final List<ListNote>? listOfNotes;
 
-  Patients(
-      {required this.name,
-      required this.firstname,
-      required this.dateofbirth,
-      required this.email,
-      required this.numero,
-      required this.id,
-      required this.date,
-      this.listOfNotes});
+  Patients({
+    required this.name,
+    required this.firstname,
+    required this.dateofbirth,
+    required this.email,
+    required this.numero,
+    //required this.id,
+    this.date,
+    //this.listOfNotes,
+  });
+
+  Patients.fromJson(Map<String, dynamic> json)
+      : name = json['name'],
+        firstname = json['firstname'],
+        dateofbirth = json['dateofbirth'],
+        email = json['email'],
+        numero = json['numero'],
+        date = json['date'];
+  //id = json['id'];
+  //listOfNotes = json['listofnotes']
+
+  Map<String, dynamic> toJson() => {
+        'name': name,
+        'firstname': firstname,
+        'dateofbirth': dateofbirth,
+        'email': email,
+        'numero': numero,
+        'date': date,
+        //'id': id,
+        //'listOfNotes': listOfNotes
+      };
 }
 
 class ListNote {
@@ -41,7 +61,8 @@ final List<Patients> patientList = [
     email: '***********',
     numero: '***********',
     date: DateTime.now(),
-    id: '080283820',
+    // id: '080283820',
+    /*
     listOfNotes: [
       ListNote(
           title: 'Test0',
@@ -53,6 +74,8 @@ final List<Patients> patientList = [
             'Hello jsssjsjsjsjsjsjsjsjsjsjsjsjsjsjsjdzdjzpdjzjiazdozaoidhzodhoazhdouzhdozahdouazhduozahuodhzaudhzahdmazhdzhdhazhdomzahdmzahmdzhamdhzadhzamdhiazhdiahz',
         conclusion: 'Je suis malade',
       )
+      
     ],
+    */
   ),
 ];

@@ -10,15 +10,11 @@ class NewPatient extends StatefulWidget {
 }
 
 class _NewPatientState extends State<NewPatient> {
-  final namecontroller = TextEditingController();
-
-  final firstnamecontroller = TextEditingController();
-
-  final dateofbirthcontroller = TextEditingController();
-
-  final emailcontroller = TextEditingController();
-
-  final phonenumbercontroller = TextEditingController();
+  TextEditingController namecontroller = TextEditingController();
+  TextEditingController firstnamecontroller = TextEditingController();
+  TextEditingController dateofbirthcontroller = TextEditingController();
+  TextEditingController emailcontroller = TextEditingController();
+  TextEditingController phonenumbercontroller = TextEditingController();
 
   void _submitData() {
     final enteredname = namecontroller.text;
