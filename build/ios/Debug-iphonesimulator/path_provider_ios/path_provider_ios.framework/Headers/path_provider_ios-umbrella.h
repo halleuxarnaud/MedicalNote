@@ -10,9 +10,9 @@
 #endif
 #endif
 
-#import "FLTSharedPreferencesPlugin.h"
+#import "FLTPathProviderPlugin.h"
 #import "messages.g.h"
 
-FOUNDATION_EXPORT double shared_preferences_iosVersionNumber;
-FOUNDATION_EXPORT const unsigned char shared_preferences_iosVersionString[];
+FOUNDATION_EXPORT double path_provider_iosVersionNumber;
+FOUNDATION_EXPORT const unsigned char path_provider_iosVersionString[];
 

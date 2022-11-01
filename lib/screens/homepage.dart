@@ -1,8 +1,8 @@
-import 'package:MedicalNote/screens/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:MedicalNote/component/component.dart';
+import 'package:medicalnote/screens/settings.dart';
 
+import '../component/component.dart';
 import 'patient_list.dart';
 
 class HomePage extends StatelessWidget {

@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:MedicalNote/component/component.dart';
-import 'package:MedicalNote/screens/homepage.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
-void main() {
+import 'component/component.dart';
+import 'models/listpatient.dart';
+import 'screens/homepage.dart';
+
+void main() async {
+  //!Initialisation HIVE
+  await Hive.initFlutter();
+  Hive.registerAdapter(PatientsAdapter());
+  await Hive.openBox<Patients>('Patient');
+  //await Hive.openBox<Settings>('boxPatient');
   runApp(const MyApp());
 }
 

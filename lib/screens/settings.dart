@@ -1,5 +1,5 @@
-import 'package:MedicalNote/component/component.dart';
 import 'package:flutter/material.dart';
+import '../component/component.dart';
 
 class Settings extends StatelessWidget {
   const Settings({Key? key}) : super(key: key);

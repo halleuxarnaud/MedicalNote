@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import 'package:MedicalNote/models/listpatient.dart';
-
 import '../component/component.dart';
+import '../models/listpatient.dart';
 //TODO: Ajouter la lecture de la class note au card
 
 class InformationPatient extends StatefulWidget {

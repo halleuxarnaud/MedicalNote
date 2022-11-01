@@ -1,46 +1,48 @@
+import 'dart:ffi';
+
+import 'package:equatable/equatable.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+
+part 'listpatient.g.dart';
+
+@HiveType(typeId: 0)
 class Patients {
+  @HiveField(0)
   final String name;
+
+  @HiveField(1)
   final String firstname;
+
+  @HiveField(3)
   final String dateofbirth;
+
+  @HiveField(4)
   final String email;
+
+  @HiveField(5)
   final String numero;
-  //final String id;
-  final DateTime? date;
+
+  @HiveField(6)
+  final DateTime date;
+
+  @HiveField(7)
+  final int id;
+
+  //@HiveField(8)
   //final List<ListNote>? listOfNotes;
 
-  Patients({
+  const Patients({
     required this.name,
     required this.firstname,
     required this.dateofbirth,
     required this.email,
     required this.numero,
-    //required this.id,
-    this.date,
+    required this.date,
+    required this.id,
     //this.listOfNotes,
   });
-
-  Patients.fromJson(Map<String, dynamic> json)
-      : name = json['name'],
-        firstname = json['firstname'],
-        dateofbirth = json['dateofbirth'],
-        email = json['email'],
-        numero = json['numero'],
-        date = json['date'];
-  //id = json['id'];
-  //listOfNotes = json['listofnotes']
-
-  Map<String, dynamic> toJson() => {
-        'name': name,
-        'firstname': firstname,
-        'dateofbirth': dateofbirth,
-        'email': email,
-        'numero': numero,
-        'date': date,
-        //'id': id,
-        //'listOfNotes': listOfNotes
-      };
 }
-
+/*
 class ListNote {
   final String? title;
   final String? note;
@@ -79,3 +81,5 @@ final List<Patients> patientList = [
     */
   ),
 ];
+
+*/
