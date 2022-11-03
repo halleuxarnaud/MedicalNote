@@ -46,7 +46,7 @@
 		</data>
 		<key>Frameworks/App.framework/App</key>
 		<data>
-		7mXDulh1fGAa71s2YFbuk4pQk/Q=
+		TkFFHKNfukQtlfw4zvnGxU5mQmk=
 		</data>
 		<key>Frameworks/App.framework/Info.plist</key>
 		<data>
@@ -54,7 +54,7 @@
 		</data>
 		<key>Frameworks/App.framework/_CodeSignature/CodeResources</key>
 		<data>
-		w4YUDSt7TDHZt4ZfMapF3IInAIE=
+		ssBzv6QqQkmXzFMAUXTMb70TEEA=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
 		<data>
@@ -114,7 +114,7 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/kernel_blob.bin</key>
 		<data>
-		bvhMjHtsA6eLafRS1EFCPDhq0JM=
+		9r5G4C/fVk7KebM8MpaW3cK/PPg=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -130,7 +130,7 @@
 		</data>
 		<key>Frameworks/Flutter.framework/Flutter</key>
 		<data>
-		mfTTTFb4JOJQQoV1XO0iaJcNmy0=
+		hwhkMoOFKhjjk/TVghlKpIsWcJI=
 		</data>
 		<key>Frameworks/Flutter.framework/Headers/Flutter.h</key>
 		<data>
@@ -222,7 +222,7 @@
 		</data>
 		<key>Frameworks/path_provider_ios.framework/path_provider_ios</key>
 		<data>
-		RzIgnNcY4t32RgegtvaoVC1madM=
+		njhHil8cmjd/+0o1FUR1lbHcsDc=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -309,7 +309,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			XoYCVDAulz7BGQ/DpK+2C9840g78IPK4HR/NX/E6HwQ=
+			3mZJ+y5Mj59I8R/xLLaijb61nC6VeQU/vItlR49m3Rk=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/Info.plist</key>
@@ -323,7 +323,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			/6hM8sYw5rWNzdoYgrX4hCNs143Ts7hBCCIrNjITcPs=
+			FV/xWFHlL+TMRRU1BUsk5wD99+fjico+iB8q2+zDxbo=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
@@ -428,7 +428,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			nuhd/yS4UXUvXWkhPFf/j/4av1AwCsC5xgCsSzYh5xo=
+			1fiiKd0UsrFxqyacAnTAsgJ5ELeWf+Xn3XiTc1B+tnw=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
@@ -456,7 +456,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			8qqRr5YTyaHLzlqCB4TSt2uk7MShr1J5k2AlydmKtJQ=
+			LFY+z5C36VHqwB9tldBaSZ4lhcc6GbfvPWkkFIG1PYg=
 			</data>
 		</dict>
 		<key>Frameworks/Flutter.framework/Headers/Flutter.h</key>
@@ -617,7 +617,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			I2/0wa5usaIsZbNhJs5urVBRfDhNUAeuRf7til6osjE=
+			YzN/aYbk1kCtwXvVPyIMiNA5/iVkEnLaO0XgEk7xdZU=
 			</data>
 		</dict>
 	</dict>

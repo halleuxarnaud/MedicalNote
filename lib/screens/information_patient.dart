@@ -46,7 +46,8 @@ class _InformationPatientState extends State<InformationPatient> {
             ],
           ),
           Expanded(
-            child: ListView(children: [Card(child: Text('data'))]),
+            child: ListView(
+                children: [Card(child: Text(widget.patients.id.toString()))]),
           ),
         ],
       ),
