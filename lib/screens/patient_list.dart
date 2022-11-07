@@ -24,24 +24,6 @@ class _PatientListState extends State<PatientList> {
     print('Patient ${boxPatient.values}');
   }
 
-  void _addPatient(String newname, String newfirstname, String newdateofbirth,
-      String newemail, String newnumero) {
-    final newPT = Patients(
-      name: newname,
-      firstname: newfirstname,
-      dateofbirth: newdateofbirth,
-      email: newemail,
-      numero: newnumero,
-      date: DateTime.now(),
-      id: DateTime.now().millisecondsSinceEpoch,
-      //id: DateTime.now().millisecondsSinceEpoch,
-      //listOfNotes: [],
-    );
-    boxPatient.add(newPT);
-
-    Navigator.of(context).pop();
-  }
-
   void _bottomnewpatient(BuildContext ctx) {
     TextEditingController namecontroller = TextEditingController();
     TextEditingController firstnamecontroller = TextEditingController();
@@ -64,13 +46,21 @@ class _PatientListState extends State<PatientList> {
         print('No input');
         return;
       }
-      _addPatient(
-        enteredname,
-        enteredfirstname,
-        entereddateofbirth,
-        enteredemail,
-        enteredphonenumber,
+
+      final newPT = Patients(
+        name: enteredname,
+        firstname: enteredfirstname,
+        dateofbirth: entereddateofbirth,
+        email: enteredemail,
+        numero: enteredphonenumber,
+        date: DateTime.now(),
+        id: DateTime.now().millisecondsSinceEpoch,
+        //id: DateTime.now().millisecondsSinceEpoch,
+        //listOfNotes: [],
       );
+      boxPatient.add(newPT);
+
+      Navigator.of(context).pop();
     }
 
     showModalBottomSheet(
@@ -80,31 +70,32 @@ class _PatientListState extends State<PatientList> {
               onTap: () {},
               child: Card(
                 child: Container(
-                    padding: EdgeInsets.all(20),
+                    padding: const EdgeInsets.all(20),
                     child: Column(
                       children: <Widget>[
                         TextField(
-                          decoration: InputDecoration(labelText: 'name'),
+                          decoration: const InputDecoration(labelText: 'name'),
                           controller: namecontroller,
                           autofocus: true,
                           onSubmitted: (_) => _submitData(),
                         ),
                         TextField(
-                          decoration: InputDecoration(labelText: 'first name'),
+                          decoration:
+                              const InputDecoration(labelText: 'first name'),
                           controller: firstnamecontroller,
                           autofocus: true,
                           onSubmitted: (_) => _submitData(),
                         ),
                         TextField(
                           decoration:
-                              InputDecoration(labelText: 'date of birth'),
+                              const InputDecoration(labelText: 'date of birth'),
                           controller: dateofbirthcontroller,
                           autofocus: true,
                           keyboardType: TextInputType.datetime,
                           onSubmitted: (_) => _submitData(),
                         ),
                         TextField(
-                          decoration: InputDecoration(labelText: 'email'),
+                          decoration: const InputDecoration(labelText: 'email'),
                           controller: emailcontroller,
                           autofocus: true,
                           keyboardType: TextInputType.emailAddress,
@@ -112,7 +103,7 @@ class _PatientListState extends State<PatientList> {
                         ),
                         TextField(
                           decoration:
-                              InputDecoration(labelText: 'phone number'),
+                              const InputDecoration(labelText: 'phone number'),
                           controller: phonenumbercontroller,
                           autofocus: true,
                           keyboardType: TextInputType.phone,
@@ -120,7 +111,7 @@ class _PatientListState extends State<PatientList> {
                         ),
                         ElevatedButton(
                             onPressed: _submitData,
-                            child: Center(
+                            child: const Center(
                               child: Text('Submit'),
                             ))
                       ],
@@ -149,7 +140,7 @@ class _PatientListState extends State<PatientList> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(
+              padding: const EdgeInsets.only(
                 left: 20,
                 right: 20,
               ),
@@ -157,7 +148,7 @@ class _PatientListState extends State<PatientList> {
                 width: size.width,
                 height: 65,
                 child: Padding(
-                  padding: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
@@ -214,16 +205,16 @@ class _PatientListState extends State<PatientList> {
                                         InformationPatient(patients)));
                           }),
                           child: Card(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: <Widget>[
                                 Padding(
                                   padding: const EdgeInsets.only(
                                       left: 5, top: 8, bottom: 10),
                                   child: Text(
-                                    patientList[index].name +
+                                    patientList[index].name! +
                                         ' ' +
-                                        patientList[index].firstname,
+                                        patientList[index].firstname!,
                                     style: const TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 16,
@@ -235,13 +226,11 @@ class _PatientListState extends State<PatientList> {
                                     bottom: 3,
                                     left: 5,
                                   ),
-                                  /*
-                                child: Text(
-                                  'ID #' + patientList[index].id.toString(),
-                                  style: TextStyle(
-                                      color: Colors.black.withOpacity(0.5)),
-                                ),
-                                */
+                                  child: IconButton(
+                                    icon: SvgPicture.asset(
+                                        'assets/icons/person add.svg'),
+                                    onPressed: () {},
+                                  ),
                                 ),
                               ],
                             ),

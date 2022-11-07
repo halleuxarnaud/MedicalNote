@@ -1,6 +1,3 @@
-import 'dart:ffi';
-
-import 'package:equatable/equatable.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 part 'listpatient.g.dart';
@@ -8,44 +5,50 @@ part 'listpatient.g.dart';
 @HiveType(typeId: 0)
 class Patients {
   @HiveField(0)
-  final String name;
+  final String? name;
 
   @HiveField(1)
-  final String firstname;
+  final String? firstname;
 
   @HiveField(3)
-  final String dateofbirth;
+  final String? dateofbirth;
 
   @HiveField(4)
-  final String email;
+  final String? email;
 
   @HiveField(5)
-  final String numero;
+  final String? numero;
 
   @HiveField(6)
-  final DateTime date;
+  final DateTime? date;
 
   @HiveField(7)
-  final int id;
+  final int? id;
 
-  //@HiveField(8)
-  //final List<ListNote>? listOfNotes;
+  @HiveField(8)
+  final List<ListNote>? listOfNotes;
 
   const Patients({
-    required this.name,
-    required this.firstname,
-    required this.dateofbirth,
-    required this.email,
-    required this.numero,
-    required this.date,
-    required this.id,
-    //this.listOfNotes,
+    this.name,
+    this.firstname,
+    this.dateofbirth,
+    this.email,
+    this.numero,
+    this.date,
+    this.id,
+    this.listOfNotes,
   });
 }
-/*
+
+@HiveType(typeId: 10)
 class ListNote {
+  @HiveField(1)
   final String? title;
+
+  @HiveField(2)
   final String? note;
+
+  @HiveField(3)
   final String? conclusion;
 
   ListNote({
@@ -55,6 +58,7 @@ class ListNote {
   });
 }
 
+/*
 final List<Patients> patientList = [
   Patients(
     name: 'Halleux',
@@ -63,8 +67,7 @@ final List<Patients> patientList = [
     email: '***********',
     numero: '***********',
     date: DateTime.now(),
-    // id: '080283820',
-    /*
+    id: 5252522,
     listOfNotes: [
       ListNote(
           title: 'Test0',
@@ -76,10 +79,7 @@ final List<Patients> patientList = [
             'Hello jsssjsjsjsjsjsjsjsjsjsjsjsjsjsjsjdzdjzpdjzjiazdozaoidhzodhoazhdouzhdozahdouazhduozahuodhzaudhzahdmazhdzhdhazhdomzahdmzahmdzhamdhzadhzamdhiazhdiahz',
         conclusion: 'Je suis malade',
       )
-      
     ],
-    */
   ),
 ];
-
 */

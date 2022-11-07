@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 import '../component/component.dart';
 import '../models/listpatient.dart';
-//TODO: Ajouter la lecture de la class note au card
 
 class InformationPatient extends StatefulWidget {
   final Patients patients;
@@ -15,42 +15,85 @@ class InformationPatient extends StatefulWidget {
 }
 
 class _InformationPatientState extends State<InformationPatient> {
+  late Box<Patients> boxPatient;
+  var e;
+
+  @override
+  void initState() {
+    super.initState();
+    boxPatient = Hive.box('Patient');
+  }
+
+  void _addNote(String newtitle, String newnote, String newconclusion) {
+    final newNOTE = Patients(
+      listOfNotes: [
+        ListNote(title: newtitle, note: newnote, conclusion: newconclusion)
+      ],
+    );
+    boxPatient.add(newNOTE);
+    Navigator.of(context).pop();
+  }
+
+  void _bottomnewnote(BuildContext ctx) {
+    TextEditingController titlecontroller = TextEditingController();
+    TextEditingController notecontroller = TextEditingController();
+    TextEditingController conclusioncontroller = TextEditingController();
+
+    void _submitData() {
+      _addNote(
+        titlecontroller.text,
+        notecontroller.text,
+        conclusioncontroller.text,
+      );
+    }
+
+    showModalBottomSheet(
+        context: ctx,
+        builder: (_) {
+          return GestureDetector(
+              onTap: () {},
+              child: Card(
+                child: Container(
+                    padding: const EdgeInsets.all(20),
+                    child: Column(
+                      children: <Widget>[
+                        TextField(
+                          decoration: const InputDecoration(labelText: 'Title'),
+                          controller: titlecontroller,
+                          autofocus: true,
+                          onSubmitted: (_) => _submitData(),
+                        ),
+                        TextField(
+                          decoration: const InputDecoration(labelText: 'Note'),
+                          controller: notecontroller,
+                          autofocus: true,
+                          onSubmitted: (_) => _submitData(),
+                        ),
+                        TextField(
+                          decoration:
+                              const InputDecoration(labelText: 'Conclusion'),
+                          controller: conclusioncontroller,
+                          autofocus: true,
+                          keyboardType: TextInputType.datetime,
+                          onSubmitted: (_) => _submitData(),
+                        ),
+                        ElevatedButton(
+                            onPressed: _submitData,
+                            child: const Center(
+                              child: Text('Submit'),
+                            ))
+                      ],
+                    )),
+              ),
+              behavior: HitTestBehavior.opaque);
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _Appbar(),
-      body: Column(
-        children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Padding(
-                padding: EdgeInsets.all(8.0),
-                child: IconButton(
-                  onPressed: () {},
-                  icon: SvgPicture.asset(
-                    'assets/icons/settings.svg',
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: IconButton(
-                    onPressed: () {},
-                    icon: SvgPicture.asset(
-                      'assets/icons/note.svg',
-                      color: Colors.white,
-                    )),
-              )
-            ],
-          ),
-          Expanded(
-            child: ListView(
-                children: [Card(child: Text(widget.patients.id.toString()))]),
-          ),
-        ],
-      ),
+      body: _body(),
       bottomNavigationBar: _savepdf(),
     );
   }
@@ -58,21 +101,38 @@ class _InformationPatientState extends State<InformationPatient> {
   _Appbar() {
     return AppBar(
       automaticallyImplyLeading: false,
-      leading: Navigator.canPop(context)
-          ? IconButton(
+      elevation: 0,
+      flexibleSpace: SafeArea(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            IconButton(
               icon: const Icon(
                 Icons.arrow_back,
                 color: Colors.white,
                 size: 30,
               ),
               onPressed: () => Navigator.of(context).pop(),
-            )
-          : null,
-      title: Text(
-        widget.patients.name + ' ' + widget.patients.firstname,
-        style: TextStyle(
-          fontWeight: FontWeight.bold,
-          fontSize: 22,
+            ),
+            Text(
+              widget.patients.name! + ' ' + widget.patients.firstname!,
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+                fontSize: 22,
+              ),
+            ),
+            Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: IconButton(
+                    icon: SvgPicture.asset(
+                      'assets/icons/note.svg',
+                      color: Colors.white,
+                    ),
+                    onPressed: () {
+                      _bottomnewnote(context);
+                    })),
+          ],
         ),
       ),
       backgroundColor: kDefaultcolor,
@@ -82,32 +142,14 @@ class _InformationPatientState extends State<InformationPatient> {
   _body() {
     return Column(
       children: <Widget>[
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            Padding(
-              padding: EdgeInsets.all(8.0),
-              child: IconButton(
-                onPressed: () {},
-                icon: SvgPicture.asset(
-                  'assets/icons/settings.svg',
-                  color: Colors.white,
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: IconButton(
-                  onPressed: () {},
-                  icon: SvgPicture.asset(
-                    'assets/icons/note.svg',
-                    color: Colors.white,
-                  )),
-            )
-          ],
-        ),
         Expanded(
-          child: ListView(children: [Card(child: Text('data'))]),
+          child: ListView(children: [
+            ...?widget.patients.listOfNotes
+                ?.map((e) => Card(child: Text(e.title.toString()))),
+            const Card(
+              child: Text('data'),
+            )
+          ]),
         ),
       ],
     );
@@ -117,8 +159,8 @@ class _InformationPatientState extends State<InformationPatient> {
     return Container(
       child: ElevatedButton(
         onPressed: () {},
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
+        child: const Padding(
+          padding: EdgeInsets.all(20.0),
           child: Text(
             'Save to PDF',
             style: TextStyle(fontWeight: FontWeight.bold),
