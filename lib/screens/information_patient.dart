@@ -7,8 +7,10 @@ import '../models/listpatient.dart';
 
 class InformationPatient extends StatefulWidget {
   final Patients patients;
+  final int index;
 
-  const InformationPatient(this.patients, {Key? key}) : super(key: key);
+  const InformationPatient(this.patients, this.index, {Key? key})
+      : super(key: key);
 
   @override
   State<InformationPatient> createState() => _InformationPatientState();
@@ -16,7 +18,6 @@ class InformationPatient extends StatefulWidget {
 
 class _InformationPatientState extends State<InformationPatient> {
   late Box<Patients> boxPatient;
-  var e;
 
   @override
   void initState() {
@@ -30,7 +31,7 @@ class _InformationPatientState extends State<InformationPatient> {
         ListNote(title: newtitle, note: newnote, conclusion: newconclusion)
       ],
     );
-    boxPatient.add(newNOTE);
+    boxPatient.put(widget.index, newNOTE);
     Navigator.of(context).pop();
   }
 
@@ -115,7 +116,10 @@ class _InformationPatientState extends State<InformationPatient> {
               onPressed: () => Navigator.of(context).pop(),
             ),
             Text(
-              widget.patients.name! + ' ' + widget.patients.firstname!,
+              widget.patients.name.toString() +
+                  widget.index.toString() +
+                  ' ' +
+                  widget.patients.firstname.toString(),
               style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 color: Colors.white,

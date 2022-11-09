@@ -21,6 +21,7 @@ class _PatientListState extends State<PatientList> {
   void initState() {
     super.initState();
     boxPatient = Hive.box('Patient');
+    //boxPatient.clear();
     print('Patient ${boxPatient.values}');
   }
 
@@ -202,7 +203,7 @@ class _PatientListState extends State<PatientList> {
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) =>
-                                        InformationPatient(patients)));
+                                        InformationPatient(patients, index)));
                           }),
                           child: Card(
                             child: Row(
@@ -212,9 +213,9 @@ class _PatientListState extends State<PatientList> {
                                   padding: const EdgeInsets.only(
                                       left: 5, top: 8, bottom: 10),
                                   child: Text(
-                                    patientList[index].name! +
+                                    patientList[index].name.toString() +
                                         ' ' +
-                                        patientList[index].firstname!,
+                                        patientList[index].firstname.toString(),
                                     style: const TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 16,

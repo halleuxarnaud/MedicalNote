@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-
 import 'component/component.dart';
 import 'models/listpatient.dart';
 import 'screens/homepage.dart';
 
+//! Suppression des patient
+//! Suppression des notes patients
+//! Ajout de pdf generator
+//!
+
 void main() async {
-  //!Initialisation HIVE
+  //! Initialisation HIVE
   await Hive.initFlutter();
+  //! Add adapter
   Hive.registerAdapter(PatientsAdapter());
+  Hive.registerAdapter(ListNoteAdapter());
   await Hive.openBox<Patients>('Patient');
   //await Hive.openBox<Settings>('boxPatient');
   runApp(const MyApp());
