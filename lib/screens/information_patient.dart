@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:medicalnote/screens/pdfconstructor.dart';
 
 import '../component/component.dart';
 import '../models/listpatient.dart';
@@ -31,7 +32,11 @@ class _InformationPatientState extends State<InformationPatient> {
         ListNote(title: newtitle, note: newnote, conclusion: newconclusion)
       ],
     );
-    boxPatient.put(widget.index, newNOTE);
+    var note = boxPatient.getAt(widget.index);
+    if (note == null) {
+      boxPatient.put(widget.index, newNOTE);
+    } else {}
+    //boxPatient.put(widget.index, newNOTE);
     Navigator.of(context).pop();
   }
 
@@ -107,13 +112,16 @@ class _InformationPatientState extends State<InformationPatient> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            IconButton(
-              icon: const Icon(
-                Icons.arrow_back,
-                color: Colors.white,
-                size: 30,
+            SizedBox(
+              width: 40,
+              child: IconButton(
+                icon: const Icon(
+                  Icons.arrow_back,
+                  color: Colors.white,
+                  size: 30,
+                ),
+                onPressed: () => Navigator.of(context).pop(),
               ),
-              onPressed: () => Navigator.of(context).pop(),
             ),
             Text(
               widget.patients.name.toString() +
@@ -126,16 +134,18 @@ class _InformationPatientState extends State<InformationPatient> {
                 fontSize: 22,
               ),
             ),
-            Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: IconButton(
-                    icon: SvgPicture.asset(
-                      'assets/icons/note.svg',
-                      color: Colors.white,
-                    ),
-                    onPressed: () {
-                      _bottomnewnote(context);
-                    })),
+            SizedBox(
+              width: 40,
+              child: IconButton(
+                icon: SvgPicture.asset(
+                  'assets/icons/note.svg',
+                  color: Colors.white,
+                ),
+                onPressed: () {
+                  _bottomnewnote(context);
+                },
+              ),
+            ),
           ],
         ),
       ),
@@ -162,11 +172,17 @@ class _InformationPatientState extends State<InformationPatient> {
   _savepdf() {
     return Container(
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) =>
+                      PDFConstructor(widget.patients, widget.index)));
+        },
         child: const Padding(
           padding: EdgeInsets.all(20.0),
           child: Text(
-            'Save to PDF',
+            'PDF Génerator',
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
         ),

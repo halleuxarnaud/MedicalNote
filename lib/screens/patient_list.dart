@@ -22,7 +22,7 @@ class _PatientListState extends State<PatientList> {
     super.initState();
     boxPatient = Hive.box('Patient');
     //boxPatient.clear();
-    print('Patient ${boxPatient.values}');
+    //print('Patient ${boxPatient.values}');
   }
 
   void _bottomnewpatient(BuildContext ctx) {
