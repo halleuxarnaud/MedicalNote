@@ -128,12 +128,6 @@
       "languageVersion": "2.18"
     },
     {
-      "name": "cross_file",
-      "rootUri": "file:///Users/arnaudhallerux/Documents/SDK/flutter/.pub-cache/hosted/pub.dartlang.org/cross_file-0.3.3+2",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
       "name": "crypto",
       "rootUri": "file:///Users/arnaudhallerux/Documents/SDK/flutter/.pub-cache/hosted/pub.dartlang.org/crypto-3.0.2",
       "packageUri": "lib/",
@@ -194,12 +188,6 @@
       "languageVersion": "2.12"
     },
     {
-      "name": "flutter_slidable",
-      "rootUri": "file:///Users/arnaudhallerux/Documents/SDK/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_slidable-2.0.0",
-      "packageUri": "lib/",
-      "languageVersion": "2.17"
-    },
-    {
       "name": "flutter_svg",
       "rootUri": "file:///Users/arnaudhallerux/Documents/SDK/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_svg-1.1.5",
       "packageUri": "lib/",
@@ -208,12 +196,6 @@
     {
       "name": "flutter_test",
       "rootUri": "file:///Users/arnaudhallerux/Documents/SDK/flutter/packages/flutter_test",
-      "packageUri": "lib/",
-      "languageVersion": "2.17"
-    },
-    {
-      "name": "flutter_web_plugins",
-      "rootUri": "file:///Users/arnaudhallerux/Documents/SDK/flutter/packages/flutter_web_plugins",
       "packageUri": "lib/",
       "languageVersion": "2.17"
     },
@@ -272,12 +254,6 @@
       "languageVersion": "2.15"
     },
     {
-      "name": "intl",
-      "rootUri": "file:///Users/arnaudhallerux/Documents/SDK/flutter/.pub-cache/hosted/pub.dartlang.org/intl-0.17.0",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
       "name": "io",
       "rootUri": "file:///Users/arnaudhallerux/Documents/SDK/flutter/.pub-cache/hosted/pub.dartlang.org/io-1.0.3",
       "packageUri": "lib/",
@@ -332,10 +308,10 @@
       "languageVersion": "2.12"
     },
     {
-      "name": "open_document",
-      "rootUri": "file:///Users/arnaudhallerux/Documents/SDK/flutter/.pub-cache/hosted/pub.dartlang.org/open_document-1.0.5",
+      "name": "open_file",
+      "rootUri": "file:///Users/arnaudhallerux/Documents/SDK/flutter/.pub-cache/hosted/pub.dartlang.org/open_file-2.1.1",
       "packageUri": "lib/",
-      "languageVersion": "2.17"
+      "languageVersion": "2.0"
     },
     {
       "name": "package_config",
@@ -464,42 +440,6 @@
       "languageVersion": "2.16"
     },
     {
-      "name": "share_plus",
-      "rootUri": "file:///Users/arnaudhallerux/Documents/SDK/flutter/.pub-cache/hosted/pub.dartlang.org/share_plus-4.5.3",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
-      "name": "share_plus_linux",
-      "rootUri": "file:///Users/arnaudhallerux/Documents/SDK/flutter/.pub-cache/hosted/pub.dartlang.org/share_plus_linux-3.0.1",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
-      "name": "share_plus_macos",
-      "rootUri": "file:///Users/arnaudhallerux/Documents/SDK/flutter/.pub-cache/hosted/pub.dartlang.org/share_plus_macos-3.0.1",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
-      "name": "share_plus_platform_interface",
-      "rootUri": "file:///Users/arnaudhallerux/Documents/SDK/flutter/.pub-cache/hosted/pub.dartlang.org/share_plus_platform_interface-3.2.0",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
-      "name": "share_plus_web",
-      "rootUri": "file:///Users/arnaudhallerux/Documents/SDK/flutter/.pub-cache/hosted/pub.dartlang.org/share_plus_web-3.1.0",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
-      "name": "share_plus_windows",
-      "rootUri": "file:///Users/arnaudhallerux/Documents/SDK/flutter/.pub-cache/hosted/pub.dartlang.org/share_plus_windows-3.0.1",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
       "name": "shelf",
       "rootUri": "file:///Users/arnaudhallerux/Documents/SDK/flutter/.pub-cache/hosted/pub.dartlang.org/shelf-1.4.0",
       "packageUri": "lib/",
@@ -584,60 +524,6 @@
       "languageVersion": "2.12"
     },
     {
-      "name": "url_launcher",
-      "rootUri": "file:///Users/arnaudhallerux/Documents/SDK/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher-6.1.6",
-      "packageUri": "lib/",
-      "languageVersion": "2.14"
-    },
-    {
-      "name": "url_launcher_android",
-      "rootUri": "file:///Users/arnaudhallerux/Documents/SDK/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher_android-6.0.21",
-      "packageUri": "lib/",
-      "languageVersion": "2.14"
-    },
-    {
-      "name": "url_launcher_ios",
-      "rootUri": "file:///Users/arnaudhallerux/Documents/SDK/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher_ios-6.0.17",
-      "packageUri": "lib/",
-      "languageVersion": "2.14"
-    },
-    {
-      "name": "url_launcher_linux",
-      "rootUri": "file:///Users/arnaudhallerux/Documents/SDK/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher_linux-3.0.1",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
-      "name": "url_launcher_macos",
-      "rootUri": "file:///Users/arnaudhallerux/Documents/SDK/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher_macos-3.0.1",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
-      "name": "url_launcher_platform_interface",
-      "rootUri": "file:///Users/arnaudhallerux/Documents/SDK/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher_platform_interface-2.1.1",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
-      "name": "url_launcher_web",
-      "rootUri": "file:///Users/arnaudhallerux/Documents/SDK/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher_web-2.0.13",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
-      "name": "url_launcher_windows",
-      "rootUri": "file:///Users/arnaudhallerux/Documents/SDK/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher_windows-3.0.1",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
-      "name": "uuid",
-      "rootUri": "file:///Users/arnaudhallerux/Documents/SDK/flutter/.pub-cache/hosted/pub.dartlang.org/uuid-3.0.6",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
       "name": "vector_math",
       "rootUri": "file:///Users/arnaudhallerux/Documents/SDK/flutter/.pub-cache/hosted/pub.dartlang.org/vector_math-2.1.2",
       "packageUri": "lib/",
@@ -686,7 +572,7 @@
       "languageVersion": "2.16"
     }
   ],
-  "generated": "2022-11-12T13:50:29.177237Z",
+  "generated": "2022-11-12T15:02:23.315239Z",
   "generator": "pub",
   "generatorVersion": "2.18.4"
 }

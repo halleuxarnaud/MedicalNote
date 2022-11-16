@@ -53,7 +53,7 @@ class _PatientListState extends State<PatientList> {
         firstname: enteredfirstname,
         dateofbirth: entereddateofbirth,
         email: enteredemail,
-        numero: enteredphonenumber,
+        phonenumber: enteredphonenumber,
         date: DateTime.now(),
         id: DateTime.now().millisecondsSinceEpoch,
         //id: DateTime.now().millisecondsSinceEpoch,

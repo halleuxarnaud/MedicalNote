@@ -21,7 +21,7 @@ class PatientsAdapter extends TypeAdapter<Patients> {
       firstname: fields[1] as String?,
       dateofbirth: fields[3] as String?,
       email: fields[4] as String?,
-      numero: fields[5] as String?,
+      phonenumber: fields[5] as String?,
       date: fields[6] as DateTime?,
       id: fields[7] as int?,
       listOfNotes: (fields[8] as List?)?.cast<ListNote>(),
@@ -41,7 +41,7 @@ class PatientsAdapter extends TypeAdapter<Patients> {
       ..writeByte(4)
       ..write(obj.email)
       ..writeByte(5)
-      ..write(obj.numero)
+      ..write(obj.phonenumber)
       ..writeByte(6)
       ..write(obj.date)
       ..writeByte(7)

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:medicalnote/screens/pdfconstructor.dart';
+import 'package:medicalnote/screens/pdfview.dart';
 
 import '../component/component.dart';
 import '../models/listpatient.dart';
@@ -32,11 +32,7 @@ class _InformationPatientState extends State<InformationPatient> {
         ListNote(title: newtitle, note: newnote, conclusion: newconclusion)
       ],
     );
-    var note = boxPatient.getAt(widget.index);
-    if (note == null) {
-      boxPatient.put(widget.index, newNOTE);
-    } else {}
-    //boxPatient.put(widget.index, newNOTE);
+    boxPatient.put(widget.index, newNOTE);
     Navigator.of(context).pop();
   }
 

@@ -17,7 +17,7 @@ class Patients {
   final String? email;
 
   @HiveField(5)
-  final String? numero;
+  final String? phonenumber;
 
   @HiveField(6)
   final DateTime? date;
@@ -33,7 +33,7 @@ class Patients {
     this.firstname,
     this.dateofbirth,
     this.email,
-    this.numero,
+    this.phonenumber,
     this.date,
     this.id,
     this.listOfNotes,
@@ -65,7 +65,7 @@ final List<Patients> patientList = [
     firstname: 'Arnaud',
     dateofbirth: '***********',
     email: '***********',
-    numero: '***********',
+    phonenumber: '***********',
     date: DateTime.now(),
     id: 5252522,
     listOfNotes: [
