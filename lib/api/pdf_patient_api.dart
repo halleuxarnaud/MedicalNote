@@ -13,19 +13,18 @@ class PdfPatientApi {
       MultiPage(
         build: (context) => [
           buildHeader(patients),
-          SizedBox(height: 3 * PdfPageFormat.cm),
+          SizedBox(height: 1 * PdfPageFormat.cm),
           buildPatientInfo(patients),
           SizedBox(height: 0.5 * PdfPageFormat.cm),
           Center(
-            child: Text('Anamnèse Patient',
+            child: Text('Notes',
                 textAlign: TextAlign.center,
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17)),
           ),
           Divider(),
           buildContent(patients),
-          Divider(),
         ],
-        //footer: (context) => [buildFooter(patients)],
+        footer: (context) => buildFooter(),
       ),
     );
 
@@ -60,37 +59,58 @@ class PdfPatientApi {
           children: <Widget>[
             Text('Name: ' + patients.name.toString()),
             SizedBox(height: 0.5 * PdfPageFormat.mm),
-            Text('Firstname: ' + patients.firstname.toString()),
+            Text('First name: ' + patients.firstname.toString()),
             SizedBox(height: 0.5 * PdfPageFormat.mm),
             Text('Phone number: ' + patients.phonenumber.toString()),
             SizedBox(height: 0.5 * PdfPageFormat.mm),
             Text('Email: ' + patients.email.toString()),
             SizedBox(height: 0.5 * PdfPageFormat.mm),
-            Text('Dateofbirth: ' + patients.dateofbirth.toString()),
+            Text('Age: ' + patients.dateofbirth.toString()),
           ]);
   static Widget buildContent(Patients patients) => ListView(
         children: <Widget>[
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              ...?patients.listOfNotes?.map((e) => Text(e.title.toString(),
-                  textAlign: TextAlign.left,
-                  style: TextStyle(fontWeight: FontWeight.bold))),
-              SizedBox(height: 0.5 * PdfPageFormat.cm),
-              ...?patients.listOfNotes?.map((e) => Text(
-                    e.note.toString(),
+          ...?patients.listOfNotes?.map(
+            (e) => Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(e.title.toString(),
                     textAlign: TextAlign.left,
-                  )),
-              SizedBox(height: 0.3 * PdfPageFormat.cm),
-              ...?patients.listOfNotes?.map(
-                (e) => Text(
+                    style: TextStyle(fontWeight: FontWeight.bold)),
+                SizedBox(height: 0.5 * PdfPageFormat.cm),
+                Text(
+                  e.note.toString(),
+                  textAlign: TextAlign.left,
+                ),
+                SizedBox(height: 0.3 * PdfPageFormat.cm),
+                Text(
                   e.conclusion.toString(),
                   textAlign: TextAlign.left,
                 ),
-              ),
-            ],
+                SizedBox(height: 1 * PdfPageFormat.cm),
+              ],
+            ),
           ),
         ],
       );
-  //static Widget buildFooter(Patients patients) => Column();
+  static Widget buildFooter() => Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Divider(),
+          Text(
+            'Perillo Stéphanie',
+            style: const TextStyle(fontSize: 11),
+          ),
+          SizedBox(height: 1 * PdfPageFormat.mm),
+          Text('Phone Number: 0490 39 89 58', style: TextStyle(fontSize: 9)),
+          SizedBox(height: 1 * PdfPageFormat.mm),
+          Text('Mail: perillo.stephanie@hotmail.com',
+              style: const TextStyle(fontSize: 9)),
+          SizedBox(height: 2 * PdfPageFormat.mm),
+          Text(
+            'ASBL Singularités Plurielles',
+            style: const TextStyle(
+                decoration: TextDecoration.underline, fontSize: 9),
+          ),
+        ],
+      );
 }

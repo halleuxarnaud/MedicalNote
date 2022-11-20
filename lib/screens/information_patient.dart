@@ -28,7 +28,15 @@ class _InformationPatientState extends State<InformationPatient> {
 
   void _addNote(String newtitle, String newnote, String newconclusion) {
     final newNOTE = Patients(
+      name: widget.patients.name,
+      firstname: widget.patients.firstname,
+      dateofbirth: widget.patients.dateofbirth,
+      email: widget.patients.email,
+      phonenumber: widget.patients.phonenumber,
+      date: widget.patients.date,
+      id: widget.patients.id,
       listOfNotes: [
+        ...?widget.patients.listOfNotes,
         ListNote(title: newtitle, note: newnote, conclusion: newconclusion)
       ],
     );
@@ -121,7 +129,6 @@ class _InformationPatientState extends State<InformationPatient> {
             ),
             Text(
               widget.patients.name.toString() +
-                  widget.index.toString() +
                   ' ' +
                   widget.patients.firstname.toString(),
               style: const TextStyle(
@@ -154,11 +161,60 @@ class _InformationPatientState extends State<InformationPatient> {
       children: <Widget>[
         Expanded(
           child: ListView(children: [
-            ...?widget.patients.listOfNotes
-                ?.map((e) => Card(child: Text(e.title.toString()))),
-            const Card(
-              child: Text('data'),
-            )
+            ...?widget.patients.listOfNotes?.map(
+              (e) => Padding(
+                padding: const EdgeInsets.only(
+                  top: 0,
+                  bottom: 15,
+                  left: 25,
+                  right: 25,
+                ),
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(e.title.toString(),
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 21)),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          e.note.toString(),
+                        ),
+                        SizedBox(
+                          height: 17,
+                        ),
+                        Column(
+                          children: [
+                            e.conclusion.toString().isEmpty
+                                ? Text('')
+                                : Column(
+                                    children: [
+                                      const Text(
+                                        'Conclusion: ',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 15),
+                                      ),
+                                      Text(
+                                        e.conclusion.toString(),
+                                      ),
+                                    ],
+                                  ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
           ]),
         ),
       ],
@@ -166,23 +222,35 @@ class _InformationPatientState extends State<InformationPatient> {
   }
 
   _savepdf() {
-    return Container(
-      child: ElevatedButton(
-        onPressed: () {
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) =>
-                      PDFConstructor(widget.patients, widget.index)));
-        },
-        child: const Padding(
-          padding: EdgeInsets.all(20.0),
-          child: Text(
-            'PDF Génerator',
-            style: TextStyle(fontWeight: FontWeight.bold),
+    return Stack(
+      children: <Widget>[
+        Container(
+          width: MediaQuery.of(context).size.width,
+          height: 80,
+          color: kcolor3,
+        ),
+        Container(
+          height: 58,
+          width: MediaQuery.of(context).size.width,
+          child: ElevatedButton(
+            style: ElevatedButton.styleFrom(backgroundColor: kcolor2),
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          PDFConstructor(widget.patients, widget.index)));
+            },
+            child: const Padding(
+              padding: EdgeInsets.all(20.0),
+              child: Text(
+                'PDF Génerator',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+              ),
+            ),
           ),
         ),
-      ),
+      ],
     );
   }
 }

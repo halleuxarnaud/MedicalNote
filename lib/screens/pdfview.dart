@@ -13,6 +13,7 @@ class PDFConstructor extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -51,27 +52,39 @@ class PDFConstructor extends StatelessWidget {
         backgroundColor: kDefaultcolor,
       ),
       body: _Body(),
-      bottomNavigationBar: _savepdf(),
+      bottomNavigationBar: _savepdf(size),
     );
   }
 
   _Body() {}
 
-  _savepdf() {
-    return Container(
-      child: ElevatedButton(
-        onPressed: () async {
-          final pdfFile = await PdfPatientApi.generate(patients);
-          PdfApi.openFile(pdfFile);
-        },
-        child: const Padding(
-          padding: EdgeInsets.all(20.0),
-          child: Text(
-            'Save',
-            style: TextStyle(fontWeight: FontWeight.bold),
+  _savepdf(Size size) {
+    return Stack(
+      children: <Widget>[
+        Container(
+          width: size.width,
+          height: 80,
+          color: kcolor3,
+        ),
+        Container(
+          height: 58,
+          width: size.width,
+          child: ElevatedButton(
+            style: ElevatedButton.styleFrom(backgroundColor: kcolor2),
+            onPressed: () async {
+              final pdfFile = await PdfPatientApi.generate(patients);
+              PdfApi.openFile(pdfFile);
+            },
+            child: const Padding(
+              padding: EdgeInsets.all(20.0),
+              child: Text(
+                'Save',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+              ),
+            ),
           ),
         ),
-      ),
+      ],
     );
   }
 }

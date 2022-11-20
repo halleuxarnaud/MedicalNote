@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import '../component/component.dart';
 
 class Settings extends StatelessWidget {
@@ -6,6 +7,9 @@ class Settings extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<Settings> settingslist = [];
+    late Box<Settings> boxSettings;
+    
     return Scaffold(
         appBar: AppBar(
           backgroundColor: kDefaultcolor,

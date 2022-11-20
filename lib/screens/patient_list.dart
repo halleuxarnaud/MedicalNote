@@ -137,7 +137,7 @@ class _PatientListState extends State<PatientList> {
                   topLeft: Radius.circular(40),
                   topRight: Radius.circular(40),
                 ),
-                color: Color(0XFF0F272F),
+                color: kSecondcolor,
               ),
             ),
             Padding(
@@ -213,9 +213,9 @@ class _PatientListState extends State<PatientList> {
                                   padding: const EdgeInsets.only(
                                       left: 5, top: 8, bottom: 10),
                                   child: Text(
-                                    patientList[index].name.toString() +
+                                    patients.name.toString() +
                                         ' ' +
-                                        patientList[index].firstname.toString(),
+                                        patients.firstname.toString(),
                                     style: const TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 16,
