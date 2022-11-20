@@ -41,6 +41,7 @@ dependencies:
   path_provider: ^2.0.11
   pdf: ^3.8.4
   open_file: ^2.1.1
+  expansion_tile_card: ^2.0.0
 
 dev_dependencies:
   flutter_test:

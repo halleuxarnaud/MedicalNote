@@ -9,6 +9,7 @@ import 'screens/homepage.dart';
 //! Suppression des notes patients
 //! Ajouter l'option de recherche
 //! Ajouter Tout les parametre dans la page parametre
+//! Ajouter a "Download PDF " une flèche fers le bas a gauche du texte
 
 void main() async {
   await Hive.initFlutter();

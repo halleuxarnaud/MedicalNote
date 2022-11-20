@@ -64,6 +64,7 @@ class HomePage extends StatelessWidget {
                   children: <Widget>[
                     Row(
                       children: [
+                        /*
                         IconButton(
                           onPressed: (() {
                             null;
@@ -75,6 +76,7 @@ class HomePage extends StatelessWidget {
                           ),
                           iconSize: 10,
                         ),
+                        */
                         IconButton(
                           onPressed: () {
                             Navigator.push(

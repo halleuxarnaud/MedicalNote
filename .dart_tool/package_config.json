@@ -152,6 +152,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "expansion_tile_card",
+      "rootUri": "file:///Users/arnaudhallerux/Documents/SDK/flutter/.pub-cache/hosted/pub.dartlang.org/expansion_tile_card-2.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "fake_async",
       "rootUri": "file:///Users/arnaudhallerux/Documents/SDK/flutter/.pub-cache/hosted/pub.dartlang.org/fake_async-1.3.1",
       "packageUri": "lib/",
@@ -572,7 +578,7 @@
       "languageVersion": "2.16"
     }
   ],
-  "generated": "2022-11-12T15:02:23.315239Z",
+  "generated": "2022-11-20T17:48:51.778270Z",
   "generator": "pub",
   "generatorVersion": "2.18.4"
 }
