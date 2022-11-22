@@ -2,6 +2,9 @@ import 'package:expansion_tile_card/expansion_tile_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:medicalnote/screens/faq_page.dart';
+import 'package:medicalnote/screens/institution_settings.dart';
+import 'package:medicalnote/screens/profile_settings.dart';
 import '../component/component.dart';
 
 class Settings extends StatefulWidget {
@@ -44,15 +47,15 @@ class _SettingsState extends State<Settings> {
                     Navigator.of(context).pop();
                   }),
             ),
-            Text(
+            const Text(
               'Settings',
-              style: const TextStyle(
+              style: TextStyle(
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
                 fontSize: 22,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
               width: 40,
             )
@@ -70,167 +73,188 @@ class _SettingsState extends State<Settings> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(left: 15),
+            const Padding(
+              padding: EdgeInsets.only(left: 15),
               child: Text(
                 'Account Settings',
                 style: TextStyle(color: Colors.white),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Container(
-              decoration: BoxDecoration(color: kcolor3),
-              child: Padding(
-                padding: const EdgeInsets.only(left: 15, right: 10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Row(
-                      children: <Widget>[
-                        SvgPicture.asset(
-                          'assets/icons/settings.svg',
-                          height: 25,
-                          color: Colors.white,
-                        ),
-                        SizedBox(
-                          width: 13,
-                        ),
-                        const Text(
-                          'Profile',
-                          style: TextStyle(
+              height: 50,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(backgroundColor: kcolor3),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const SettingsProfilePage()),
+                  );
+                },
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 15, right: 10),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Row(
+                        children: <Widget>[
+                          SvgPicture.asset(
+                            'assets/icons/settings.svg',
+                            height: 25,
                             color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16,
                           ),
-                        ),
-                      ],
-                    ),
-                    IconButton(
-                      icon: SvgPicture.asset(
-                        'assets/icons/right-thin-chevron-svgrepo-com.svg',
-                        height: 15,
-                        color: Colors.white,
+                          const SizedBox(
+                            width: 13,
+                          ),
+                          const Text(
+                            'Profile',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                            ),
+                          ),
+                        ],
                       ),
-                      onPressed: null,
-                    ),
-                  ],
+                      SvgPicture.asset(
+                        'assets/icons/right-thin-chevron-svgrepo-com.svg',
+                        color: Colors.white,
+                        height: 18,
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
-            Divider(
+            const Divider(
               height: 2,
             ),
             Container(
-              decoration: BoxDecoration(color: kcolor3),
-              child: Padding(
-                padding: const EdgeInsets.only(left: 15, right: 10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Row(
-                      children: <Widget>[
-                        SvgPicture.asset(
-                          'assets/icons/settings.svg',
-                          height: 25,
-                          color: Colors.white,
-                        ),
-                        SizedBox(
-                          width: 13,
-                        ),
-                        const Text(
-                          'Institution',
-                          style: TextStyle(
+              height: 50,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(backgroundColor: kcolor3),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              const SettingsInstitutionPage()));
+                },
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 15, right: 10),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Row(
+                        children: <Widget>[
+                          SvgPicture.asset(
+                            'assets/icons/settings.svg',
+                            height: 25,
                             color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16,
                           ),
-                        ),
-                      ],
-                    ),
-                    IconButton(
-                      icon: SvgPicture.asset(
-                        'assets/icons/right-thin-chevron-svgrepo-com.svg',
-                        height: 15,
-                        color: Colors.white,
+                          const SizedBox(
+                            width: 13,
+                          ),
+                          const Text(
+                            'Institution',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                            ),
+                          ),
+                        ],
                       ),
-                      onPressed: null,
-                    ),
-                  ],
+                      SvgPicture.asset(
+                        'assets/icons/right-thin-chevron-svgrepo-com.svg',
+                        color: Colors.white,
+                        height: 18,
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 15, top: 25),
+            const Padding(
+              padding: EdgeInsets.only(left: 15, top: 25),
               child: Text(
                 'More Information',
                 style: TextStyle(color: Colors.white),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
-            Container(
-              decoration: BoxDecoration(color: kcolor3),
-              child: Padding(
-                padding: const EdgeInsets.only(left: 15, right: 10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Row(
-                      children: <Widget>[
-                        SvgPicture.asset(
-                          'assets/icons/settings.svg',
-                          height: 25,
-                          color: Colors.white,
-                        ),
-                        SizedBox(
-                          width: 13,
-                        ),
-                        const Text(
-                          'FAQ',
-                          style: TextStyle(
+            SizedBox(
+              height: 50,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(backgroundColor: kcolor3),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: ((context) => const FAQPage())));
+                },
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 15, right: 10),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Row(
+                        children: <Widget>[
+                          SvgPicture.asset(
+                            'assets/icons/settings.svg',
+                            height: 25,
                             color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16,
                           ),
-                        ),
-                      ],
-                    ),
-                    IconButton(
-                      icon: SvgPicture.asset(
-                        'assets/icons/right-thin-chevron-svgrepo-com.svg',
-                        height: 15,
-                        color: Colors.white,
+                          const SizedBox(
+                            width: 13,
+                          ),
+                          const Text(
+                            'FAQ',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                            ),
+                          ),
+                        ],
                       ),
-                      onPressed: null,
-                    ),
-                  ],
+                      SvgPicture.asset(
+                        'assets/icons/right-thin-chevron-svgrepo-com.svg',
+                        color: Colors.white,
+                        height: 18,
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
-            Divider(
+            const Divider(
               height: 2,
             ),
             Center(
-                child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'Developed by Halleux Arnaud',
-                  style: TextStyle(
-                    color: Colors.white,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    'Developed by Halleux Arnaud',
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
                   ),
-                ),
-                IconButton(
-                    onPressed: () {},
-                    icon: SvgPicture.asset(
-                      'assets/icons/linkedin-svgrepo-com (1).svg',
-                      height: 20,
-                    ))
-              ],
-            )),
+                  IconButton(
+                      onPressed: () {},
+                      icon: SvgPicture.asset(
+                        'assets/icons/linkedin-svgrepo-com (1).svg',
+                        height: 20,
+                      ))
+                ],
+              ),
+            ),
           ],
         ),
       ),

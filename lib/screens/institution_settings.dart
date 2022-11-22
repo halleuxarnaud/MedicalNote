@@ -7,14 +7,15 @@ import 'dart:math' as math;
 
 import '../component/component.dart';
 
-class SettingsProfilePage extends StatefulWidget {
-  const SettingsProfilePage({Key? key}) : super(key: key);
+class SettingsInstitutionPage extends StatefulWidget {
+  const SettingsInstitutionPage({Key? key}) : super(key: key);
 
   @override
-  State<SettingsProfilePage> createState() => _SettingsProfilePageState();
+  State<SettingsInstitutionPage> createState() =>
+      _SettingsInstitutionPageState();
 }
 
-class _SettingsProfilePageState extends State<SettingsProfilePage> {
+class _SettingsInstitutionPageState extends State<SettingsInstitutionPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(appBar: _Appbar());
@@ -55,7 +56,7 @@ class _SettingsProfilePageState extends State<SettingsProfilePage> {
               },
             ),
             Text(
-              'Profile',
+              'Institution',
               style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
@@ -63,7 +64,7 @@ class _SettingsProfilePageState extends State<SettingsProfilePage> {
               ),
             ),
             SizedBox(
-              width: 3,
+              width: 20,
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
