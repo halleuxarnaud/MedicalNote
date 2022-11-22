@@ -64,63 +64,174 @@ class _SettingsState extends State<Settings> {
   }
 
   _body(Size size) {
-    double oldheight = 100.0;
-    double newheight = 200.0;
-    double height = 200.0;
-
     return SingleChildScrollView(
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: SizedBox(
-          width: size.width,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20.0),
-                  side: BorderSide(
-                    color: Colors.white,
-                    width: 2,
-                  ),
-                ),
-                color: kDefaultcolor,
-                child: ExpansionTile(
-                  trailing: SvgPicture.asset(
-                    'assets/icons/settings.svg',
-                    color: Colors.white,
-                    height: 20,
-                  ),
-                  title: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SvgPicture.asset(
-                        'assets/icons/settings.svg',
-                        height: 20,
+      child: SizedBox(
+        width: size.width,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.only(left: 15),
+              child: Text(
+                'Account Settings',
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+              decoration: BoxDecoration(color: kcolor3),
+              child: Padding(
+                padding: const EdgeInsets.only(left: 15, right: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Row(
+                      children: <Widget>[
+                        SvgPicture.asset(
+                          'assets/icons/settings.svg',
+                          height: 25,
+                          color: Colors.white,
+                        ),
+                        SizedBox(
+                          width: 13,
+                        ),
+                        const Text(
+                          'Profile',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ],
+                    ),
+                    IconButton(
+                      icon: SvgPicture.asset(
+                        'assets/icons/right-thin-chevron-svgrepo-com.svg',
+                        height: 15,
                         color: Colors.white,
                       ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                        'Name',
-                        style: TextStyle(
-                            color: Colors.white.withOpacity(0.7),
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.only(
-                          left: 50, right: 50, bottom: 20),
-                      child: TextField(),
-                    )
+                      onPressed: null,
+                    ),
                   ],
                 ),
               ),
-            ],
-          ),
+            ),
+            Divider(
+              height: 2,
+            ),
+            Container(
+              decoration: BoxDecoration(color: kcolor3),
+              child: Padding(
+                padding: const EdgeInsets.only(left: 15, right: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Row(
+                      children: <Widget>[
+                        SvgPicture.asset(
+                          'assets/icons/settings.svg',
+                          height: 25,
+                          color: Colors.white,
+                        ),
+                        SizedBox(
+                          width: 13,
+                        ),
+                        const Text(
+                          'Institution',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ],
+                    ),
+                    IconButton(
+                      icon: SvgPicture.asset(
+                        'assets/icons/right-thin-chevron-svgrepo-com.svg',
+                        height: 15,
+                        color: Colors.white,
+                      ),
+                      onPressed: null,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 15, top: 25),
+              child: Text(
+                'More Information',
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+              decoration: BoxDecoration(color: kcolor3),
+              child: Padding(
+                padding: const EdgeInsets.only(left: 15, right: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Row(
+                      children: <Widget>[
+                        SvgPicture.asset(
+                          'assets/icons/settings.svg',
+                          height: 25,
+                          color: Colors.white,
+                        ),
+                        SizedBox(
+                          width: 13,
+                        ),
+                        const Text(
+                          'FAQ',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ],
+                    ),
+                    IconButton(
+                      icon: SvgPicture.asset(
+                        'assets/icons/right-thin-chevron-svgrepo-com.svg',
+                        height: 15,
+                        color: Colors.white,
+                      ),
+                      onPressed: null,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Divider(
+              height: 2,
+            ),
+            Center(
+                child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Developed by Halleux Arnaud',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+                IconButton(
+                    onPressed: () {},
+                    icon: SvgPicture.asset(
+                      'assets/icons/linkedin-svgrepo-com (1).svg',
+                      height: 20,
+                    ))
+              ],
+            )),
+          ],
         ),
       ),
     );

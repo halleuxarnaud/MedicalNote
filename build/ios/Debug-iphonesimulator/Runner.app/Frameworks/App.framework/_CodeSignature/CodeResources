@@ -10,7 +10,7 @@
 		</data>
 		<key>flutter_assets/AssetManifest.json</key>
 		<data>
-		u7zOqZ+NDy3uuUxZvFE4l++AcWQ=
+		G6d3G/PRVIeGBNJTU6laXJzAwyg=
 		</data>
 		<key>flutter_assets/FontManifest.json</key>
 		<data>
@@ -18,11 +18,11 @@
 		</data>
 		<key>flutter_assets/NOTICES.Z</key>
 		<data>
-		RSxK9Z358xjxHMxBQCHyIN6AFOw=
+		i73LfJMk/A5L0NiXFjimF3Rkt5k=
 		</data>
 		<key>flutter_assets/assets/icons/.DS_Store</key>
 		<data>
-		nIfdlz9ol2mjBYSIqjQO6FXdNk4=
+		S5tUV2k/MmfAl539sjtlZ8xrQas=
 		</data>
 		<key>flutter_assets/assets/icons/documents.svg</key>
 		<data>
@@ -31,6 +31,10 @@
 		<key>flutter_assets/assets/icons/false.svg</key>
 		<data>
 		RLqbVP8j1y8j0T/vUC5e4JALayk=
+		</data>
+		<key>flutter_assets/assets/icons/linkedin-svgrepo-com.svg</key>
+		<data>
+		ZEN1rCpkPmLqZCQ2tD0+lMtISdk=
 		</data>
 		<key>flutter_assets/assets/icons/note.svg</key>
 		<data>
@@ -43,6 +47,14 @@
 		<key>flutter_assets/assets/icons/person%20add.svg</key>
 		<data>
 		W7tdCbaokLAnzROu7+AGpwBvtzY=
+		</data>
+		<key>flutter_assets/assets/icons/right-chevron.svg</key>
+		<data>
+		/yeTy9v+iJTne75W3jLIzxtn+l8=
+		</data>
+		<key>flutter_assets/assets/icons/right-thin-chevron-svgrepo-com.svg</key>
+		<data>
+		WC8/fenugPrwi1UCiqTzJe/7kx0=
 		</data>
 		<key>flutter_assets/assets/icons/search.svg</key>
 		<data>
@@ -70,7 +82,7 @@
 		</data>
 		<key>flutter_assets/kernel_blob.bin</key>
 		<data>
-		L6AekrHI1VS9xBJ1TLtJVZxWG7s=
+		cdW6EGFmGgowem+7nNcpmc7qW8c=
 		</data>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -91,7 +103,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			PJFbqtBQiag5zxtuLiKvCeDT3aygLQUiSC8ol2tkxI8=
+			JnlagJYXbVIF7YknMEBwWJrflFpcp79nAnunX6qfRro=
 			</data>
 		</dict>
 		<key>flutter_assets/FontManifest.json</key>
@@ -105,7 +117,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			0a0C9zs/N3wvtMwe20iu+xYxL9/xLRKMwHNKsLca7WY=
+			zahPLS/gYQNnwqpph+aY+RmaGYL/QoekBvPCKaQAT6Y=
 			</data>
 		</dict>
 		<key>flutter_assets/assets/icons/documents.svg</key>
@@ -120,6 +132,13 @@
 			<key>hash2</key>
 			<data>
 			CuV3m04aV4VL76cigYgCa2RwUtSMWIrtSCOJNwQsgco=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/icons/linkedin-svgrepo-com.svg</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			d/+IQnFMoUE+gNo2pAkGmOzV7uzrNpyxaGssGvlTJZU=
 			</data>
 		</dict>
 		<key>flutter_assets/assets/icons/note.svg</key>
@@ -141,6 +160,20 @@
 			<key>hash2</key>
 			<data>
 			a22agwUZVRkWODBwmW3qXglrK+HKRtyCG9yax2ApzZs=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/icons/right-chevron.svg</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			oGVkhrAqVdKRG37JLKetJZ5/ux65OJten+jwZEjLU00=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/icons/right-thin-chevron-svgrepo-com.svg</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			JlM5cq8Ocxv0rileSCXk32n1/pInXd0XNOM869fPIlw=
 			</data>
 		</dict>
 		<key>flutter_assets/assets/icons/search.svg</key>
@@ -189,7 +222,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			oxyAiZTeLCecLXG83tskah1OFT/WVjeTotFYXP3qiwA=
+			O+ax87jAHfChdnYWNNboJ8Mol3w+m1Qfw12Qxsx84kw=
 			</data>
 		</dict>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>

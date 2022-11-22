@@ -10,7 +10,9 @@ import 'screens/homepage.dart';
 //! Ajouter l'option de recherche
 //! Ajouter Tout les parametre dans la page parametre
 //! Ajouter a "Download PDF " une flèche fers le bas a gauche du texte
-
+//! changer le nom avec license des svg
+//! changer la license github pour qu'on ne puisse pas prendre mon code pour le commercionaliser
+//! Ajouter mon profil Linkedin sur le bouton et sur le nom 
 void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(PatientsAdapter());
