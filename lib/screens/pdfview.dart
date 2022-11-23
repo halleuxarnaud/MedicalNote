@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../api/pdf_api.dart';
 import '../api/pdf_patient_api.dart';
 import '../component/component.dart';
 import '../models/listpatient.dart';
+import 'dart:math' as math;
 
 class PDFConstructor extends StatefulWidget {
   final Patients patients;
@@ -84,13 +86,39 @@ class _PDFConstructorState extends State<PDFConstructor> {
               final pdfFile = await PdfPatientApi.generate(widget.patients);
               PdfApi.openFile(pdfFile);
             },
-            child: const Padding(
-              padding: EdgeInsets.all(20.0),
-              child: Text(
-                'Download PDF',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
-              ),
-            ),
+            child: Padding(
+                padding: EdgeInsets.all(20.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Row(
+                      children: [
+                        Transform.rotate(
+                          angle: -math.pi / 1,
+                          child: SvgPicture.asset(
+                            'assets/icons/up-arrow-svgrepo-com.svg',
+                            color: Colors.white,
+                            height: 17,
+                          ),
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Text(
+                          'Download PDF',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 17),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      width: 10,
+                    )
+                  ],
+                )),
           ),
         ),
       ],

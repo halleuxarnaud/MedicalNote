@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:medicalnote/screens/pdfview.dart';
@@ -101,9 +102,10 @@ class _InformationPatientState extends State<InformationPatient> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: _Appbar(),
-      body: _body(),
+      body: _body(size),
       bottomNavigationBar: _savepdf(),
     );
   }
@@ -156,7 +158,7 @@ class _InformationPatientState extends State<InformationPatient> {
     );
   }
 
-  _body() {
+  _body(Size size) {
     return Column(
       children: <Widget>[
         Expanded(
@@ -216,7 +218,7 @@ class _InformationPatientState extends State<InformationPatient> {
               ),
             ),
           ]),
-        ),
+        )
       ],
     );
   }

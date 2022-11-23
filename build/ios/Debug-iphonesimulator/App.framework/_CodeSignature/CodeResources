@@ -10,7 +10,7 @@
 		</data>
 		<key>flutter_assets/AssetManifest.json</key>
 		<data>
-		G6d3G/PRVIeGBNJTU6laXJzAwyg=
+		d88sTuRccV2vAjPWH+x1D8fzmRk=
 		</data>
 		<key>flutter_assets/FontManifest.json</key>
 		<data>
@@ -18,7 +18,7 @@
 		</data>
 		<key>flutter_assets/NOTICES.Z</key>
 		<data>
-		i73LfJMk/A5L0NiXFjimF3Rkt5k=
+		2o+Bj33wRqPULtKTrzAsZgfkBkY=
 		</data>
 		<key>flutter_assets/assets/icons/.DS_Store</key>
 		<data>
@@ -31,6 +31,10 @@
 		<key>flutter_assets/assets/icons/false.svg</key>
 		<data>
 		RLqbVP8j1y8j0T/vUC5e4JALayk=
+		</data>
+		<key>flutter_assets/assets/icons/linkedin-svgrepo-com%20(1).svg</key>
+		<data>
+		f54fvLQm9BabzZjTMGsFN2EB13M=
 		</data>
 		<key>flutter_assets/assets/icons/linkedin-svgrepo-com.svg</key>
 		<data>
@@ -64,6 +68,14 @@
 		<data>
 		L4Xd98P+8ULiZA8PdS6VtkqNRNk=
 		</data>
+		<key>flutter_assets/assets/icons/trash-svgrepo-com.svg</key>
+		<data>
+		G7xEyEfNk682pb9p+0KawjUd6OE=
+		</data>
+		<key>flutter_assets/assets/icons/up-arrow-svgrepo-com.svg</key>
+		<data>
+		lDgRWHH/3qra+Z6DBjhaJrMusow=
+		</data>
 		<key>flutter_assets/assets/icons/validate.svg</key>
 		<data>
 		eLUAFmaHo6Cal1EHJ+9zVceog3M=
@@ -82,7 +94,7 @@
 		</data>
 		<key>flutter_assets/kernel_blob.bin</key>
 		<data>
-		cdW6EGFmGgowem+7nNcpmc7qW8c=
+		Ohyaf1oo9NKiph9bWSrKgiiv4DM=
 		</data>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -103,7 +115,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			JnlagJYXbVIF7YknMEBwWJrflFpcp79nAnunX6qfRro=
+			oO3gjqCqoB8ol8N9Md9qrpodK3EA2HHHDd8iJ7MGdp8=
 			</data>
 		</dict>
 		<key>flutter_assets/FontManifest.json</key>
@@ -117,7 +129,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			zahPLS/gYQNnwqpph+aY+RmaGYL/QoekBvPCKaQAT6Y=
+			Sb5X8ophvN6bcs7KTT5PmbaEZcfAegxSF1DTZZCvPiQ=
 			</data>
 		</dict>
 		<key>flutter_assets/assets/icons/documents.svg</key>
@@ -132,6 +144,13 @@
 			<key>hash2</key>
 			<data>
 			CuV3m04aV4VL76cigYgCa2RwUtSMWIrtSCOJNwQsgco=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/icons/linkedin-svgrepo-com%20(1).svg</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			ZaYO/Bf/ZzKaMCvz4mh0njnf6iovHpSRriJxPOMHPKY=
 			</data>
 		</dict>
 		<key>flutter_assets/assets/icons/linkedin-svgrepo-com.svg</key>
@@ -190,6 +209,20 @@
 			E8Eu6vvTkshB0FOcqRsRR56wR3rs1Ty1YEyR0RLY+qk=
 			</data>
 		</dict>
+		<key>flutter_assets/assets/icons/trash-svgrepo-com.svg</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			B01JOyYWN+5Xrw4+ecSHIHDQJYmwHTeVJuQHu8AR1o8=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/icons/up-arrow-svgrepo-com.svg</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			VjTNxnRo9nj7jVLBdflfSJupOR2iuXWDxNclz0a7PWQ=
+			</data>
+		</dict>
 		<key>flutter_assets/assets/icons/validate.svg</key>
 		<dict>
 			<key>hash2</key>
@@ -222,7 +255,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			O+ax87jAHfChdnYWNNboJ8Mol3w+m1Qfw12Qxsx84kw=
+			VfwKDVVaZFanDzhh2jRdehFfwea5C1/yXhhA7Dv71c0=
 			</data>
 		</dict>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>

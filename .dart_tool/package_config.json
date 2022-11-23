@@ -194,6 +194,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "flutter_slidable",
+      "rootUri": "file:///Users/arnaudhallerux/Documents/SDK/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_slidable-2.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
       "name": "flutter_svg",
       "rootUri": "file:///Users/arnaudhallerux/Documents/SDK/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_svg-1.1.5",
       "packageUri": "lib/",
@@ -202,6 +208,12 @@
     {
       "name": "flutter_test",
       "rootUri": "file:///Users/arnaudhallerux/Documents/SDK/flutter/packages/flutter_test",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
+      "name": "flutter_web_plugins",
+      "rootUri": "file:///Users/arnaudhallerux/Documents/SDK/flutter/packages/flutter_web_plugins",
       "packageUri": "lib/",
       "languageVersion": "2.17"
     },
@@ -530,6 +542,30 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "url_launcher",
+      "rootUri": "file:///Users/arnaudhallerux/Documents/SDK/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher-5.4.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.0"
+    },
+    {
+      "name": "url_launcher_macos",
+      "rootUri": "file:///Users/arnaudhallerux/Documents/SDK/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher_macos-0.0.1+9",
+      "packageUri": "lib/",
+      "languageVersion": "2.1"
+    },
+    {
+      "name": "url_launcher_platform_interface",
+      "rootUri": "file:///Users/arnaudhallerux/Documents/SDK/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher_platform_interface-1.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.0"
+    },
+    {
+      "name": "url_launcher_web",
+      "rootUri": "file:///Users/arnaudhallerux/Documents/SDK/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher_web-0.1.1+5",
+      "packageUri": "lib/",
+      "languageVersion": "2.1"
+    },
+    {
       "name": "vector_math",
       "rootUri": "file:///Users/arnaudhallerux/Documents/SDK/flutter/.pub-cache/hosted/pub.dartlang.org/vector_math-2.1.2",
       "packageUri": "lib/",
@@ -578,7 +614,7 @@
       "languageVersion": "2.16"
     }
   ],
-  "generated": "2022-11-20T17:48:51.778270Z",
+  "generated": "2022-11-23T14:52:26.092560Z",
   "generator": "pub",
   "generatorVersion": "2.18.4"
 }

@@ -1,10 +1,10 @@
-import 'package:expansion_tile_card/expansion_tile_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:medicalnote/screens/faq_page.dart';
 import 'package:medicalnote/screens/institution_settings.dart';
 import 'package:medicalnote/screens/profile_settings.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../component/component.dart';
 
 class Settings extends StatefulWidget {
@@ -15,11 +15,29 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingsState extends State<Settings> {
+  late Box<Settings> boxSettings;
+
+  int index = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    boxSettings = Hive.box('Settings');
+    //boxSettings.clear();
+    print('Settings ${boxSettings.values}');
+  }
+
+  _LaunchUrl() async {
+    const url = 'https://www.linkedin.com/in/arnaud-halleux-64a061258';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    List<Settings> settingslist = [];
-    late Box<Settings> boxSettings;
-
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: _Appbar(),
@@ -89,10 +107,10 @@ class _SettingsState extends State<Settings> {
                 style: ElevatedButton.styleFrom(backgroundColor: kcolor3),
                 onPressed: () {
                   Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const SettingsProfilePage()),
-                  );
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              SettingsProfilePage(settingsList, index)));
                 },
                 child: Padding(
                   padding: const EdgeInsets.only(left: 15, right: 10),
@@ -240,18 +258,24 @@ class _SettingsState extends State<Settings> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text(
-                    'Developed by Halleux Arnaud',
-                    style: TextStyle(
-                      color: Colors.white,
+                  TextButton(
+                    onPressed: _LaunchUrl,
+                    child: Text(
+                      'Developed by Halleux Arnaud',
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                   IconButton(
-                      onPressed: () {},
-                      icon: SvgPicture.asset(
-                        'assets/icons/linkedin-svgrepo-com (1).svg',
-                        height: 20,
-                      ))
+                    onPressed: () {
+                      _LaunchUrl();
+                    },
+                    icon: SvgPicture.asset(
+                      'assets/icons/linkedin-svgrepo-com (1).svg',
+                      height: 20,
+                    ),
+                  ),
                 ],
               ),
             ),

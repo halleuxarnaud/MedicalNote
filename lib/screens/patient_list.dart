@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-
+import 'package:medicalnote/controller/test.dart';
 import '../component/component.dart';
 import '../models/listpatient.dart';
 import 'information_patient.dart';
@@ -14,7 +14,6 @@ class PatientList extends StatefulWidget {
 }
 
 class _PatientListState extends State<PatientList> {
-  List<Patients> patientList = [];
   late Box<Patients> boxPatient;
 
   @override
@@ -23,6 +22,14 @@ class _PatientListState extends State<PatientList> {
     boxPatient = Hive.box('Patient');
     //boxPatient.clear();
     //print('Patient ${boxPatient.values}');
+  }
+
+  void _deleteitem(var index) {
+    setState(() {
+      boxPatient
+          .deleteAt(index)
+          .whenComplete(() => print('NewCalendar: Patients delete'));
+    });
   }
 
   void _bottomnewpatient(BuildContext ctx) {
@@ -190,7 +197,6 @@ class _PatientListState extends State<PatientList> {
                 return ListView.builder(
                   scrollDirection: Axis.vertical,
                   itemBuilder: (context, index) {
-                    Patients patients = patientList[index];
                     return Padding(
                         padding: const EdgeInsets.only(
                           left: 20,
@@ -202,8 +208,8 @@ class _PatientListState extends State<PatientList> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) =>
-                                        InformationPatient(patients, index)));
+                                    builder: (context) => InformationPatient(
+                                        patientList[index], index)));
                           }),
                           child: Card(
                             child: Row(
@@ -213,9 +219,9 @@ class _PatientListState extends State<PatientList> {
                                   padding: const EdgeInsets.only(
                                       left: 5, top: 8, bottom: 10),
                                   child: Text(
-                                    patients.name.toString() +
+                                    patientList[index].name.toString() +
                                         ' ' +
-                                        patients.firstname.toString(),
+                                        patientList[index].firstname.toString(),
                                     style: const TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 16,
@@ -229,8 +235,10 @@ class _PatientListState extends State<PatientList> {
                                   ),
                                   child: IconButton(
                                     icon: SvgPicture.asset(
-                                        'assets/icons/person add.svg'),
-                                    onPressed: () {},
+                                        'assets/icons/trash-svgrepo-com.svg'),
+                                    onPressed: () {
+                                      _deleteitem(index);
+                                    },
                                   ),
                                 ),
                               ],
@@ -243,7 +251,7 @@ class _PatientListState extends State<PatientList> {
               },
             ),
           ),
-        )
+        ),
       ],
     );
   }

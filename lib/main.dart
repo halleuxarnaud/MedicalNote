@@ -5,14 +5,14 @@ import 'models/listpatient.dart';
 import 'models/listsettings.dart';
 import 'screens/homepage.dart';
 
-//! Suppression des patient
+//! *************************************************************//
+//* changer le nom avec license des svg
+//* changer la license github pour qu'on ne puisse pas prendre mon code pour le commercionaliser
+//! Rendre plus beau la page list-patient
+//! finir la partie parametre 
 //! Suppression des notes patients
-//! Ajouter l'option de recherche
-//! Ajouter Tout les parametre dans la page parametre
-//! Ajouter a "Download PDF " une flèche fers le bas a gauche du texte
-//! changer le nom avec license des svg
-//! changer la license github pour qu'on ne puisse pas prendre mon code pour le commercionaliser
-//! Ajouter mon profil Linkedin sur le bouton et sur le nom 
+//! *************************************************************//
+
 void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(PatientsAdapter());

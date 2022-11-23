@@ -25,14 +25,6 @@ class HomePage extends StatelessWidget {
               children: <Widget>[
                 Row(
                   children: [
-                    const Padding(
-                      padding: EdgeInsets.all(3),
-                      child: CircleAvatar(
-                        radius: 30,
-                        backgroundImage:
-                            AssetImage('assets/images/ahalleux.jpeg'),
-                      ),
-                    ),
                     const SizedBox(width: 15),
                     Padding(
                       padding: EdgeInsets.only(top: 13),
