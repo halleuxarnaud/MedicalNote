@@ -7,10 +7,7 @@ import 'dart:math' as math;
 import '../component/component.dart';
 
 class SettingsProfilePage extends StatefulWidget {
-  final Settings settings;
-  final int index;
-  const SettingsProfilePage(this.settings, this.index, {Key? key})
-      : super(key: key);
+  const SettingsProfilePage({Key? key}) : super(key: key);
 
   @override
   State<SettingsProfilePage> createState() => _SettingsProfilePageState();
@@ -123,6 +120,7 @@ class _SettingsProfilePageState extends State<SettingsProfilePage> {
         padding: const EdgeInsets.only(left: 15, right: 15, top: 10),
         child: Column(
           children: <Widget>[
+            /*
             TextField(
               style: TextStyle(color: Colors.white),
               decoration: InputDecoration(
@@ -229,6 +227,7 @@ class _SettingsProfilePageState extends State<SettingsProfilePage> {
               onPressed: _submitData,
               child: Text('Submit'),
             ),
+            */
           ],
         ),
       ),

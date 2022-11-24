@@ -15,7 +15,7 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingsState extends State<Settings> {
-  late Box<Settings> boxSettings;
+  /*late Box<Settings> boxSettings;
 
   int index = 0;
 
@@ -26,7 +26,7 @@ class _SettingsState extends State<Settings> {
     //boxSettings.clear();
     print('Settings ${boxSettings.values}');
   }
-
+*/
   _LaunchUrl() async {
     const url = 'https://www.linkedin.com/in/arnaud-halleux-64a061258';
     if (await canLaunch(url)) {
@@ -109,8 +109,7 @@ class _SettingsState extends State<Settings> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) =>
-                              SettingsProfilePage(settingsList, index)));
+                          builder: (context) => SettingsProfilePage()));
                 },
                 child: Padding(
                   padding: const EdgeInsets.only(left: 15, right: 10),
