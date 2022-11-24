@@ -7,14 +7,14 @@ import 'package:medicalnote/screens/profile_settings.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../component/component.dart';
 
-class Settings extends StatefulWidget {
-  const Settings({Key? key}) : super(key: key);
+class SettingsPage extends StatefulWidget {
+  const SettingsPage({Key? key}) : super(key: key);
 
   @override
-  State<Settings> createState() => _SettingsState();
+  State<SettingsPage> createState() => _SettingsState();
 }
 
-class _SettingsState extends State<Settings> {
+class _SettingsState extends State<SettingsPage> {
   /*late Box<Settings> boxSettings;
 
   int index = 0;

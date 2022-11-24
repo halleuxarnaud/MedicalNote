@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:medicalnote/controller/test.dart';
 import '../component/component.dart';
 import '../models/listpatient.dart';
 import 'information_patient.dart';
 
 class PatientList extends StatefulWidget {
   const PatientList({Key? key}) : super(key: key);
-
   @override
   State<PatientList> createState() => _PatientListState();
 }

@@ -14,6 +14,7 @@ class SettingsProfilePage extends StatefulWidget {
 }
 
 class _SettingsProfilePageState extends State<SettingsProfilePage> {
+  /*
   late Box<Settings> boxSettings;
 
   @override
@@ -23,7 +24,7 @@ class _SettingsProfilePageState extends State<SettingsProfilePage> {
     //boxPatient.clear();
     //print('Patient ${boxPatient.values}');
   }
-
+*/
   @override
   Widget build(BuildContext context) {
     return Scaffold(appBar: _Appbar(), body: _buildbody());
@@ -110,7 +111,7 @@ class _SettingsProfilePageState extends State<SettingsProfilePage> {
         phonenumber: enteredphonenumber,
         email: enteredemail,
       );
-      boxSettings.putAt(1, newPT);
+      //boxSettings.putAt(1, newPT);
 
       //Navigator.pop(context);
     }

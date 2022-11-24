@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:medicalnote/models/listsettings.dart';
 import 'package:medicalnote/screens/pdfview.dart';
 
 import '../component/component.dart';

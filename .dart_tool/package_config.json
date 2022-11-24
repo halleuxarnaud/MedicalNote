@@ -254,6 +254,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "hive_listener",
+      "rootUri": "file:///Users/arnaudhallerux/Documents/SDK/flutter/.pub-cache/hosted/pub.dartlang.org/hive_listener-1.2.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "http_multi_server",
       "rootUri": "file:///Users/arnaudhallerux/Documents/SDK/flutter/.pub-cache/hosted/pub.dartlang.org/http_multi_server-3.2.1",
       "packageUri": "lib/",
@@ -614,7 +620,7 @@
       "languageVersion": "2.16"
     }
   ],
-  "generated": "2022-11-24T14:21:25.123706Z",
+  "generated": "2022-11-24T15:36:30.366807Z",
   "generator": "pub",
   "generatorVersion": "2.18.4"
 }

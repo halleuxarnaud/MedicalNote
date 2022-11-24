@@ -9,18 +9,20 @@ import 'screens/homepage.dart';
 //* changer le nom avec license des svg
 //* changer la license github pour qu'on ne puisse pas prendre mon code pour le commercionaliser
 //! Rendre plus beau la page list-patient
-//! finir la partie parametre 
+//! finir la partie parametre
 //! Suppression des notes patients
+//! Ajouter un setstate sur la page de nouvelle note
+//! Ajouter un pdf Viuwver
 //! *************************************************************//
 
 void main() async {
   await Hive.initFlutter();
+  Hive.registerAdapter(SettingsAdapter());
+  Hive.registerAdapter(ListInstitutionAdapter());
   Hive.registerAdapter(PatientsAdapter());
   Hive.registerAdapter(ListNoteAdapter());
-  Hive.registerAdapter(ListInstitutionAdapter());
-  Hive.registerAdapter(SettingsAdapter());
-  await Hive.openBox<Patients>('Patient');
   await Hive.openBox<Settings>('Settings');
+  await Hive.openBox<Patients>('Patient');
   runApp(const MyApp());
 }
 
