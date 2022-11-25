@@ -6,6 +6,7 @@ import 'package:medicalnote/screens/institution_settings.dart';
 import 'package:medicalnote/screens/profile_settings.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../component/component.dart';
+import '../models/listsettings.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({Key? key}) : super(key: key);
@@ -15,18 +16,14 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsState extends State<SettingsPage> {
-  /*late Box<Settings> boxSettings;
-
-  int index = 0;
+  late Box<Settings> boxSettings;
 
   @override
   void initState() {
     super.initState();
     boxSettings = Hive.box('Settings');
-    //boxSettings.clear();
-    print('Settings ${boxSettings.values}');
   }
-*/
+
   _LaunchUrl() async {
     const url = 'https://www.linkedin.com/in/arnaud-halleux-64a061258';
     if (await canLaunch(url)) {
@@ -103,47 +100,55 @@ class _SettingsState extends State<SettingsPage> {
             ),
             Container(
               height: 50,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(backgroundColor: kcolor3),
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => SettingsProfilePage()));
-                },
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 15, right: 10),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Row(
+              child: ValueListenableBuilder(
+                valueListenable: boxSettings.listenable(),
+                builder: (context, Box<Settings> box, _) {
+                  List<Settings> settingsList = box.values.toList().cast();
+                  Settings settings = settingsList[0];
+                  return ElevatedButton(
+                    style: ElevatedButton.styleFrom(backgroundColor: kcolor3),
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  SettingsProfilePage(settings)));
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 15, right: 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
+                          Row(
+                            children: <Widget>[
+                              SvgPicture.asset(
+                                'assets/icons/settings.svg',
+                                height: 25,
+                                color: Colors.white,
+                              ),
+                              const SizedBox(
+                                width: 13,
+                              ),
+                              const Text(
+                                'Profile',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16,
+                                ),
+                              ),
+                            ],
+                          ),
                           SvgPicture.asset(
-                            'assets/icons/settings.svg',
-                            height: 25,
+                            'assets/icons/right-thin-chevron-svgrepo-com.svg',
                             color: Colors.white,
-                          ),
-                          const SizedBox(
-                            width: 13,
-                          ),
-                          const Text(
-                            'Profile',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16,
-                            ),
+                            height: 18,
                           ),
                         ],
                       ),
-                      SvgPicture.asset(
-                        'assets/icons/right-thin-chevron-svgrepo-com.svg',
-                        color: Colors.white,
-                        height: 18,
-                      ),
-                    ],
-                  ),
-                ),
+                    ),
+                  );
+                },
               ),
             ),
             const Divider(

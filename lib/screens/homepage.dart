@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:medicalnote/screens/patient_list.dart';
-import 'package:medicalnote/screens/settings.dart';
+import 'package:medicalnote/screens/settings_page.dart';
 import '../component/component.dart';
 import '../models/listsettings.dart';
 
@@ -26,59 +26,60 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-            backgroundColor: kDefaultcolor,
-            toolbarHeight: 80,
-            elevation: 0,
-            flexibleSpace: SafeArea(
-                child: ValueListenableBuilder(
-              valueListenable: boxSettings.listenable(),
-              builder: (context, Box<Settings> box, _) {
-                List<Settings> settingsList = box.values.toList().cast();
-                return Padding(
-                  padding: const EdgeInsets.only(
-                    right: 16,
-                    left: 25,
-                    bottom: 15,
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Row(
-                        children: [
-                          const SizedBox(width: 15),
-                          Padding(
-                            padding: EdgeInsets.only(top: 13),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const Text(
-                                  'First Name',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 18,
-                                  ),
-                                ),
-                                Container(
-                                  child: Text(
-                                    'Profesion',
-                                    style: TextStyle(
-                                      color: Colors.white.withOpacity(0.6),
-                                    ),
-                                  ),
-                                ),
-                                Text('')
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: <Widget>[
-                          Row(
+      appBar: AppBar(
+        backgroundColor: kDefaultcolor,
+        toolbarHeight: 80,
+        elevation: 0,
+        flexibleSpace: SafeArea(
+          child: ValueListenableBuilder(
+            valueListenable: boxSettings.listenable(),
+            builder: (context, Box<Settings> box, _) {
+              List<Settings> settingsList = box.values.toList().cast();
+              return Padding(
+                padding: const EdgeInsets.only(
+                  right: 16,
+                  left: 25,
+                  bottom: 15,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Row(
+                      children: [
+                        const SizedBox(width: 15),
+                        Padding(
+                          padding: EdgeInsets.only(top: 13),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              /*
+                              Text(
+                                settingsList.isEmpty
+                                    ? 'Name'
+                                    : settingsList[0].name.toString(),
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                ),
+                              ),
+                              Text(
+                                settingsList.isEmpty
+                                    ? 'Profesion'
+                                    : settingsList[0].job.toString(),
+                                style: TextStyle(
+                                  color: Colors.white.withOpacity(0.6),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: <Widget>[
+                        Row(
+                          children: [
+                            /*
                             IconButton(
                               onPressed: (() {
                                 null;
@@ -91,32 +92,34 @@ class _HomePageState extends State<HomePage> {
                               iconSize: 10,
                             ),
                             */
-                              IconButton(
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => SettingsPage()),
-                                  );
-                                },
-                                icon: SvgPicture.asset(
-                                  'assets/icons/settings.svg',
-                                  color: Colors.white,
-                                  height: 28,
-                                  width: 28,
-                                ),
+                            IconButton(
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => SettingsPage()),
+                                );
+                              },
+                              icon: SvgPicture.asset(
+                                'assets/icons/settings.svg',
+                                color: Colors.white,
+                                height: 28,
+                                width: 28,
                               ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                );
-              },
-            ))));
-    body:
-    PatientList();
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              );
+            },
+          ),
+        ),
+      ),
+      body: PatientList(),
+    );
     //bottomNavigationBar: BuildBottomnav(),
   }
 }

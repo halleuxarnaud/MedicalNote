@@ -39,3 +39,10 @@ class ListInstitution {
 
   ListInstitution({this.institution});
 }
+
+final List<Settings> settingsex = [
+  Settings(
+    name: 'test',
+    firstname: 'Firstname',
+  )
+];
