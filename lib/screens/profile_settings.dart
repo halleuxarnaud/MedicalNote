@@ -23,6 +23,8 @@ class _SettingsProfilePageState extends State<SettingsProfilePage> {
     boxSettings = Hive.box('Settings');
   }
 
+  void test() {}
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -32,7 +34,7 @@ class _SettingsProfilePageState extends State<SettingsProfilePage> {
         bottomNavigationBar: _saveSettings(size));
   }
 
-  _appBar() {
+  AppBar _appBar() {
     return AppBar(
       automaticallyImplyLeading: false,
       elevation: 0,
@@ -95,7 +97,7 @@ class _SettingsProfilePageState extends State<SettingsProfilePage> {
     );
   }
 
-  _buildBody() {
+  Widget _buildBody() {
     TextEditingController namecontroller = TextEditingController();
     TextEditingController firstnamecontroller = TextEditingController();
     TextEditingController jobcontroller = TextEditingController();
@@ -108,8 +110,7 @@ class _SettingsProfilePageState extends State<SettingsProfilePage> {
       String enteredjob = jobcontroller.text;
       String enteredphonenumber = phonenumbercontroller.text;
       String enteredemail = emailcontroller.text;
-
-      print(namecontroller.text);
+      print('object');
 
       final firstSettings = Settings(
         name: enteredname,
@@ -450,20 +451,20 @@ class _SettingsProfilePageState extends State<SettingsProfilePage> {
     );
   }
 
-  _saveSettings(Size size) {
+  Widget _saveSettings(Size size) {
     return Stack(children: <Widget>[
       Container(
         width: size.width,
         height: 80,
         color: kcolor3,
       ),
-      Container(
+      SizedBox(
           height: 58,
           width: size.width,
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(backgroundColor: kcolor2),
             onPressed: () async {},
-            child: Padding(
+            child: const Padding(
               padding: EdgeInsets.all(20.0),
               child: Text(
                 'Save Settings',

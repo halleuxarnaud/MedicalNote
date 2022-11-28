@@ -5,16 +5,18 @@ import 'models/listpatient.dart';
 import 'models/listsettings.dart';
 import 'screens/homepage.dart';
 
-//! *************************************************************//
-//* changer le nom avec license des svg
-//* changer la license github pour qu'on ne puisse pas prendre mon code pour le commercionaliser
-//! Rendre plus beau la page list-patient
-//! Retirer la function on chnager des text form pour éviter qu'il ne valide tout les info alors qui reste des chose a valider
-//! Trouver un moyen d'utiliser la function qui est dans une autre methode
-//! Suppression des notes patients
-//! Ajouter un setstate sur la page de nouvelle note
-//! Ajouter un pdf Viuwver
-//! *************************************************************//
+//! *****************************************************************************************************************************************************//
+//
+//! changer la license github pour qu'on ne puisse pas prendre mon code pour le commercionaliser
+//* Rendre plus beau la page list-patient
+//* Retirer la function on chnager des text form pour éviter qu'il ne valide tout les info alors qui reste des chose a valider
+//* Trouver un moyen d'utiliser la function qui est dans une autre methode
+//* Suppression des notes patients
+//* Ajouter un setstate sur la page de nouvelle note
+//* Ajouter un pdf Viuwver
+//* Ajouter la lecture de l'institution sélectionée dans le générateur de pdf
+//
+//! *****************************************************************************************************************************************************//
 
 void main() async {
   await Hive.initFlutter();

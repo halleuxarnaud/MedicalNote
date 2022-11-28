@@ -2,11 +2,12 @@ import 'dart:io';
 
 import 'package:medicalnote/api/pdf_api.dart';
 import 'package:medicalnote/models/listpatient.dart';
+import 'package:medicalnote/models/listsettings.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart';
 
 class PdfPatientApi {
-  static Future<File> generate(Patients patients) async {
+  static Future<File> generate(Patients patients, Settings settings) async {
     final pdf = Document();
 
     pdf.addPage(
@@ -24,7 +25,7 @@ class PdfPatientApi {
           Divider(),
           buildContent(patients),
         ],
-        footer: (context) => buildFooter(),
+        footer: (context) => buildFooter(settings),
       ),
     );
 
@@ -92,22 +93,23 @@ class PdfPatientApi {
           ),
         ],
       );
-  static Widget buildFooter() => Column(
+  static Widget buildFooter(Settings settings) => Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Divider(),
           Text(
-            'Perillo Stéphanie',
+            settings.name.toString() + settings.firstname.toString(),
             style: const TextStyle(fontSize: 11),
           ),
           SizedBox(height: 1 * PdfPageFormat.mm),
-          Text('Phone Number: 0490 39 89 58', style: TextStyle(fontSize: 9)),
+          Text('Phone Number: ' + settings.phonenumber.toString(),
+              style: TextStyle(fontSize: 9)),
           SizedBox(height: 1 * PdfPageFormat.mm),
-          Text('Mail: perillo.stephanie@hotmail.com',
+          Text('Mail: ' + settings.email.toString(),
               style: const TextStyle(fontSize: 9)),
           SizedBox(height: 2 * PdfPageFormat.mm),
           Text(
-            'ASBL Singularités Plurielles',
+            'Automatisation a faire apres settings',
             style: const TextStyle(
                 decoration: TextDecoration.underline, fontSize: 9),
           ),
