@@ -12,7 +12,6 @@ import 'screens/homepage.dart';
 //* Retirer la function on chnager des text form pour éviter qu'il ne valide tout les info alors qui reste des chose a valider
 //* Modifier le form d'ajout de note et de patient en prenant le paterne de celui de settings
 //* Suppression des notes patients
-//* Ajouter un setstate sur la page de nouvelle note
 //* Ajouter un pdf Viuwver
 //* Ajouter la lecture de l'institution sélectionée dans le générateur de pdf
 //

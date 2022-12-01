@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:medicalnote/screens/faq_page.dart';
 import 'package:medicalnote/screens/institution_settings.dart';
-import 'package:medicalnote/screens/profile_settings.dart';
+import 'package:medicalnote/controller/Settings_Profile_Controller.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../component/component.dart';
 import '../models/listsettings.dart';

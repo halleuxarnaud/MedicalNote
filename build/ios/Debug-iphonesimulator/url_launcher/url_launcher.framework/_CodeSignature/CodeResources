@@ -8,9 +8,13 @@
 		<data>
 		/Om48hk71JcX0NsUQBeOa9p5GXQ=
 		</data>
+		<key>Headers/UrlLauncherPlugin.h</key>
+		<data>
+		6fLyA6/f0mV+PHMt+O21/mZpEbY=
+		</data>
 		<key>Headers/url_launcher-umbrella.h</key>
 		<data>
-		Er13QC2JHztrggRShCt2/K1wqNw=
+		y9t5/2SlNJJ8z9USKojfxT7eAL8=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -30,11 +34,18 @@
 			woKI4nkdAmbkxjmMJOttKsPSsOnaTGIHbWcJWxDqMZU=
 			</data>
 		</dict>
+		<key>Headers/UrlLauncherPlugin.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			U65W5NmZFPzPA1aDA6d6OKNL+X31EkacHM9a/S7yzc8=
+			</data>
+		</dict>
 		<key>Headers/url_launcher-umbrella.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			HsLbjY7ljMQgU7ajxZiK7uJu0ET8Vhjyu4NmtOpon2o=
+			H4PPz1o2os5Gfb/QG3DnvpmSf7uBlFnd4hIjN0ccCzw=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

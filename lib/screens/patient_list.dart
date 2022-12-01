@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:medicalnote/controller/NewPatient_Controller.dart';
 import '../component/component.dart';
 import '../models/listpatient.dart';
 import 'information_patient.dart';
@@ -18,113 +19,17 @@ class _PatientListState extends State<PatientList> {
   void initState() {
     super.initState();
     boxPatient = Hive.box('Patient');
-    //boxPatient.clear();
-    //print('Patient ${boxPatient.values}');
   }
 
-  void _deleteitem(var index) {
+  void _deleteitem(
+    var index,
+    Box box,
+  ) {
     setState(() {
-      boxPatient
+      box
           .deleteAt(index)
           .whenComplete(() => print('MedicalNote: Patients delete'));
     });
-  }
-
-  void _bottomnewpatient(BuildContext ctx) {
-    TextEditingController namecontroller = TextEditingController();
-    TextEditingController firstnamecontroller = TextEditingController();
-    TextEditingController dateofbirthcontroller = TextEditingController();
-    TextEditingController emailcontroller = TextEditingController();
-    TextEditingController phonenumbercontroller = TextEditingController();
-
-    void _submitData() {
-      final enteredname = namecontroller.text;
-      final enteredfirstname = firstnamecontroller.text;
-      final entereddateofbirth = dateofbirthcontroller.text;
-      final enteredemail = emailcontroller.text;
-      final enteredphonenumber = phonenumbercontroller.text;
-
-      if (enteredname.isEmpty ||
-          enteredfirstname.isEmpty ||
-          entereddateofbirth.isEmpty ||
-          enteredemail.isEmpty ||
-          enteredphonenumber.isEmpty) {
-        print('No input');
-        return;
-      }
-
-      final newPT = Patients(
-        name: enteredname,
-        firstname: enteredfirstname,
-        dateofbirth: entereddateofbirth,
-        email: enteredemail,
-        phonenumber: enteredphonenumber,
-        date: DateTime.now(),
-        id: DateTime.now().millisecondsSinceEpoch,
-        //id: DateTime.now().millisecondsSinceEpoch,
-        //listOfNotes: [],
-      );
-      boxPatient.add(newPT);
-
-      Navigator.of(context).pop();
-    }
-
-    showModalBottomSheet(
-        context: ctx,
-        builder: (_) {
-          return GestureDetector(
-              onTap: () {},
-              child: Card(
-                child: Container(
-                    padding: const EdgeInsets.all(20),
-                    child: Column(
-                      children: <Widget>[
-                        TextField(
-                          decoration: const InputDecoration(labelText: 'name'),
-                          controller: namecontroller,
-                          autofocus: true,
-                          onSubmitted: (_) => _submitData(),
-                        ),
-                        TextField(
-                          decoration:
-                              const InputDecoration(labelText: 'first name'),
-                          controller: firstnamecontroller,
-                          autofocus: true,
-                          onSubmitted: (_) => _submitData(),
-                        ),
-                        TextField(
-                          decoration:
-                              const InputDecoration(labelText: 'date of birth'),
-                          controller: dateofbirthcontroller,
-                          autofocus: true,
-                          keyboardType: TextInputType.datetime,
-                          onSubmitted: (_) => _submitData(),
-                        ),
-                        TextField(
-                          decoration: const InputDecoration(labelText: 'email'),
-                          controller: emailcontroller,
-                          autofocus: true,
-                          keyboardType: TextInputType.emailAddress,
-                          onSubmitted: (_) => _submitData(),
-                        ),
-                        TextField(
-                          decoration:
-                              const InputDecoration(labelText: 'phone number'),
-                          controller: phonenumbercontroller,
-                          autofocus: true,
-                          keyboardType: TextInputType.phone,
-                          onSubmitted: (_) => _submitData(),
-                        ),
-                        ElevatedButton(
-                            onPressed: _submitData,
-                            child: const Center(
-                              child: Text('Submit'),
-                            ))
-                      ],
-                    )),
-              ),
-              behavior: HitTestBehavior.opaque);
-        });
   }
 
   @override
@@ -174,7 +79,11 @@ class _PatientListState extends State<PatientList> {
                           width: 29,
                         ),
                         onPressed: () {
-                          _bottomnewpatient(context);
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: ((context) =>
+                                      NewPatientController())));
                         },
                       ),
                     ],
@@ -235,7 +144,7 @@ class _PatientListState extends State<PatientList> {
                                     icon: SvgPicture.asset(
                                         'assets/icons/trash-svgrepo-com.svg'),
                                     onPressed: () {
-                                      _deleteitem(index);
+                                      _deleteitem(index, boxPatient);
                                     },
                                   ),
                                 ),
