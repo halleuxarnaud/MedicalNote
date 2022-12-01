@@ -26,7 +26,7 @@ class _PatientListState extends State<PatientList> {
     setState(() {
       boxPatient
           .deleteAt(index)
-          .whenComplete(() => print('NewCalendar: Patients delete'));
+          .whenComplete(() => print('MedicalNote: Patients delete'));
     });
   }
 

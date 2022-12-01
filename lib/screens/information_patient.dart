@@ -57,6 +57,7 @@ class _InformationPatientState extends State<InformationPatient> {
         notecontroller.text,
         conclusioncontroller.text,
       );
+      setState(() {});
     }
 
     showModalBottomSheet(

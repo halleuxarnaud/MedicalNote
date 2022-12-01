@@ -55,7 +55,9 @@ class _HomePageState extends State<HomePage> {
                               Text(
                                 settingsList.isEmpty
                                     ? 'Name'
-                                    : settingsList[0].name.toString(),
+                                    : settingsList[0].name.toString() +
+                                        ' ' +
+                                        settingsList[0].firstname.toString(),
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,

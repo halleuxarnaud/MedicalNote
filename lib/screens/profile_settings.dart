@@ -23,96 +23,46 @@ class _SettingsProfilePageState extends State<SettingsProfilePage> {
     boxSettings = Hive.box('Settings');
   }
 
-  void test() {}
+  TextEditingController namecontroller = TextEditingController();
+  TextEditingController firstnamecontroller = TextEditingController();
+  TextEditingController jobcontroller = TextEditingController();
+  TextEditingController phonenumbercontroller = TextEditingController();
+  TextEditingController emailcontroller = TextEditingController();
 
-  @override
-  Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    return Scaffold(
-        appBar: _appBar(),
-        body: _buildBody(),
-        bottomNavigationBar: _saveSettings(size));
-  }
+  void _submitData() {
+    String enteredname = namecontroller.text;
+    String enteredfirstname = firstnamecontroller.text;
+    String enteredjob = jobcontroller.text;
+    String enteredphonenumber = phonenumbercontroller.text;
+    String enteredemail = emailcontroller.text;
+    print('object');
 
-  AppBar _appBar() {
-    return AppBar(
-      automaticallyImplyLeading: false,
-      elevation: 0,
-      flexibleSpace: SafeArea(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                  backgroundColor: kDefaultcolor, elevation: 0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Transform.rotate(
-                    angle: -math.pi / 1,
-                    child: SvgPicture.asset(
-                      'assets/icons/right-thin-chevron-svgrepo-com.svg',
-                      color: Colors.white,
-                      height: 20,
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 5,
-                  ),
-                  const Text(
-                    'Settings',
-                    style: TextStyle(color: Colors.white, fontSize: 15),
-                  ),
-                ],
-              ),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-            const Text(
-              'Profile',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-                fontSize: 22,
-              ),
-            ),
-            const SizedBox(
-              width: 110,
-            ),
-            /*
-            ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                    backgroundColor: kDefaultcolor, elevation: 0),
-                child: Text(
-                  'Done',
-                  style: TextStyle(color: Colors.white, fontSize: 15),
-                ),
-                onPressed: ),
-                */
-          ],
-        ),
-      ),
-      backgroundColor: kDefaultcolor,
+    final firstSettings = Settings(
+      name: enteredname,
+      firstname: enteredfirstname,
+      job: enteredjob,
+      phonenumber: enteredphonenumber,
+      email: enteredemail,
     );
-  }
 
-  Widget _buildBody() {
-    TextEditingController namecontroller = TextEditingController();
-    TextEditingController firstnamecontroller = TextEditingController();
-    TextEditingController jobcontroller = TextEditingController();
-    TextEditingController phonenumbercontroller = TextEditingController();
-    TextEditingController emailcontroller = TextEditingController();
+    void _noModificateForm() {
+      if (enteredname.isEmpty) {
+        enteredname = widget.settingsList.name.toString();
+      }
+      if (enteredfirstname.isEmpty) {
+        enteredfirstname = widget.settingsList.firstname.toString();
+      }
+      if (enteredjob.isEmpty) {
+        enteredjob = widget.settingsList.job.toString();
+      }
+      if (enteredphonenumber.isEmpty) {
+        enteredphonenumber = widget.settingsList.phonenumber.toString();
+      }
+      if (enteredemail.isEmpty) {
+        enteredemail = widget.settingsList.email.toString();
+      }
 
-    void _submitData() {
-      String enteredname = namecontroller.text;
-      String enteredfirstname = firstnamecontroller.text;
-      String enteredjob = jobcontroller.text;
-      String enteredphonenumber = phonenumbercontroller.text;
-      String enteredemail = emailcontroller.text;
-      print('object');
-
-      final firstSettings = Settings(
+      final allSettings = Settings(
         name: enteredname,
         firstname: enteredfirstname,
         job: enteredjob,
@@ -120,42 +70,19 @@ class _SettingsProfilePageState extends State<SettingsProfilePage> {
         email: enteredemail,
       );
 
-      void _noModificateForm() {
-        if (enteredname.isEmpty) {
-          enteredname = widget.settingsList.name.toString();
-        }
-        if (enteredfirstname.isEmpty) {
-          enteredfirstname = widget.settingsList.firstname.toString();
-        }
-        if (enteredjob.isEmpty) {
-          enteredjob = widget.settingsList.job.toString();
-        }
-        if (enteredphonenumber.isEmpty) {
-          enteredphonenumber = widget.settingsList.phonenumber.toString();
-        }
-        if (enteredemail.isEmpty) {
-          enteredemail = widget.settingsList.email.toString();
-        }
-
-        final allSettings = Settings(
-          name: enteredname,
-          firstname: enteredfirstname,
-          job: enteredjob,
-          phonenumber: enteredphonenumber,
-          email: enteredemail,
-        );
-
-        boxSettings.putAt(0, allSettings);
-      }
-
-      if (boxSettings.isEmpty) {
-        boxSettings.add(firstSettings);
-      } else {
-        _noModificateForm();
-      }
-      Navigator.pop(context);
+      boxSettings.putAt(0, allSettings);
     }
 
+    if (boxSettings.isEmpty) {
+      boxSettings.add(firstSettings);
+    } else {
+      _noModificateForm();
+    }
+    Navigator.pop(context);
+  }
+
+  @override
+  Widget build(BuildContext context) {
     Column _buildFormBoxEmpty() {
       return Column(
         children: <Widget>[
@@ -317,7 +244,7 @@ class _SettingsProfilePageState extends State<SettingsProfilePage> {
                 borderSide: const BorderSide(width: 1, color: kDefaultcolor),
               ),
               border: InputBorder.none,
-              labelStyle: TextStyle(color: Colors.white.withOpacity(1)),
+              labelStyle: TextStyle(color: Colors.white.withOpacity(0.6)),
               filled: true,
               fillColor: kcolor3,
             ),
@@ -346,7 +273,7 @@ class _SettingsProfilePageState extends State<SettingsProfilePage> {
                 borderSide: const BorderSide(width: 1, color: kDefaultcolor),
               ),
               border: InputBorder.none,
-              labelStyle: TextStyle(color: Colors.white.withOpacity(1)),
+              labelStyle: TextStyle(color: Colors.white.withOpacity(0.6)),
               filled: true,
               fillColor: kcolor3,
             ),
@@ -375,7 +302,7 @@ class _SettingsProfilePageState extends State<SettingsProfilePage> {
                 borderSide: const BorderSide(width: 1, color: kDefaultcolor),
               ),
               border: InputBorder.none,
-              labelStyle: TextStyle(color: Colors.white.withOpacity(1)),
+              labelStyle: TextStyle(color: Colors.white.withOpacity(0.6)),
               filled: true,
               fillColor: kcolor3,
             ),
@@ -404,7 +331,7 @@ class _SettingsProfilePageState extends State<SettingsProfilePage> {
                 borderSide: const BorderSide(width: 1, color: kDefaultcolor),
               ),
               border: InputBorder.none,
-              labelStyle: TextStyle(color: Colors.white.withOpacity(1)),
+              labelStyle: TextStyle(color: Colors.white.withOpacity(0.6)),
               filled: true,
               fillColor: kcolor3,
             ),
@@ -433,7 +360,7 @@ class _SettingsProfilePageState extends State<SettingsProfilePage> {
                 borderSide: const BorderSide(width: 1, color: kDefaultcolor),
               ),
               border: InputBorder.none,
-              labelStyle: TextStyle(color: Colors.white.withOpacity(1)),
+              labelStyle: TextStyle(color: Colors.white.withOpacity(0.6)),
               filled: true,
               fillColor: kcolor3,
             ),
@@ -444,10 +371,79 @@ class _SettingsProfilePageState extends State<SettingsProfilePage> {
       );
     }
 
-    return SingleChildScrollView(
-      child: Padding(
-          padding: const EdgeInsets.only(left: 15, right: 15, top: 10),
-          child: boxSettings.isEmpty ? _buildFormBoxEmpty() : _buildForm()),
+    Size size = MediaQuery.of(context).size;
+    return Scaffold(
+        appBar: _appBar(),
+        body: SingleChildScrollView(
+          reverse: true,
+          child: Padding(
+              padding: const EdgeInsets.only(left: 15, right: 15, top: 10),
+              child: boxSettings.isEmpty ? _buildFormBoxEmpty() : _buildForm()),
+        ),
+        bottomNavigationBar: _saveSettings(size));
+  }
+
+  AppBar _appBar() {
+    return AppBar(
+      automaticallyImplyLeading: false,
+      elevation: 0,
+      flexibleSpace: SafeArea(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: kDefaultcolor, elevation: 0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Transform.rotate(
+                    angle: -math.pi / 1,
+                    child: SvgPicture.asset(
+                      'assets/icons/right-thin-chevron-svgrepo-com.svg',
+                      color: Colors.white,
+                      height: 20,
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 5,
+                  ),
+                  const Text(
+                    'Settings',
+                    style: TextStyle(color: Colors.white, fontSize: 15),
+                  ),
+                ],
+              ),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            const Text(
+              'Profile',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+                fontSize: 22,
+              ),
+            ),
+            SizedBox(
+              width: 0,
+            ),
+            ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: kDefaultcolor, elevation: 0),
+                child: Text(
+                  'Done',
+                  style: TextStyle(color: Colors.white, fontSize: 15),
+                ),
+                onPressed: (() {
+                  _submitData();
+                  Navigator.pop(context);
+                }))
+          ],
+        ),
+      ),
+      backgroundColor: kDefaultcolor,
     );
   }
 
@@ -463,7 +459,10 @@ class _SettingsProfilePageState extends State<SettingsProfilePage> {
           width: size.width,
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(backgroundColor: kcolor2),
-            onPressed: () async {},
+            onPressed: () {
+              _submitData();
+              Navigator.pop(context);
+            },
             child: const Padding(
               padding: EdgeInsets.all(20.0),
               child: Text(
