@@ -1,21 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:medicalnote/component/component.dart';
 import 'dart:math' as math;
 
-import '../component/component.dart';
-
-class SettingsInstitutionPage extends StatefulWidget {
-  const SettingsInstitutionPage({Key? key}) : super(key: key);
+class SettingsInstitutionController extends StatefulWidget {
+  const SettingsInstitutionController({Key? key}) : super(key: key);
 
   @override
-  State<SettingsInstitutionPage> createState() =>
-      _SettingsInstitutionPageState();
+  State<SettingsInstitutionController> createState() =>
+      _SettingsInstitutionControllerState();
 }
 
-class _SettingsInstitutionPageState extends State<SettingsInstitutionPage> {
+class _SettingsInstitutionControllerState
+    extends State<SettingsInstitutionController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(appBar: _Appbar());

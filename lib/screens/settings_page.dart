@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:medicalnote/controller/Settings_Institution_Controller.dart';
+import 'package:medicalnote/models/listpatient.dart';
 import 'package:medicalnote/screens/faq_page.dart';
-import 'package:medicalnote/screens/institution_settings.dart';
 import 'package:medicalnote/controller/Settings_Profile_Controller.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../component/component.dart';
@@ -104,15 +106,15 @@ class _SettingsState extends State<SettingsPage> {
                 valueListenable: boxSettings.listenable(),
                 builder: (context, Box<Settings> box, _) {
                   List<Settings> settingsList = box.values.toList().cast();
-                  Settings settings = settingsList[0];
+                  Settings settings;
+                  boxSettings.isEmpty ? print('VOID') : print('NOT VOID');
                   return ElevatedButton(
                     style: ElevatedButton.styleFrom(backgroundColor: kcolor3),
                     onPressed: () {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) =>
-                                  SettingsProfilePage(settings)));
+                              builder: (context) => SettingsProfilePage()));
                     },
                     child: Padding(
                       padding: const EdgeInsets.only(left: 15, right: 10),
@@ -163,7 +165,7 @@ class _SettingsState extends State<SettingsPage> {
                       context,
                       MaterialPageRoute(
                           builder: (context) =>
-                              const SettingsInstitutionPage()));
+                              const SettingsInstitutionController()));
                 },
                 child: Padding(
                   padding: const EdgeInsets.only(left: 15, right: 10),
