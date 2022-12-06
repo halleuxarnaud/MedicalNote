@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:medicalnote/api/pdf_api.dart';
+import 'package:medicalnote/api/pdf_patient_api.dart';
 import 'package:medicalnote/controller/NewNote_Controller.dart';
 import 'package:medicalnote/screens/note_list.dart';
-import 'package:medicalnote/screens/pdfview.dart';
+import 'dart:math' as math;
 
 import '../component/component.dart';
 import '../models/listpatient.dart';
+import '../models/listsettings.dart';
 
 class InformationPatient extends StatefulWidget {
   final Patients patients;
@@ -19,13 +23,24 @@ class InformationPatient extends StatefulWidget {
 }
 
 class _InformationPatientState extends State<InformationPatient> {
+  late Box<Settings> boxSettings;
+  late Box<Patients> boxPatient;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    boxSettings = Hive.box('Settings');
+    boxPatient = Hive.box('Patient');
+  }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: _Appbar(),
       body: NoteList(widget.index),
-      bottomNavigationBar: _savepdf(),
+      bottomNavigationBar: _savepdf(size, widget.index),
     );
   }
 
@@ -68,11 +83,13 @@ class _InformationPatientState extends State<InformationPatient> {
                       color: Colors.white,
                     ),
                     onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: ((context) => NewNoteController(
-                                  widget.patients, widget.index))));
+                      setState(() {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: ((context) =>
+                                    NewNoteController(widget.index))));
+                      });
                     },
                   ),
                 ),
@@ -85,36 +102,75 @@ class _InformationPatientState extends State<InformationPatient> {
     );
   }
 
-  _savepdf() {
-    return Stack(
-      children: <Widget>[
-        Container(
-          width: MediaQuery.of(context).size.width,
-          height: 80,
-          color: kcolor3,
-        ),
-        Container(
-          height: 58,
-          width: MediaQuery.of(context).size.width,
-          child: ElevatedButton(
-            style: ElevatedButton.styleFrom(backgroundColor: kcolor2),
-            onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) =>
-                          PDFConstructor(widget.patients, widget.index)));
-            },
-            child: const Padding(
-              padding: EdgeInsets.all(20.0),
-              child: Text(
-                'PDF Génerator',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
-              ),
-            ),
-          ),
-        ),
-      ],
+  _savepdf(Size size, int index) {
+    return ValueListenableBuilder(
+      valueListenable: boxSettings.listenable(),
+      builder: (context, Box<Settings> box, _) {
+        List<Settings> settingsList = box.values.toList().cast();
+        Settings settings = settingsList[0];
+        return ValueListenableBuilder(
+          valueListenable: boxPatient.listenable(),
+          builder: (context, Box<Patients> box, _) {
+            List<Patients> patientList = box.values.toList().cast();
+            Patients patients = patientList[index];
+            return Stack(
+              children: <Widget>[
+                Container(
+                  width: size.width,
+                  height: 80,
+                  color: kcolor3,
+                ),
+                Container(
+                  height: 58,
+                  width: size.width,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(backgroundColor: kcolor2),
+                    onPressed: () async {
+                      final pdfFile =
+                          await PdfPatientApi.generate(patients, settings);
+                      PdfApi.openFile(pdfFile);
+                    },
+                    child: Padding(
+                        padding: EdgeInsets.all(20.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Row(
+                              children: [
+                                Transform.rotate(
+                                  angle: -math.pi / 1,
+                                  child: SvgPicture.asset(
+                                    'assets/icons/up-arrow-svgrepo-com.svg',
+                                    color: Colors.white,
+                                    height: 17,
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Text(
+                                  'Download PDF',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 17),
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              width: 10,
+                            )
+                          ],
+                        )),
+                  ),
+                ),
+              ],
+            );
+          },
+        );
+      },
     );
   }
 }

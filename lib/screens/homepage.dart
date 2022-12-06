@@ -79,19 +79,6 @@ class _HomePageState extends State<HomePage> {
                       children: <Widget>[
                         Row(
                           children: [
-                            /*
-                            IconButton(
-                              onPressed: (() {
-                                null;
-                              }),
-                              icon: SvgPicture.asset(
-                                'assets/icons/search.svg',
-                                height: 25,
-                                width: 25,
-                              ),
-                              iconSize: 10,
-                            ),
-                            */
                             IconButton(
                               onPressed: () {
                                 Navigator.push(

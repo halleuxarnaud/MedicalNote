@@ -29,12 +29,12 @@ class _SettingsProfilePageState extends State<SettingsProfilePage> {
   TextEditingController emailcontroller = TextEditingController();
 
   void _submitData() {
+    print('First modification');
     String enteredname = namecontroller.text;
     String enteredfirstname = firstnamecontroller.text;
     String enteredjob = jobcontroller.text;
     String enteredphonenumber = phonenumbercontroller.text;
     String enteredemail = emailcontroller.text;
-    print('object');
 
     final firstSettings = Settings(
       name: enteredname,
@@ -44,191 +44,183 @@ class _SettingsProfilePageState extends State<SettingsProfilePage> {
       email: enteredemail,
     );
 
-    void _noModificateForm() {
-      if (enteredname.isEmpty) {
-        enteredname = settings.name.toString();
-      }
-      if (enteredfirstname.isEmpty) {
-        enteredfirstname = settings.firstname.toString();
-      }
-      if (enteredjob.isEmpty) {
-        enteredjob = settings.job.toString();
-      }
-      if (enteredphonenumber.isEmpty) {
-        enteredphonenumber = settings.phonenumber.toString();
-      }
-      if (enteredemail.isEmpty) {
-        enteredemail = settings.email.toString();
-      }
-
-      final allSettings = Settings(
-        name: enteredname,
-        firstname: enteredfirstname,
-        job: enteredjob,
-        phonenumber: enteredphonenumber,
-        email: enteredemail,
-      );
-
-      boxSettings.putAt(0, allSettings);
-    }
-
-    if (boxSettings.isEmpty) {
-      boxSettings.add(firstSettings);
-    } else {
-      _noModificateForm();
-    }
+    boxSettings.add(firstSettings);
     Navigator.pop(context);
+  }
+
+  void _submitData2(Settings settings) {
+    print('Seconde modification');
+    String enteredname2 = namecontroller.text;
+    String enteredfirstname2 = firstnamecontroller.text;
+    String enteredjob2 = jobcontroller.text;
+    String enteredphonenumber2 = phonenumbercontroller.text;
+    String enteredemail2 = emailcontroller.text;
+
+    if (enteredname2.isEmpty) {
+      enteredname2 = settings.name.toString();
+    }
+    if (enteredfirstname2.isEmpty) {
+      enteredfirstname2 = settings.firstname.toString();
+    }
+    if (enteredjob2.isEmpty) {
+      enteredjob2 = settings.job.toString();
+    }
+    if (enteredphonenumber2.isEmpty) {
+      enteredphonenumber2 = settings.phonenumber.toString();
+    }
+    if (enteredemail2.isEmpty) {
+      enteredemail2 = settings.email.toString();
+    }
+
+    final allSettings = Settings(
+      name: enteredname2,
+      firstname: enteredfirstname2,
+      job: enteredjob2,
+      phonenumber: enteredphonenumber2,
+      email: enteredemail2,
+    );
+    print('Push second settings');
+    boxSettings.putAt(0, allSettings);
   }
 
   @override
   Widget build(BuildContext context) {
-    ValueListenableBuilder<Box<Settings>> _buildFormBoxEmpty() {
-      return ValueListenableBuilder(
-        valueListenable: boxSettings.listenable(),
-        builder: (context, Box<Settings> box, _) {
-          List<Settings> settingsList = box.values.toList().cast();
-          return Column(
-            children: <Widget>[
-              Text(
-                'Name',
-                textAlign: TextAlign.start,
-                style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.white.withOpacity(0.8),
-                    fontWeight: FontWeight.bold),
+    Column _buildFormBoxEmpty() {
+      return Column(
+        children: <Widget>[
+          Text(
+            'Name',
+            textAlign: TextAlign.start,
+            style: TextStyle(
+                fontSize: 14,
+                color: Colors.white.withOpacity(0.8),
+                fontWeight: FontWeight.bold),
+          ),
+          TextField(
+            style: const TextStyle(color: Colors.white),
+            decoration: InputDecoration(
+              labelText: 'Name',
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(15.0),
+                borderSide: const BorderSide(width: 1, color: kDefaultcolor),
               ),
-              TextField(
-                style: const TextStyle(color: Colors.white),
-                decoration: InputDecoration(
-                  labelText: 'Name',
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15.0),
-                    borderSide:
-                        const BorderSide(width: 1, color: kDefaultcolor),
-                  ),
-                  border: InputBorder.none,
-                  labelStyle: TextStyle(color: Colors.white.withOpacity(1)),
-                  filled: true,
-                  fillColor: kcolor3,
-                ),
-                controller: namecontroller,
-                onSubmitted: (_) => _submitData(),
+              border: InputBorder.none,
+              labelStyle: TextStyle(color: Colors.white.withOpacity(1)),
+              filled: true,
+              fillColor: kcolor3,
+            ),
+            controller: namecontroller,
+            onSubmitted: (_) => null,
+          ),
+          const SizedBox(
+            height: 15,
+          ),
+          Text(
+            'Firstname',
+            textAlign: TextAlign.start,
+            style: TextStyle(
+                fontSize: 14,
+                color: Colors.white.withOpacity(0.8),
+                fontWeight: FontWeight.bold),
+          ),
+          TextField(
+            style: const TextStyle(color: Colors.white),
+            decoration: InputDecoration(
+              labelText: 'Firstname',
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(15.0),
+                borderSide: const BorderSide(width: 1, color: kDefaultcolor),
               ),
-              const SizedBox(
-                height: 15,
+              border: InputBorder.none,
+              labelStyle: TextStyle(color: Colors.white.withOpacity(1)),
+              filled: true,
+              fillColor: kcolor3,
+            ),
+            controller: firstnamecontroller,
+            onSubmitted: (_) => null,
+          ),
+          const SizedBox(
+            height: 15,
+          ),
+          Text(
+            'Job',
+            textAlign: TextAlign.start,
+            style: TextStyle(
+                fontSize: 14,
+                color: Colors.white.withOpacity(0.8),
+                fontWeight: FontWeight.bold),
+          ),
+          TextField(
+            style: const TextStyle(color: Colors.white),
+            decoration: InputDecoration(
+              labelText: 'Job',
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(15.0),
+                borderSide: const BorderSide(width: 1, color: kDefaultcolor),
               ),
-              Text(
-                'Firstname',
-                textAlign: TextAlign.start,
-                style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.white.withOpacity(0.8),
-                    fontWeight: FontWeight.bold),
+              border: InputBorder.none,
+              labelStyle: TextStyle(color: Colors.white.withOpacity(1)),
+              filled: true,
+              fillColor: kcolor3,
+            ),
+            controller: jobcontroller,
+            onSubmitted: (_) => null,
+          ),
+          const SizedBox(
+            height: 15,
+          ),
+          Text(
+            'Phone number',
+            textAlign: TextAlign.start,
+            style: TextStyle(
+                fontSize: 14,
+                color: Colors.white.withOpacity(0.8),
+                fontWeight: FontWeight.bold),
+          ),
+          TextField(
+            style: const TextStyle(color: Colors.white),
+            decoration: InputDecoration(
+              labelText: 'Phone number',
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(15.0),
+                borderSide: const BorderSide(width: 1, color: kDefaultcolor),
               ),
-              TextField(
-                style: const TextStyle(color: Colors.white),
-                decoration: InputDecoration(
-                  labelText: 'Firstname',
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15.0),
-                    borderSide:
-                        const BorderSide(width: 1, color: kDefaultcolor),
-                  ),
-                  border: InputBorder.none,
-                  labelStyle: TextStyle(color: Colors.white.withOpacity(1)),
-                  filled: true,
-                  fillColor: kcolor3,
-                ),
-                controller: firstnamecontroller,
-                onSubmitted: (_) => _submitData(),
+              border: InputBorder.none,
+              labelStyle: TextStyle(color: Colors.white.withOpacity(1)),
+              filled: true,
+              fillColor: kcolor3,
+            ),
+            controller: phonenumbercontroller,
+            onSubmitted: (_) => null,
+          ),
+          const SizedBox(
+            height: 15,
+          ),
+          Text(
+            'Email',
+            textAlign: TextAlign.start,
+            style: TextStyle(
+                fontSize: 14,
+                color: Colors.white.withOpacity(0.8),
+                fontWeight: FontWeight.bold),
+          ),
+          TextField(
+            style: const TextStyle(color: Colors.white),
+            decoration: InputDecoration(
+              labelText: 'Email',
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(15.0),
+                borderSide: const BorderSide(width: 1, color: kDefaultcolor),
               ),
-              const SizedBox(
-                height: 15,
-              ),
-              Text(
-                'Job',
-                textAlign: TextAlign.start,
-                style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.white.withOpacity(0.8),
-                    fontWeight: FontWeight.bold),
-              ),
-              TextField(
-                style: const TextStyle(color: Colors.white),
-                decoration: InputDecoration(
-                  labelText: 'Job',
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15.0),
-                    borderSide:
-                        const BorderSide(width: 1, color: kDefaultcolor),
-                  ),
-                  border: InputBorder.none,
-                  labelStyle: TextStyle(color: Colors.white.withOpacity(1)),
-                  filled: true,
-                  fillColor: kcolor3,
-                ),
-                controller: jobcontroller,
-                onSubmitted: (_) => _submitData(),
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              Text(
-                'Phone number',
-                textAlign: TextAlign.start,
-                style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.white.withOpacity(0.8),
-                    fontWeight: FontWeight.bold),
-              ),
-              TextField(
-                style: const TextStyle(color: Colors.white),
-                decoration: InputDecoration(
-                  labelText: 'Phone number',
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15.0),
-                    borderSide:
-                        const BorderSide(width: 1, color: kDefaultcolor),
-                  ),
-                  border: InputBorder.none,
-                  labelStyle: TextStyle(color: Colors.white.withOpacity(1)),
-                  filled: true,
-                  fillColor: kcolor3,
-                ),
-                controller: phonenumbercontroller,
-                onSubmitted: (_) => _submitData(),
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              Text(
-                'Email',
-                textAlign: TextAlign.start,
-                style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.white.withOpacity(0.8),
-                    fontWeight: FontWeight.bold),
-              ),
-              TextField(
-                style: const TextStyle(color: Colors.white),
-                decoration: InputDecoration(
-                  labelText: 'Email',
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15.0),
-                    borderSide:
-                        const BorderSide(width: 1, color: kDefaultcolor),
-                  ),
-                  border: InputBorder.none,
-                  labelStyle: TextStyle(color: Colors.white.withOpacity(1)),
-                  filled: true,
-                  fillColor: kcolor3,
-                ),
-                controller: emailcontroller,
-                onSubmitted: (_) => _submitData(),
-              ),
-            ],
-          );
-        },
+              border: InputBorder.none,
+              labelStyle: TextStyle(color: Colors.white.withOpacity(1)),
+              filled: true,
+              fillColor: kcolor3,
+            ),
+            controller: emailcontroller,
+            onSubmitted: (_) => null,
+          ),
+        ],
       );
     }
 
@@ -265,7 +257,7 @@ class _SettingsProfilePageState extends State<SettingsProfilePage> {
                     fillColor: kcolor3,
                   ),
                   controller: namecontroller,
-                  onSubmitted: (_) => _submitData(),
+                  onSubmitted: (_) => null,
                 ),
                 const SizedBox(
                   height: 15,
@@ -295,7 +287,7 @@ class _SettingsProfilePageState extends State<SettingsProfilePage> {
                     fillColor: kcolor3,
                   ),
                   controller: firstnamecontroller,
-                  onSubmitted: (_) => _submitData(),
+                  onSubmitted: (_) => null,
                 ),
                 const SizedBox(
                   height: 15,
@@ -324,7 +316,7 @@ class _SettingsProfilePageState extends State<SettingsProfilePage> {
                     fillColor: kcolor3,
                   ),
                   controller: jobcontroller,
-                  onSubmitted: (_) => _submitData(),
+                  onSubmitted: (_) => null,
                 ),
                 const SizedBox(
                   height: 15,
@@ -338,24 +330,24 @@ class _SettingsProfilePageState extends State<SettingsProfilePage> {
                       fontWeight: FontWeight.bold),
                 ),
                 TextField(
-                  style: const TextStyle(color: Colors.white),
-                  decoration: InputDecoration(
-                    labelText: settings.phonenumber!.isEmpty
-                        ? 'Phone number'
-                        : settings.phonenumber.toString(),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15.0),
-                      borderSide:
-                          const BorderSide(width: 1, color: kDefaultcolor),
+                    style: const TextStyle(color: Colors.white),
+                    decoration: InputDecoration(
+                      labelText: settings.phonenumber!.isEmpty
+                          ? 'Phone number'
+                          : settings.phonenumber.toString(),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15.0),
+                        borderSide:
+                            const BorderSide(width: 1, color: kDefaultcolor),
+                      ),
+                      border: InputBorder.none,
+                      labelStyle:
+                          TextStyle(color: Colors.white.withOpacity(0.6)),
+                      filled: true,
+                      fillColor: kcolor3,
                     ),
-                    border: InputBorder.none,
-                    labelStyle: TextStyle(color: Colors.white.withOpacity(0.6)),
-                    filled: true,
-                    fillColor: kcolor3,
-                  ),
-                  controller: phonenumbercontroller,
-                  onSubmitted: (_) => _submitData(),
-                ),
+                    controller: phonenumbercontroller,
+                    onSubmitted: (_) => null),
                 const SizedBox(
                   height: 15,
                 ),
@@ -384,7 +376,7 @@ class _SettingsProfilePageState extends State<SettingsProfilePage> {
                     fillColor: kcolor3,
                   ),
                   controller: emailcontroller,
-                  onSubmitted: (_) => _submitData(),
+                  onSubmitted: (_) => null,
                 ),
               ],
             );
@@ -408,89 +400,107 @@ class _SettingsProfilePageState extends State<SettingsProfilePage> {
       automaticallyImplyLeading: false,
       elevation: 0,
       flexibleSpace: SafeArea(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                  backgroundColor: kDefaultcolor, elevation: 0),
-              child: Row(
+        child: ValueListenableBuilder(
+            valueListenable: boxSettings.listenable(),
+            builder: (context, Box<Settings> box, _) {
+              List<Settings> settingsList = box.values.toList().cast();
+              return Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Transform.rotate(
-                    angle: -math.pi / 1,
-                    child: SvgPicture.asset(
-                      'assets/icons/right-thin-chevron-svgrepo-com.svg',
-                      color: Colors.white,
-                      height: 20,
+                children: <Widget>[
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: kDefaultcolor, elevation: 0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Transform.rotate(
+                          angle: -math.pi / 1,
+                          child: SvgPicture.asset(
+                            'assets/icons/right-thin-chevron-svgrepo-com.svg',
+                            color: Colors.white,
+                            height: 20,
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 5,
+                        ),
+                        const Text(
+                          'Settings',
+                          style: TextStyle(color: Colors.white, fontSize: 15),
+                        ),
+                      ],
                     ),
-                  ),
-                  const SizedBox(
-                    width: 5,
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
                   ),
                   const Text(
-                    'Settings',
-                    style: TextStyle(color: Colors.white, fontSize: 15),
+                    'Profile',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                      fontSize: 22,
+                    ),
                   ),
+                  SizedBox(
+                    width: 0,
+                  ),
+                  ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: kDefaultcolor, elevation: 0),
+                      child: Text(
+                        'Done',
+                        style: TextStyle(color: Colors.white, fontSize: 15),
+                      ),
+                      onPressed: (() {
+                        boxSettings.isEmpty
+                            ? _submitData()
+                            : _submitData2(settingsList[0]);
+                        Navigator.pop(context);
+                      }))
                 ],
-              ),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-            const Text(
-              'Profile',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-                fontSize: 22,
-              ),
-            ),
-            SizedBox(
-              width: 0,
-            ),
-            ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                    backgroundColor: kDefaultcolor, elevation: 0),
-                child: Text(
-                  'Done',
-                  style: TextStyle(color: Colors.white, fontSize: 15),
-                ),
-                onPressed: (() {
-                  _submitData();
-                  Navigator.pop(context);
-                }))
-          ],
-        ),
+              );
+            }),
       ),
       backgroundColor: kDefaultcolor,
     );
   }
 
   Widget _saveSettings(Size size) {
-    return Stack(children: <Widget>[
-      Container(
-        width: size.width,
-        height: 80,
-        color: kcolor3,
-      ),
-      SizedBox(
-          height: 58,
-          width: size.width,
-          child: ElevatedButton(
-            style: ElevatedButton.styleFrom(backgroundColor: kcolor2),
-            onPressed: () {
-              _submitData();
-              Navigator.pop(context);
-            },
-            child: const Padding(
-              padding: EdgeInsets.all(20.0),
-              child: Text(
-                'Save Settings',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+    return ValueListenableBuilder(
+      valueListenable: boxSettings.listenable(),
+      builder: (context, Box<Settings> box, _) {
+        List<Settings> settingsList = box.values.toList().cast();
+        return Stack(
+          children: <Widget>[
+            Container(
+              width: size.width,
+              height: 80,
+              color: kcolor3,
+            ),
+            SizedBox(
+              height: 58,
+              width: size.width,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(backgroundColor: kcolor2),
+                onPressed: () {
+                  boxSettings.isEmpty
+                      ? _submitData()
+                      : _submitData2(settingsList[0]);
+                  Navigator.pop(context);
+                },
+                child: const Padding(
+                  padding: EdgeInsets.all(20.0),
+                  child: Text(
+                    'Save Settings',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+                  ),
+                ),
               ),
             ),
-          )),
-    ]);
+          ],
+        );
+      },
+    );
   }
 }

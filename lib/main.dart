@@ -7,13 +7,13 @@ import 'screens/homepage.dart';
 
 //! *****************************************************************************************************************************************************//
 //
-//! changer la license github pour qu'on ne puisse pas prendre mon code pour le commercionaliser
 //* Rendre plus beau la page list-patient
-//* Retirer la function on chnager des text form pour éviter qu'il ne valide tout les info alors qui reste des chose a valider
 //* Ajouter les champ automatique autofocus des texte fields
-//* Suppression des notes patients
-//* Ajouter un pdf Viuwver
+
+
 //* Ajouter la lecture de l'institution sélectionée dans le générateur de pdf
+//* Ajouter la lecture de l'utf8 dans le pdf pour les ''
+//* Ajouter le multi ligne pour la note "https://www.youtube.com/watch?v=0TTtFbpwtJ0"
 //
 //! *****************************************************************************************************************************************************//
 

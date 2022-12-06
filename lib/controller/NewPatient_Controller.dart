@@ -61,8 +61,9 @@ class _NewPatientControllerState extends State<NewPatientController> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: _appBar(),
-      body: _buildFormBoxEmpty(),
+      body: _buildForm(),
       bottomNavigationBar: _saveSettings(size),
     );
   }
@@ -109,142 +110,148 @@ class _NewPatientControllerState extends State<NewPatientController> {
     );
   }
 
-  Column _buildFormBoxEmpty() {
-    return Column(
-      children: <Widget>[
-        Text(
-          'Name',
-          textAlign: TextAlign.start,
-          style: TextStyle(
-              fontSize: 14,
-              color: Colors.white.withOpacity(0.8),
-              fontWeight: FontWeight.bold),
-        ),
-        TextField(
-          style: const TextStyle(color: Colors.white),
-          decoration: InputDecoration(
-            labelText: 'Name',
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(15.0),
-              borderSide: const BorderSide(width: 1, color: kDefaultcolor),
-            ),
-            border: InputBorder.none,
-            labelStyle: TextStyle(color: Colors.white.withOpacity(1)),
-            filled: true,
-            fillColor: kcolor3,
+  SingleChildScrollView _buildForm() {
+    return SingleChildScrollView(
+      reverse: true,
+      child: Column(
+        children: <Widget>[
+          Text(
+            'Name',
+            textAlign: TextAlign.start,
+            style: TextStyle(
+                fontSize: 14,
+                color: Colors.white.withOpacity(0.8),
+                fontWeight: FontWeight.bold),
           ),
-          controller: namecontroller,
-          onSubmitted: (_) => _submitData(),
-        ),
-        const SizedBox(
-          height: 15,
-        ),
-        Text(
-          'Firstname',
-          textAlign: TextAlign.start,
-          style: TextStyle(
-              fontSize: 14,
-              color: Colors.white.withOpacity(0.8),
-              fontWeight: FontWeight.bold),
-        ),
-        TextField(
-          style: const TextStyle(color: Colors.white),
-          decoration: InputDecoration(
-            labelText: 'Firstname',
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(15.0),
-              borderSide: const BorderSide(width: 1, color: kDefaultcolor),
+          TextField(
+            style: const TextStyle(color: Colors.white),
+            decoration: InputDecoration(
+              labelText: 'Name',
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(15.0),
+                borderSide: const BorderSide(width: 1, color: kDefaultcolor),
+              ),
+              border: InputBorder.none,
+              labelStyle: TextStyle(color: Colors.white.withOpacity(1)),
+              filled: true,
+              fillColor: kcolor3,
             ),
-            border: InputBorder.none,
-            labelStyle: TextStyle(color: Colors.white.withOpacity(1)),
-            filled: true,
-            fillColor: kcolor3,
+            controller: namecontroller,
+            onSubmitted: (_) => _submitData(),
           ),
-          controller: firstnamecontroller,
-          onSubmitted: (_) => _submitData(),
-        ),
-        const SizedBox(
-          height: 15,
-        ),
-        Text(
-          'Date Of Birth',
-          textAlign: TextAlign.start,
-          style: TextStyle(
-              fontSize: 14,
-              color: Colors.white.withOpacity(0.8),
-              fontWeight: FontWeight.bold),
-        ),
-        TextField(
-          style: const TextStyle(color: Colors.white),
-          decoration: InputDecoration(
-            labelText: 'Date Of Birth',
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(15.0),
-              borderSide: const BorderSide(width: 1, color: kDefaultcolor),
+          const SizedBox(
+            height: 15,
+          ),
+          Text(
+            'Firstname',
+            textAlign: TextAlign.start,
+            style: TextStyle(
+                fontSize: 14,
+                color: Colors.white.withOpacity(0.8),
+                fontWeight: FontWeight.bold),
+          ),
+          TextField(
+            style: const TextStyle(color: Colors.white),
+            decoration: InputDecoration(
+              labelText: 'Firstname',
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(15.0),
+                borderSide: const BorderSide(width: 1, color: kDefaultcolor),
+              ),
+              border: InputBorder.none,
+              labelStyle: TextStyle(color: Colors.white.withOpacity(1)),
+              filled: true,
+              fillColor: kcolor3,
             ),
-            border: InputBorder.none,
-            labelStyle: TextStyle(color: Colors.white.withOpacity(1)),
-            filled: true,
-            fillColor: kcolor3,
+            controller: firstnamecontroller,
+            onSubmitted: (_) => _submitData(),
           ),
-          controller: dateofbirthcontroller,
-          onSubmitted: (_) => _submitData(),
-        ),
-        const SizedBox(
-          height: 15,
-        ),
-        Text(
-          'Email',
-          textAlign: TextAlign.start,
-          style: TextStyle(
-              fontSize: 14,
-              color: Colors.white.withOpacity(0.8),
-              fontWeight: FontWeight.bold),
-        ),
-        TextField(
-          style: const TextStyle(color: Colors.white),
-          decoration: InputDecoration(
-            labelText: 'Email',
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(15.0),
-              borderSide: const BorderSide(width: 1, color: kDefaultcolor),
+          const SizedBox(
+            height: 15,
+          ),
+          Text(
+            'Date Of Birth',
+            textAlign: TextAlign.start,
+            style: TextStyle(
+                fontSize: 14,
+                color: Colors.white.withOpacity(0.8),
+                fontWeight: FontWeight.bold),
+          ),
+          TextField(
+            style: const TextStyle(color: Colors.white),
+            decoration: InputDecoration(
+              labelText: 'Date Of Birth',
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(15.0),
+                borderSide: const BorderSide(width: 1, color: kDefaultcolor),
+              ),
+              border: InputBorder.none,
+              labelStyle: TextStyle(color: Colors.white.withOpacity(1)),
+              filled: true,
+              fillColor: kcolor3,
             ),
-            border: InputBorder.none,
-            labelStyle: TextStyle(color: Colors.white.withOpacity(1)),
-            filled: true,
-            fillColor: kcolor3,
+            controller: dateofbirthcontroller,
+            onSubmitted: (_) => _submitData(),
           ),
-          controller: emailcontroller,
-          onSubmitted: (_) => _submitData(),
-        ),
-        const SizedBox(
-          height: 15,
-        ),
-        Text(
-          'Phone number',
-          textAlign: TextAlign.start,
-          style: TextStyle(
-              fontSize: 14,
-              color: Colors.white.withOpacity(0.8),
-              fontWeight: FontWeight.bold),
-        ),
-        TextField(
-          style: const TextStyle(color: Colors.white),
-          decoration: InputDecoration(
-            labelText: 'Phone number',
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(15.0),
-              borderSide: const BorderSide(width: 1, color: kDefaultcolor),
+          const SizedBox(
+            height: 15,
+          ),
+          Text(
+            'Email',
+            textAlign: TextAlign.start,
+            style: TextStyle(
+                fontSize: 14,
+                color: Colors.white.withOpacity(0.8),
+                fontWeight: FontWeight.bold),
+          ),
+          TextField(
+            style: const TextStyle(color: Colors.white),
+            decoration: InputDecoration(
+              labelText: 'Email',
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(15.0),
+                borderSide: const BorderSide(width: 1, color: kDefaultcolor),
+              ),
+              border: InputBorder.none,
+              labelStyle: TextStyle(color: Colors.white.withOpacity(1)),
+              filled: true,
+              fillColor: kcolor3,
             ),
-            border: InputBorder.none,
-            labelStyle: TextStyle(color: Colors.white.withOpacity(1)),
-            filled: true,
-            fillColor: kcolor3,
+            controller: emailcontroller,
+            onSubmitted: (_) => _submitData(),
           ),
-          controller: phonenumbercontroller,
-          onSubmitted: (_) => _submitData(),
-        ),
-      ],
+          const SizedBox(
+            height: 15,
+          ),
+          Text(
+            'Phone number',
+            textAlign: TextAlign.start,
+            style: TextStyle(
+                fontSize: 14,
+                color: Colors.white.withOpacity(0.8),
+                fontWeight: FontWeight.bold),
+          ),
+          TextField(
+            style: const TextStyle(color: Colors.white),
+            decoration: InputDecoration(
+              labelText: 'Phone number',
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(15.0),
+                borderSide: const BorderSide(width: 1, color: kDefaultcolor),
+              ),
+              border: InputBorder.none,
+              labelStyle: TextStyle(color: Colors.white.withOpacity(1)),
+              filled: true,
+              fillColor: kcolor3,
+            ),
+            controller: phonenumbercontroller,
+            onSubmitted: (_) => _submitData(),
+          ),
+          Padding(
+              padding: EdgeInsets.only(
+                  bottom: MediaQuery.of(context).viewInsets.bottom))
+        ],
+      ),
     );
   }
 

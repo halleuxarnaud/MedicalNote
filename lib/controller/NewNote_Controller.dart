@@ -5,10 +5,8 @@ import 'package:medicalnote/component/component.dart';
 import 'package:medicalnote/models/listpatient.dart';
 
 class NewNoteController extends StatefulWidget {
-  final Patients patients;
   final int index;
-  const NewNoteController(this.patients, this.index, {Key? key})
-      : super(key: key);
+  const NewNoteController(this.index, {Key? key}) : super(key: key);
 
   @override
   State<NewNoteController> createState() => _NewNoteControllerState();
@@ -28,78 +26,85 @@ class _NewNoteControllerState extends State<NewNoteController> {
   TextEditingController notecontroller = TextEditingController();
   TextEditingController conclusioncontroller = TextEditingController();
 
-  void _submitData() {
+  void _submitData(Patients patients) {
     final newNOTE = Patients(
-        name: widget.patients.name,
-        firstname: widget.patients.firstname,
-        dateofbirth: widget.patients.dateofbirth,
-        email: widget.patients.email,
-        phonenumber: widget.patients.phonenumber,
-        date: widget.patients.date,
-        id: widget.patients.id,
+        name: patients.name,
+        firstname: patients.firstname,
+        dateofbirth: patients.dateofbirth,
+        email: patients.email,
+        phonenumber: patients.phonenumber,
+        date: patients.date,
+        id: patients.id,
         listOfNotes: [
-          ...?widget.patients.listOfNotes,
+          ...?patients.listOfNotes,
           ListNote(
               title: titlecontroller.text,
               note: notecontroller.text,
               conclusion: conclusioncontroller.text)
         ]);
     boxPatient.put(widget.index, newNOTE);
-    Navigator.pop(context);
   }
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: _appBar(),
+      appBar: _appBar(widget.index),
       body: _buildForm(),
-      bottomNavigationBar: _saveNewNote(size),
+      bottomNavigationBar: _saveNewNote(size, widget.index),
     );
   }
 
-  AppBar _appBar() {
+  AppBar _appBar(int index) {
     return AppBar(
       automaticallyImplyLeading: false,
       elevation: 0,
       flexibleSpace: SafeArea(
-        child: Stack(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                const Text(
-                  'New Note',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                    fontSize: 22,
+        child: ValueListenableBuilder(
+            valueListenable: boxPatient.listenable(),
+            builder: (context, Box<Patients> box, _) {
+              List<Patients> patientList = box.values.toList().cast();
+              Patients patients = patientList[index];
+              return Stack(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      const Text(
+                        'New Note',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                          fontSize: 22,
+                        ),
+                      ),
+                    ],
                   ),
-                ),
-              ],
-            ),
-            Positioned(
-              bottom: -12,
-              right: 6,
-              child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: kDefaultcolor, elevation: 0),
-                  child: Text(
-                    'Done',
-                    style: TextStyle(color: Colors.white, fontSize: 15),
-                  ),
-                  onPressed: (() {
-                    _submitData();
-                  })),
-            )
-          ],
-        ),
+                  Positioned(
+                    bottom: -12,
+                    right: 6,
+                    child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: kDefaultcolor, elevation: 0),
+                        child: Text(
+                          'Done',
+                          style: TextStyle(color: Colors.white, fontSize: 15),
+                        ),
+                        onPressed: (() {
+                          _submitData(patients);
+                          Navigator.pop(context);
+                        })),
+                  )
+                ],
+              );
+            }),
       ),
       backgroundColor: kDefaultcolor,
     );
   }
 
   Column _buildForm() {
+    //*Forcer le utf8 pour les apostrofe
     return Column(
       children: <Widget>[
         Text(
@@ -124,7 +129,7 @@ class _NewNoteControllerState extends State<NewNoteController> {
             fillColor: kcolor3,
           ),
           controller: titlecontroller,
-          onSubmitted: (_) => _submitData(),
+          onSubmitted: (_) => null,
         ),
         const SizedBox(
           height: 15,
@@ -151,7 +156,7 @@ class _NewNoteControllerState extends State<NewNoteController> {
             fillColor: kcolor3,
           ),
           controller: notecontroller,
-          onSubmitted: (_) => _submitData(),
+          onSubmitted: (_) => null,
         ),
         const SizedBox(
           height: 15,
@@ -178,35 +183,43 @@ class _NewNoteControllerState extends State<NewNoteController> {
             fillColor: kcolor3,
           ),
           controller: conclusioncontroller,
-          onSubmitted: (_) => _submitData(),
+          onSubmitted: (_) => null,
         ),
       ],
     );
   }
 
-  Widget _saveNewNote(Size size) {
-    return Stack(children: <Widget>[
-      Container(
-        width: size.width,
-        height: 80,
-        color: kcolor3,
-      ),
-      SizedBox(
-          height: 58,
-          width: size.width,
-          child: ElevatedButton(
-            style: ElevatedButton.styleFrom(backgroundColor: kcolor2),
-            onPressed: () {
-              _submitData();
-            },
-            child: const Padding(
-              padding: EdgeInsets.all(20.0),
-              child: Text(
-                'Save Note',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
-              ),
+  Widget _saveNewNote(Size size, int index) {
+    return ValueListenableBuilder(
+        valueListenable: boxPatient.listenable(),
+        builder: (context, Box<Patients> box, _) {
+          List<Patients> patientList = box.values.toList().cast();
+          Patients patients = patientList[index];
+          return Stack(children: <Widget>[
+            Container(
+              width: size.width,
+              height: 80,
+              color: kcolor3,
             ),
-          )),
-    ]);
+            SizedBox(
+                height: 58,
+                width: size.width,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(backgroundColor: kcolor2),
+                  onPressed: () {
+                    _submitData(patients);
+                    Navigator.pop(context);
+                  },
+                  child: const Padding(
+                    padding: EdgeInsets.all(20.0),
+                    child: Text(
+                      'Save Note',
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+                    ),
+                  ),
+                )),
+          ]);
+        });
   }
 }
