@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:medicalnote/controller/Settings_Institution_Controller.dart';
 import 'package:medicalnote/models/listpatient.dart';
 import 'package:medicalnote/screens/faq_page.dart';
 import 'package:medicalnote/controller/Settings_Profile_Controller.dart';
@@ -155,52 +154,6 @@ class _SettingsState extends State<SettingsPage> {
             ),
             const Divider(
               height: 2,
-            ),
-            Container(
-              height: 50,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(backgroundColor: kcolor3),
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) =>
-                              const SettingsInstitutionController()));
-                },
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 15, right: 10),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Row(
-                        children: <Widget>[
-                          SvgPicture.asset(
-                            'assets/icons/settings.svg',
-                            height: 25,
-                            color: Colors.white,
-                          ),
-                          const SizedBox(
-                            width: 13,
-                          ),
-                          const Text(
-                            'Institution',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16,
-                            ),
-                          ),
-                        ],
-                      ),
-                      SvgPicture.asset(
-                        'assets/icons/right-thin-chevron-svgrepo-com.svg',
-                        color: Colors.white,
-                        height: 18,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
             ),
             const Padding(
               padding: EdgeInsets.only(left: 15, top: 25),

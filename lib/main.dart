@@ -7,11 +7,7 @@ import 'screens/homepage.dart';
 
 //! *****************************************************************************************************************************************************//
 //
-//* Rendre plus beau la page list-patient
 //* Ajouter les champ automatique autofocus des texte fields
-
-
-//* Ajouter la lecture de l'institution sélectionée dans le générateur de pdf
 //* Ajouter la lecture de l'utf8 dans le pdf pour les ''
 //* Ajouter le multi ligne pour la note "https://www.youtube.com/watch?v=0TTtFbpwtJ0"
 //
@@ -20,7 +16,6 @@ import 'screens/homepage.dart';
 void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(SettingsAdapter());
-  Hive.registerAdapter(ListInstitutionAdapter());
   Hive.registerAdapter(PatientsAdapter());
   Hive.registerAdapter(ListNoteAdapter());
   await Hive.openBox<Settings>('Settings');
