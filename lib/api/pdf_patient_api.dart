@@ -98,7 +98,7 @@ class PdfPatientApi {
         children: [
           Divider(),
           Text(
-            settings.name.toString() + settings.firstname.toString(),
+            settings.firstname.toString() + ' ' + settings.name.toString(),
             style: const TextStyle(fontSize: 11),
           ),
           SizedBox(height: 1 * PdfPageFormat.mm),
@@ -109,7 +109,7 @@ class PdfPatientApi {
               style: const TextStyle(fontSize: 9)),
           SizedBox(height: 2 * PdfPageFormat.mm),
           Text(
-            'Automatisation a faire apres settings',
+            'Instution: ',
             style: const TextStyle(
                 decoration: TextDecoration.underline, fontSize: 9),
           ),

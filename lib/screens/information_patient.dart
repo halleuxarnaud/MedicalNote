@@ -26,22 +26,6 @@ class _InformationPatientState extends State<InformationPatient> {
   late Box<Settings> boxSettings;
   late Box<Patients> boxPatient;
 
-  Future showBottomInstitution() {
-    return showModalBottomSheet(
-        context: context,
-        useRootNavigator: true,
-        builder: ((context) {
-          return Container(
-              height: 110,
-              child: SingleChildScrollView(
-                  child: Column(
-                children: [Text('data')],
-              )));
-        }));
-  }
-
-  
-
   @override
   void initState() {
     // TODO: implement initState
@@ -142,10 +126,9 @@ class _InformationPatientState extends State<InformationPatient> {
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(backgroundColor: kcolor2),
                     onPressed: () async {
-                      await showBottomInstitution();
-                      // final pdfFile =
-                      //  await PdfPatientApi.generate(patients, settings);
-                      //PdfApi.openFile(pdfFile);
+                      final pdfFile =
+                          await PdfPatientApi.generate(patients, settings);
+                      PdfApi.openFile(pdfFile);
                     },
                     child: Padding(
                         padding: EdgeInsets.all(20.0),
