@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:medicalnote/models/listpatient.dart';
+import 'package:medicalnote/models/listsettings.dart';
 
 import '../component/component.dart';
 
@@ -20,6 +21,7 @@ class _NewPatientControllerState extends State<NewPatientController> {
   }
 
   late Box<Patients> boxPatient;
+  late Box<Settings> settings;
 
   TextEditingController namecontroller = TextEditingController();
   TextEditingController firstnamecontroller = TextEditingController();
@@ -64,7 +66,7 @@ class _NewPatientControllerState extends State<NewPatientController> {
       resizeToAvoidBottomInset: false,
       appBar: _appBar(),
       body: _buildForm(),
-      bottomNavigationBar: _saveSettings(size),
+      bottomNavigationBar: _savePatients(size),
     );
   }
 
@@ -124,21 +126,24 @@ class _NewPatientControllerState extends State<NewPatientController> {
                 fontWeight: FontWeight.bold),
           ),
           TextField(
-            style: const TextStyle(color: Colors.white),
-            decoration: InputDecoration(
-              labelText: 'Name',
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(15.0),
-                borderSide: const BorderSide(width: 1, color: kDefaultcolor),
+              style: const TextStyle(color: Colors.white),
+              keyboardType: TextInputType.name,
+              decoration: InputDecoration(
+                labelText: 'Name',
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15.0),
+                  borderSide: const BorderSide(width: 1, color: kDefaultcolor),
+                ),
+                border: InputBorder.none,
+                labelStyle: TextStyle(color: Colors.white.withOpacity(1)),
+                filled: true,
+                fillColor: kcolor3,
               ),
-              border: InputBorder.none,
-              labelStyle: TextStyle(color: Colors.white.withOpacity(1)),
-              filled: true,
-              fillColor: kcolor3,
-            ),
-            controller: namecontroller,
-            onSubmitted: (_) => _submitData(),
-          ),
+              controller: namecontroller,
+              onSubmitted: (_) => {
+                    _submitData(),
+                    Navigator.pop(context),
+                  }),
           const SizedBox(
             height: 15,
           ),
@@ -152,6 +157,7 @@ class _NewPatientControllerState extends State<NewPatientController> {
           ),
           TextField(
             style: const TextStyle(color: Colors.white),
+            keyboardType: TextInputType.name,
             decoration: InputDecoration(
               labelText: 'Firstname',
               enabledBorder: OutlineInputBorder(
@@ -164,7 +170,10 @@ class _NewPatientControllerState extends State<NewPatientController> {
               fillColor: kcolor3,
             ),
             controller: firstnamecontroller,
-            onSubmitted: (_) => _submitData(),
+            onSubmitted: (_) => {
+              _submitData(),
+              Navigator.pop(context),
+            },
           ),
           const SizedBox(
             height: 15,
@@ -178,21 +187,24 @@ class _NewPatientControllerState extends State<NewPatientController> {
                 fontWeight: FontWeight.bold),
           ),
           TextField(
-            style: const TextStyle(color: Colors.white),
-            decoration: InputDecoration(
-              labelText: 'Date Of Birth',
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(15.0),
-                borderSide: const BorderSide(width: 1, color: kDefaultcolor),
+              style: const TextStyle(color: Colors.white),
+              keyboardType: TextInputType.datetime,
+              decoration: InputDecoration(
+                labelText: 'Date Of Birth',
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15.0),
+                  borderSide: const BorderSide(width: 1, color: kDefaultcolor),
+                ),
+                border: InputBorder.none,
+                labelStyle: TextStyle(color: Colors.white.withOpacity(1)),
+                filled: true,
+                fillColor: kcolor3,
               ),
-              border: InputBorder.none,
-              labelStyle: TextStyle(color: Colors.white.withOpacity(1)),
-              filled: true,
-              fillColor: kcolor3,
-            ),
-            controller: dateofbirthcontroller,
-            onSubmitted: (_) => _submitData(),
-          ),
+              controller: dateofbirthcontroller,
+              onSubmitted: (_) => {
+                    _submitData(),
+                    Navigator.pop(context),
+                  }),
           const SizedBox(
             height: 15,
           ),
@@ -205,21 +217,24 @@ class _NewPatientControllerState extends State<NewPatientController> {
                 fontWeight: FontWeight.bold),
           ),
           TextField(
-            style: const TextStyle(color: Colors.white),
-            decoration: InputDecoration(
-              labelText: 'Email',
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(15.0),
-                borderSide: const BorderSide(width: 1, color: kDefaultcolor),
+              style: const TextStyle(color: Colors.white),
+              keyboardType: TextInputType.emailAddress,
+              decoration: InputDecoration(
+                labelText: 'Email',
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15.0),
+                  borderSide: const BorderSide(width: 1, color: kDefaultcolor),
+                ),
+                border: InputBorder.none,
+                labelStyle: TextStyle(color: Colors.white.withOpacity(1)),
+                filled: true,
+                fillColor: kcolor3,
               ),
-              border: InputBorder.none,
-              labelStyle: TextStyle(color: Colors.white.withOpacity(1)),
-              filled: true,
-              fillColor: kcolor3,
-            ),
-            controller: emailcontroller,
-            onSubmitted: (_) => _submitData(),
-          ),
+              controller: emailcontroller,
+              onSubmitted: (_) => {
+                    _submitData(),
+                    Navigator.pop(context),
+                  }),
           const SizedBox(
             height: 15,
           ),
@@ -232,21 +247,24 @@ class _NewPatientControllerState extends State<NewPatientController> {
                 fontWeight: FontWeight.bold),
           ),
           TextField(
-            style: const TextStyle(color: Colors.white),
-            decoration: InputDecoration(
-              labelText: 'Phone number',
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(15.0),
-                borderSide: const BorderSide(width: 1, color: kDefaultcolor),
+              style: const TextStyle(color: Colors.white),
+              keyboardType: TextInputType.number,
+              decoration: InputDecoration(
+                labelText: 'Phone number',
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15.0),
+                  borderSide: const BorderSide(width: 1, color: kDefaultcolor),
+                ),
+                border: InputBorder.none,
+                labelStyle: TextStyle(color: Colors.white.withOpacity(1)),
+                filled: true,
+                fillColor: kcolor3,
               ),
-              border: InputBorder.none,
-              labelStyle: TextStyle(color: Colors.white.withOpacity(1)),
-              filled: true,
-              fillColor: kcolor3,
-            ),
-            controller: phonenumbercontroller,
-            onSubmitted: (_) => _submitData(),
-          ),
+              controller: phonenumbercontroller,
+              onSubmitted: (_) => {
+                    _submitData(),
+                    Navigator.pop(context),
+                  }),
           Padding(
               padding: EdgeInsets.only(
                   bottom: MediaQuery.of(context).viewInsets.bottom))
@@ -255,7 +273,7 @@ class _NewPatientControllerState extends State<NewPatientController> {
     );
   }
 
-  Widget _saveSettings(Size size) {
+  Widget _savePatients(Size size) {
     return Stack(children: <Widget>[
       Container(
         width: size.width,
@@ -267,10 +285,10 @@ class _NewPatientControllerState extends State<NewPatientController> {
           width: size.width,
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(backgroundColor: kcolor2),
-            onPressed: () {
+            onPressed: (() {
               _submitData();
               Navigator.pop(context);
-            },
+            }),
             child: const Padding(
               padding: EdgeInsets.all(20.0),
               child: Text(

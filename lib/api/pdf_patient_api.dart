@@ -109,7 +109,7 @@ class PdfPatientApi {
               style: const TextStyle(fontSize: 9)),
           SizedBox(height: 2 * PdfPageFormat.mm),
           Text(
-            'Instution: ',
+            'Institution:',
             style: const TextStyle(
                 decoration: TextDecoration.underline, fontSize: 9),
           ),

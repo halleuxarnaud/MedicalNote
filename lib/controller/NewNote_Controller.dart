@@ -27,6 +27,7 @@ class _NewNoteControllerState extends State<NewNoteController> {
   TextEditingController conclusioncontroller = TextEditingController();
 
   void _submitData(Patients patients) {
+    if (titlecontroller.text.isEmpty || notecontroller.text.isEmpty) return;
     final newNOTE = Patients(
         name: patients.name,
         firstname: patients.firstname,

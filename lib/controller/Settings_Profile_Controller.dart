@@ -44,7 +44,7 @@ class _SettingsProfilePageState extends State<SettingsProfilePage> {
       email: enteredemail,
     );
 
-    boxSettings.add(firstSettings);
+    boxSettings.putAt(0, firstSettings);
     Navigator.pop(context);
   }
 
@@ -98,6 +98,7 @@ class _SettingsProfilePageState extends State<SettingsProfilePage> {
           ),
           TextField(
             style: const TextStyle(color: Colors.white),
+            keyboardType: TextInputType.name,
             decoration: InputDecoration(
               labelText: 'Name',
               enabledBorder: OutlineInputBorder(
@@ -125,6 +126,7 @@ class _SettingsProfilePageState extends State<SettingsProfilePage> {
           ),
           TextField(
             style: const TextStyle(color: Colors.white),
+            keyboardType: TextInputType.name,
             decoration: InputDecoration(
               labelText: 'Firstname',
               enabledBorder: OutlineInputBorder(
@@ -152,6 +154,7 @@ class _SettingsProfilePageState extends State<SettingsProfilePage> {
           ),
           TextField(
             style: const TextStyle(color: Colors.white),
+            keyboardType: TextInputType.name,
             decoration: InputDecoration(
               labelText: 'Job',
               enabledBorder: OutlineInputBorder(
@@ -179,6 +182,7 @@ class _SettingsProfilePageState extends State<SettingsProfilePage> {
           ),
           TextField(
             style: const TextStyle(color: Colors.white),
+            keyboardType: TextInputType.number,
             decoration: InputDecoration(
               labelText: 'Phone number',
               enabledBorder: OutlineInputBorder(
@@ -206,6 +210,7 @@ class _SettingsProfilePageState extends State<SettingsProfilePage> {
           ),
           TextField(
             style: const TextStyle(color: Colors.white),
+            keyboardType: TextInputType.emailAddress,
             decoration: InputDecoration(
               labelText: 'Email',
               enabledBorder: OutlineInputBorder(

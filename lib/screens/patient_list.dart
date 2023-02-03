@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:medicalnote/controller/NewPatient_Controller.dart';
+import 'package:medicalnote/models/listsettings.dart';
 import '../component/component.dart';
 import '../models/listpatient.dart';
 import 'information_patient.dart';
@@ -14,11 +15,13 @@ class PatientList extends StatefulWidget {
 
 class _PatientListState extends State<PatientList> {
   late Box<Patients> boxPatient;
+  late Box<Settings> settings;
 
   @override
   void initState() {
     super.initState();
     boxPatient = Hive.box('Patient');
+    settings = Hive.box('Settings');
   }
 
   void _deleteitem(
@@ -72,20 +75,19 @@ class _PatientListState extends State<PatientList> {
                         ),
                       ),
                       IconButton(
-                        icon: SvgPicture.asset(
-                          'assets/icons/person add.svg',
-                          color: Colors.white,
-                          height: 29,
-                          width: 29,
-                        ),
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: ((context) =>
-                                      NewPatientController())));
-                        },
-                      ),
+                          icon: SvgPicture.asset(
+                            'assets/icons/person add.svg',
+                            color: Colors.white,
+                            height: 29,
+                            width: 29,
+                          ),
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: ((context) =>
+                                        NewPatientController())));
+                          }),
                     ],
                   ),
                 ),
@@ -112,11 +114,28 @@ class _PatientListState extends State<PatientList> {
                         ),
                         child: GestureDetector(
                           onTap: (() {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => InformationPatient(
-                                        patientList[index], index)));
+                            if (settings.isEmpty) {
+                              print('Remplissage');
+                              final allSettings = Settings(
+                                name: 'Name',
+                                firstname: 'Firstname',
+                                job: 'job',
+                                phonenumber: 'phonenumber',
+                                email: 'email',
+                              );
+                              settings.add(allSettings);
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => InformationPatient(
+                                          patientList[index], index)));
+                            } else {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => InformationPatient(
+                                          patientList[index], index)));
+                            }
                           }),
                           child: Card(
                             child: Row(
