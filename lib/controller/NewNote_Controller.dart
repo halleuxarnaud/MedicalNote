@@ -105,7 +105,6 @@ class _NewNoteControllerState extends State<NewNoteController> {
   }
 
   Column _buildForm() {
-    //*Forcer le utf8 pour les apostrofe
     return Column(
       children: <Widget>[
         Text(
@@ -145,6 +144,9 @@ class _NewNoteControllerState extends State<NewNoteController> {
         ),
         TextField(
           style: const TextStyle(color: Colors.white),
+          minLines: 2,
+          maxLines: 5,
+          keyboardType: TextInputType.multiline,
           decoration: InputDecoration(
             labelText: 'Note',
             enabledBorder: OutlineInputBorder(

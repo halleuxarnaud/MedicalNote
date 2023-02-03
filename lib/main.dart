@@ -5,14 +5,6 @@ import 'models/listpatient.dart';
 import 'models/listsettings.dart';
 import 'screens/homepage.dart';
 
-//! *****************************************************************************************************************************************************//
-//
-//* Ajouter les champ automatique autofocus des texte fields
-//* Ajouter la lecture de l'utf8 dans le pdf pour les ''
-//* Ajouter le multi ligne pour la note "https://www.youtube.com/watch?v=0TTtFbpwtJ0"
-//
-//! *****************************************************************************************************************************************************//
-
 void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(SettingsAdapter());
@@ -37,7 +29,7 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       title: 'MedicalNote',
       theme: ThemeData(scaffoldBackgroundColor: kDefaultcolor),
-      home: HomePage(),
+      home: const HomePage(),
     );
   }
 }
