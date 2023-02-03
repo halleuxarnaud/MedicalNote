@@ -10,6 +10,7 @@ import 'screens/homepage.dart';
 //* Ajouter les champ automatique autofocus des texte fields
 //* Ajouter la lecture de l'utf8 dans le pdf pour les ''
 //* Ajouter le multi ligne pour la note "https://www.youtube.com/watch?v=0TTtFbpwtJ0"
+//* Modifier les champ newpatient avec les option de texte
 //
 //! *****************************************************************************************************************************************************//
 
