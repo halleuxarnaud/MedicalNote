@@ -1,4 +1,0 @@
-io/flutter/url_launcher_web/UrlLauncherWebPlugin.java
- io.flutter.url_launcher_web.UrlLauncherWebPlugin
-io/flutter/url_launcher_web/BuildConfig.java
- io.flutter.url_launcher_web.BuildConfig
