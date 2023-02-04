@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_svg/svg.dart';
 import 'dart:math' as math;
 
@@ -41,10 +38,10 @@ class _FAQPageState extends State<FAQPage> {
                       height: 20,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 5,
                   ),
-                  Text(
+                  const Text(
                     'Settings',
                     style: TextStyle(color: Colors.white, fontSize: 15),
                   ),
@@ -54,15 +51,15 @@ class _FAQPageState extends State<FAQPage> {
                 Navigator.of(context).pop();
               },
             ),
-            Text(
+            const Text(
               'FAQ',
-              style: const TextStyle(
+              style:  TextStyle(
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
                 fontSize: 22,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               width: 120,
             ),
           ],

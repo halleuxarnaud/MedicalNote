@@ -41,7 +41,6 @@ class _NewPatientControllerState extends State<NewPatientController> {
         entereddateofbirth.isEmpty ||
         enteredemail.isEmpty ||
         enteredphonenumber.isEmpty) {
-      print('No input');
       return;
     }
 
@@ -57,6 +56,7 @@ class _NewPatientControllerState extends State<NewPatientController> {
       //listOfNotes: [],
     );
     boxPatient.add(newPT);
+    Navigator.pop(context);
   }
 
   @override
@@ -79,8 +79,8 @@ class _NewPatientControllerState extends State<NewPatientController> {
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                const Text(
+              children: const <Widget>[
+                Text(
                   'New Patient',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
@@ -96,13 +96,12 @@ class _NewPatientControllerState extends State<NewPatientController> {
               child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                       backgroundColor: kDefaultcolor, elevation: 0),
-                  child: Text(
+                  child: const Text(
                     'Done',
                     style: TextStyle(color: Colors.white, fontSize: 15),
                   ),
                   onPressed: (() {
                     _submitData();
-                    Navigator.pop(context);
                   })),
             )
           ],
@@ -142,7 +141,6 @@ class _NewPatientControllerState extends State<NewPatientController> {
               controller: namecontroller,
               onSubmitted: (_) => {
                     _submitData(),
-                    Navigator.pop(context),
                   }),
           const SizedBox(
             height: 15,
@@ -172,7 +170,6 @@ class _NewPatientControllerState extends State<NewPatientController> {
             controller: firstnamecontroller,
             onSubmitted: (_) => {
               _submitData(),
-              Navigator.pop(context),
             },
           ),
           const SizedBox(
@@ -203,7 +200,6 @@ class _NewPatientControllerState extends State<NewPatientController> {
               controller: dateofbirthcontroller,
               onSubmitted: (_) => {
                     _submitData(),
-                    Navigator.pop(context),
                   }),
           const SizedBox(
             height: 15,
@@ -233,7 +229,6 @@ class _NewPatientControllerState extends State<NewPatientController> {
               controller: emailcontroller,
               onSubmitted: (_) => {
                     _submitData(),
-                    Navigator.pop(context),
                   }),
           const SizedBox(
             height: 15,
@@ -263,7 +258,6 @@ class _NewPatientControllerState extends State<NewPatientController> {
               controller: phonenumbercontroller,
               onSubmitted: (_) => {
                     _submitData(),
-                    Navigator.pop(context),
                   }),
           Padding(
               padding: EdgeInsets.only(

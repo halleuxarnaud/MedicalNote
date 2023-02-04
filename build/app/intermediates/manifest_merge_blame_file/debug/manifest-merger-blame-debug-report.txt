@@ -1,0 +1,105 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.MedicalNote"
+4    android:versionCode="1"
+5    android:versionName="1.0.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="16"
+9        android:targetSdkVersion="33" />
+10    <!--
+11         Flutter needs it to communicate with the running application
+12         to allow setting breakpoints, to provide hot reload, etc.
+13    -->
+14    <uses-permission android:name="android.permission.INTERNET" />
+14-->C:\Users\Arnaud Halleux\Desktop\GITHUB\MedicalNote\android\app\src\debug\AndroidManifest.xml:6:5-66
+14-->C:\Users\Arnaud Halleux\Desktop\GITHUB\MedicalNote\android\app\src\debug\AndroidManifest.xml:6:22-64
+15    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+15-->[:open_file] C:\Users\Arnaud Halleux\Desktop\GITHUB\MedicalNote\build\open_file\intermediates\library_manifest\debug\AndroidManifest.xml:8:5-83
+15-->[:open_file] C:\Users\Arnaud Halleux\Desktop\GITHUB\MedicalNote\build\open_file\intermediates\library_manifest\debug\AndroidManifest.xml:8:22-80
+16    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+16-->[:open_file] C:\Users\Arnaud Halleux\Desktop\GITHUB\MedicalNote\build\open_file\intermediates\library_manifest\debug\AndroidManifest.xml:9:5-80
+16-->[:open_file] C:\Users\Arnaud Halleux\Desktop\GITHUB\MedicalNote\build\open_file\intermediates\library_manifest\debug\AndroidManifest.xml:9:22-77
+17
+18    <application
+19        android:name="android.app.Application"
+20        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+20-->[androidx.core:core:1.6.0] C:\Users\Arnaud Halleux\.gradle\caches\transforms-2\files-2.1\122df2e57d294d1a53db26bbc3b813c1\core-1.6.0\AndroidManifest.xml:24:18-86
+21        android:debuggable="true"
+22        android:icon="@mipmap/ic_launcher"
+23        android:label="MedicalNote" >
+24        <activity
+25            android:name="com.example.MedicalNote.MainActivity"
+26            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+27            android:exported="true"
+28            android:hardwareAccelerated="true"
+29            android:launchMode="singleTop"
+30            android:theme="@style/LaunchTheme"
+31            android:windowSoftInputMode="adjustResize" >
+32
+33            <!--
+34                 Specifies an Android theme to apply to this Activity as soon as
+35                 the Android process has started. This theme is visible to the user
+36                 while the Flutter UI initializes. After that, this theme continues
+37                 to determine the Window background behind the Flutter UI.
+38            -->
+39            <meta-data
+40                android:name="io.flutter.embedding.android.NormalTheme"
+41                android:resource="@style/NormalTheme" />
+42
+43            <intent-filter>
+44                <action android:name="android.intent.action.MAIN" />
+45
+46                <category android:name="android.intent.category.LAUNCHER" />
+47            </intent-filter>
+48        </activity>
+49        <!--
+50             Don't delete the meta-data below.
+51             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+52        -->
+53        <meta-data
+54            android:name="flutterEmbedding"
+55            android:value="2" />
+56
+57        <provider
+57-->[:open_file] C:\Users\Arnaud Halleux\Desktop\GITHUB\MedicalNote\build\open_file\intermediates\library_manifest\debug\AndroidManifest.xml:12:9-21:20
+58            android:name="com.crazecoder.openfile.FileProvider"
+58-->[:open_file] C:\Users\Arnaud Halleux\Desktop\GITHUB\MedicalNote\build\open_file\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-64
+59            android:authorities="com.example.MedicalNote.fileProvider.com.crazecoder.openfile"
+59-->[:open_file] C:\Users\Arnaud Halleux\Desktop\GITHUB\MedicalNote\build\open_file\intermediates\library_manifest\debug\AndroidManifest.xml:14:13-88
+60            android:exported="false"
+60-->[:open_file] C:\Users\Arnaud Halleux\Desktop\GITHUB\MedicalNote\build\open_file\intermediates\library_manifest\debug\AndroidManifest.xml:15:13-37
+61            android:grantUriPermissions="true" >
+61-->[:open_file] C:\Users\Arnaud Halleux\Desktop\GITHUB\MedicalNote\build\open_file\intermediates\library_manifest\debug\AndroidManifest.xml:16:13-47
+62            <meta-data
+62-->[:open_file] C:\Users\Arnaud Halleux\Desktop\GITHUB\MedicalNote\build\open_file\intermediates\library_manifest\debug\AndroidManifest.xml:18:13-20:53
+63                android:name="android.support.FILE_PROVIDER_PATHS"
+63-->[:open_file] C:\Users\Arnaud Halleux\Desktop\GITHUB\MedicalNote\build\open_file\intermediates\library_manifest\debug\AndroidManifest.xml:19:17-67
+64                android:resource="@xml/filepaths" />
+64-->[:open_file] C:\Users\Arnaud Halleux\Desktop\GITHUB\MedicalNote\build\open_file\intermediates\library_manifest\debug\AndroidManifest.xml:20:17-50
+65        </provider>
+66
+67        <activity
+67-->[:url_launcher] C:\Users\Arnaud Halleux\Desktop\GITHUB\MedicalNote\build\url_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-11:74
+68            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
+68-->[:url_launcher] C:\Users\Arnaud Halleux\Desktop\GITHUB\MedicalNote\build\url_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:9:13-74
+69            android:exported="false"
+69-->[:url_launcher] C:\Users\Arnaud Halleux\Desktop\GITHUB\MedicalNote\build\url_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:10:13-37
+70            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+70-->[:url_launcher] C:\Users\Arnaud Halleux\Desktop\GITHUB\MedicalNote\build\url_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:11:13-71
+71
+72        <uses-library
+72-->[androidx.window:window:1.0.0-beta04] C:\Users\Arnaud Halleux\.gradle\caches\transforms-2\files-2.1\03c633e46d75bfb21f082f0417f55161\jetified-window-1.0.0-beta04\AndroidManifest.xml:25:9-27:40
+73            android:name="androidx.window.extensions"
+73-->[androidx.window:window:1.0.0-beta04] C:\Users\Arnaud Halleux\.gradle\caches\transforms-2\files-2.1\03c633e46d75bfb21f082f0417f55161\jetified-window-1.0.0-beta04\AndroidManifest.xml:26:13-54
+74            android:required="false" />
+74-->[androidx.window:window:1.0.0-beta04] C:\Users\Arnaud Halleux\.gradle\caches\transforms-2\files-2.1\03c633e46d75bfb21f082f0417f55161\jetified-window-1.0.0-beta04\AndroidManifest.xml:27:13-37
+75        <uses-library
+75-->[androidx.window:window:1.0.0-beta04] C:\Users\Arnaud Halleux\.gradle\caches\transforms-2\files-2.1\03c633e46d75bfb21f082f0417f55161\jetified-window-1.0.0-beta04\AndroidManifest.xml:28:9-30:40
+76            android:name="androidx.window.sidecar"
+76-->[androidx.window:window:1.0.0-beta04] C:\Users\Arnaud Halleux\.gradle\caches\transforms-2\files-2.1\03c633e46d75bfb21f082f0417f55161\jetified-window-1.0.0-beta04\AndroidManifest.xml:29:13-51
+77            android:required="false" />
+77-->[androidx.window:window:1.0.0-beta04] C:\Users\Arnaud Halleux\.gradle\caches\transforms-2\files-2.1\03c633e46d75bfb21f082f0417f55161\jetified-window-1.0.0-beta04\AndroidManifest.xml:30:13-37
+78    </application>
+79
+80</manifest>

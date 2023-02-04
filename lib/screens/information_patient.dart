@@ -28,7 +28,6 @@ class _InformationPatientState extends State<InformationPatient> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     boxSettings = Hive.box('Settings');
     boxPatient = Hive.box('Patient');
@@ -120,7 +119,7 @@ class _InformationPatientState extends State<InformationPatient> {
                   height: 80,
                   color: kcolor3,
                 ),
-                Container(
+                SizedBox(
                   height: 58,
                   width: size.width,
                   child: ElevatedButton(
@@ -131,11 +130,11 @@ class _InformationPatientState extends State<InformationPatient> {
                       PdfApi.openFile(pdfFile);
                     },
                     child: Padding(
-                        padding: EdgeInsets.all(20.0),
+                        padding: const EdgeInsets.all(20.0),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            SizedBox(
+                            const SizedBox(
                               width: 10,
                             ),
                             Row(
@@ -148,10 +147,10 @@ class _InformationPatientState extends State<InformationPatient> {
                                     height: 17,
                                   ),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   width: 10,
                                 ),
-                                Text(
+                                const Text(
                                   'Download PDF',
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
@@ -159,7 +158,7 @@ class _InformationPatientState extends State<InformationPatient> {
                                 ),
                               ],
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 10,
                             )
                           ],

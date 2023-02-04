@@ -29,12 +29,17 @@ class _SettingsProfilePageState extends State<SettingsProfilePage> {
   TextEditingController emailcontroller = TextEditingController();
 
   void _submitData() {
-    print('First modification');
     String enteredname = namecontroller.text;
     String enteredfirstname = firstnamecontroller.text;
     String enteredjob = jobcontroller.text;
     String enteredphonenumber = phonenumbercontroller.text;
     String enteredemail = emailcontroller.text;
+
+    if (enteredname.isEmpty ||
+        enteredfirstname.isEmpty ||
+        enteredemail.isEmpty ||
+        enteredphonenumber.isEmpty ||
+        enteredjob.isEmpty) return;
 
     final firstSettings = Settings(
       name: enteredname,
@@ -49,7 +54,6 @@ class _SettingsProfilePageState extends State<SettingsProfilePage> {
   }
 
   void _submitData2(Settings settings) {
-    print('Seconde modification');
     String enteredname2 = namecontroller.text;
     String enteredfirstname2 = firstnamecontroller.text;
     String enteredjob2 = jobcontroller.text;
@@ -79,158 +83,166 @@ class _SettingsProfilePageState extends State<SettingsProfilePage> {
       phonenumber: enteredphonenumber2,
       email: enteredemail2,
     );
-    print('Push second settings');
     boxSettings.putAt(0, allSettings);
+    Navigator.pop(context);
   }
 
   @override
   Widget build(BuildContext context) {
-    Column _buildFormBoxEmpty() {
-      return Column(
-        children: <Widget>[
-          Text(
-            'Name',
-            textAlign: TextAlign.start,
-            style: TextStyle(
-                fontSize: 14,
-                color: Colors.white.withOpacity(0.8),
-                fontWeight: FontWeight.bold),
-          ),
-          TextField(
-            style: const TextStyle(color: Colors.white),
-            keyboardType: TextInputType.name,
-            decoration: InputDecoration(
-              labelText: 'Name',
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(15.0),
-                borderSide: const BorderSide(width: 1, color: kDefaultcolor),
-              ),
-              border: InputBorder.none,
-              labelStyle: TextStyle(color: Colors.white.withOpacity(1)),
-              filled: true,
-              fillColor: kcolor3,
+    SingleChildScrollView _buildFormBoxEmpty() {
+      return SingleChildScrollView(
+        reverse: true,
+        child: Column(
+          children: <Widget>[
+            Text(
+              'Name',
+              textAlign: TextAlign.start,
+              style: TextStyle(
+                  fontSize: 14,
+                  color: Colors.white.withOpacity(0.8),
+                  fontWeight: FontWeight.bold),
             ),
-            controller: namecontroller,
-            onSubmitted: (_) => null,
-          ),
-          const SizedBox(
-            height: 15,
-          ),
-          Text(
-            'Firstname',
-            textAlign: TextAlign.start,
-            style: TextStyle(
-                fontSize: 14,
-                color: Colors.white.withOpacity(0.8),
-                fontWeight: FontWeight.bold),
-          ),
-          TextField(
-            style: const TextStyle(color: Colors.white),
-            keyboardType: TextInputType.name,
-            decoration: InputDecoration(
-              labelText: 'Firstname',
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(15.0),
-                borderSide: const BorderSide(width: 1, color: kDefaultcolor),
+            TextField(
+              style: const TextStyle(color: Colors.white),
+              keyboardType: TextInputType.name,
+              decoration: InputDecoration(
+                labelText: 'Name',
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15.0),
+                  borderSide: const BorderSide(width: 1, color: kDefaultcolor),
+                ),
+                border: InputBorder.none,
+                labelStyle: TextStyle(color: Colors.white.withOpacity(1)),
+                filled: true,
+                fillColor: kcolor3,
               ),
-              border: InputBorder.none,
-              labelStyle: TextStyle(color: Colors.white.withOpacity(1)),
-              filled: true,
-              fillColor: kcolor3,
+              controller: namecontroller,
+              onSubmitted: (_) => _submitData(),
             ),
-            controller: firstnamecontroller,
-            onSubmitted: (_) => null,
-          ),
-          const SizedBox(
-            height: 15,
-          ),
-          Text(
-            'Job',
-            textAlign: TextAlign.start,
-            style: TextStyle(
-                fontSize: 14,
-                color: Colors.white.withOpacity(0.8),
-                fontWeight: FontWeight.bold),
-          ),
-          TextField(
-            style: const TextStyle(color: Colors.white),
-            keyboardType: TextInputType.name,
-            decoration: InputDecoration(
-              labelText: 'Job',
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(15.0),
-                borderSide: const BorderSide(width: 1, color: kDefaultcolor),
+            const SizedBox(
+              height: 15,
+            ),
+            Text(
+              'Firstname',
+              textAlign: TextAlign.start,
+              style: TextStyle(
+                  fontSize: 14,
+                  color: Colors.white.withOpacity(0.8),
+                  fontWeight: FontWeight.bold),
+            ),
+            TextField(
+              style: const TextStyle(color: Colors.white),
+              keyboardType: TextInputType.name,
+              decoration: InputDecoration(
+                labelText: 'Firstname',
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15.0),
+                  borderSide: const BorderSide(width: 1, color: kDefaultcolor),
+                ),
+                border: InputBorder.none,
+                labelStyle: TextStyle(color: Colors.white.withOpacity(1)),
+                filled: true,
+                fillColor: kcolor3,
               ),
-              border: InputBorder.none,
-              labelStyle: TextStyle(color: Colors.white.withOpacity(1)),
-              filled: true,
-              fillColor: kcolor3,
+              controller: firstnamecontroller,
+              onSubmitted: (_) => _submitData(),
             ),
-            controller: jobcontroller,
-            onSubmitted: (_) => null,
-          ),
-          const SizedBox(
-            height: 15,
-          ),
-          Text(
-            'Phone number',
-            textAlign: TextAlign.start,
-            style: TextStyle(
-                fontSize: 14,
-                color: Colors.white.withOpacity(0.8),
-                fontWeight: FontWeight.bold),
-          ),
-          TextField(
-            style: const TextStyle(color: Colors.white),
-            keyboardType: TextInputType.number,
-            decoration: InputDecoration(
-              labelText: 'Phone number',
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(15.0),
-                borderSide: const BorderSide(width: 1, color: kDefaultcolor),
+            const SizedBox(
+              height: 15,
+            ),
+            Text(
+              'Job',
+              textAlign: TextAlign.start,
+              style: TextStyle(
+                  fontSize: 14,
+                  color: Colors.white.withOpacity(0.8),
+                  fontWeight: FontWeight.bold),
+            ),
+            TextField(
+              style: const TextStyle(color: Colors.white),
+              keyboardType: TextInputType.name,
+              decoration: InputDecoration(
+                labelText: 'Job',
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15.0),
+                  borderSide: const BorderSide(width: 1, color: kDefaultcolor),
+                ),
+                border: InputBorder.none,
+                labelStyle: TextStyle(color: Colors.white.withOpacity(1)),
+                filled: true,
+                fillColor: kcolor3,
               ),
-              border: InputBorder.none,
-              labelStyle: TextStyle(color: Colors.white.withOpacity(1)),
-              filled: true,
-              fillColor: kcolor3,
+              controller: jobcontroller,
+              onSubmitted: (_) => _submitData(),
             ),
-            controller: phonenumbercontroller,
-            onSubmitted: (_) => null,
-          ),
-          const SizedBox(
-            height: 15,
-          ),
-          Text(
-            'Email',
-            textAlign: TextAlign.start,
-            style: TextStyle(
-                fontSize: 14,
-                color: Colors.white.withOpacity(0.8),
-                fontWeight: FontWeight.bold),
-          ),
-          TextField(
-            style: const TextStyle(color: Colors.white),
-            keyboardType: TextInputType.emailAddress,
-            decoration: InputDecoration(
-              labelText: 'Email',
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(15.0),
-                borderSide: const BorderSide(width: 1, color: kDefaultcolor),
+            const SizedBox(
+              height: 15,
+            ),
+            Text(
+              'Phone number',
+              textAlign: TextAlign.start,
+              style: TextStyle(
+                  fontSize: 14,
+                  color: Colors.white.withOpacity(0.8),
+                  fontWeight: FontWeight.bold),
+            ),
+            TextField(
+              style: const TextStyle(color: Colors.white),
+              keyboardType: TextInputType.number,
+              decoration: InputDecoration(
+                labelText: 'Phone number',
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15.0),
+                  borderSide: const BorderSide(width: 1, color: kDefaultcolor),
+                ),
+                border: InputBorder.none,
+                labelStyle: TextStyle(color: Colors.white.withOpacity(1)),
+                filled: true,
+                fillColor: kcolor3,
               ),
-              border: InputBorder.none,
-              labelStyle: TextStyle(color: Colors.white.withOpacity(1)),
-              filled: true,
-              fillColor: kcolor3,
+              controller: phonenumbercontroller,
+              onSubmitted: (_) => _submitData(),
             ),
-            controller: emailcontroller,
-            onSubmitted: (_) => null,
-          ),
-        ],
+            const SizedBox(
+              height: 15,
+            ),
+            Text(
+              'Email',
+              textAlign: TextAlign.start,
+              style: TextStyle(
+                  fontSize: 14,
+                  color: Colors.white.withOpacity(0.8),
+                  fontWeight: FontWeight.bold),
+            ),
+            TextField(
+              style: const TextStyle(color: Colors.white),
+              keyboardType: TextInputType.emailAddress,
+              decoration: InputDecoration(
+                labelText: 'Email',
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15.0),
+                  borderSide: const BorderSide(width: 1, color: kDefaultcolor),
+                ),
+                border: InputBorder.none,
+                labelStyle: TextStyle(color: Colors.white.withOpacity(1)),
+                filled: true,
+                fillColor: kcolor3,
+              ),
+              controller: emailcontroller,
+              onSubmitted: (_) => _submitData(),
+            ),
+            Padding(
+                padding: EdgeInsets.only(
+                    bottom: MediaQuery.of(context).viewInsets.bottom))
+          ],
+        ),
       );
     }
 
-    ValueListenableBuilder<Box<Settings>> _buildForm() {
-      return ValueListenableBuilder(
+    SingleChildScrollView _buildForm() {
+      return SingleChildScrollView(
+        reverse: true,
+        child: ValueListenableBuilder(
           valueListenable: boxSettings.listenable(),
           builder: (context, Box<Settings> box, _) {
             List<Settings> settingsList = box.values.toList().cast();
@@ -247,6 +259,7 @@ class _SettingsProfilePageState extends State<SettingsProfilePage> {
                 ),
                 TextField(
                   style: const TextStyle(color: Colors.white),
+                  keyboardType: TextInputType.name,
                   decoration: InputDecoration(
                     labelText: settings.name!.isEmpty
                         ? 'Name'
@@ -257,12 +270,12 @@ class _SettingsProfilePageState extends State<SettingsProfilePage> {
                           const BorderSide(width: 1, color: kDefaultcolor),
                     ),
                     border: InputBorder.none,
-                    labelStyle: TextStyle(color: Colors.white.withOpacity(0.6)),
+                    labelStyle: const TextStyle(color: Colors.white),
                     filled: true,
                     fillColor: kcolor3,
                   ),
                   controller: namecontroller,
-                  onSubmitted: (_) => null,
+                  onSubmitted: (_) => _submitData2(settingsList[0]),
                 ),
                 const SizedBox(
                   height: 15,
@@ -277,6 +290,7 @@ class _SettingsProfilePageState extends State<SettingsProfilePage> {
                 ),
                 TextField(
                   style: const TextStyle(color: Colors.white),
+                  keyboardType: TextInputType.name,
                   decoration: InputDecoration(
                     labelText: settings.firstname!.isEmpty
                         ? 'Firstname'
@@ -287,12 +301,12 @@ class _SettingsProfilePageState extends State<SettingsProfilePage> {
                           const BorderSide(width: 1, color: kDefaultcolor),
                     ),
                     border: InputBorder.none,
-                    labelStyle: TextStyle(color: Colors.white.withOpacity(0.6)),
+                    labelStyle: const TextStyle(color: Colors.white),
                     filled: true,
                     fillColor: kcolor3,
                   ),
                   controller: firstnamecontroller,
-                  onSubmitted: (_) => null,
+                  onSubmitted: (_) => _submitData2(settingsList[0]),
                 ),
                 const SizedBox(
                   height: 15,
@@ -307,6 +321,7 @@ class _SettingsProfilePageState extends State<SettingsProfilePage> {
                 ),
                 TextField(
                   style: const TextStyle(color: Colors.white),
+                  keyboardType: TextInputType.name,
                   decoration: InputDecoration(
                     labelText:
                         settings.job!.isEmpty ? 'Job' : settings.job.toString(),
@@ -316,12 +331,12 @@ class _SettingsProfilePageState extends State<SettingsProfilePage> {
                           const BorderSide(width: 1, color: kDefaultcolor),
                     ),
                     border: InputBorder.none,
-                    labelStyle: TextStyle(color: Colors.white.withOpacity(0.6)),
+                    labelStyle: const TextStyle(color: Colors.white),
                     filled: true,
                     fillColor: kcolor3,
                   ),
                   controller: jobcontroller,
-                  onSubmitted: (_) => null,
+                  onSubmitted: (_) => _submitData2(settingsList[0]),
                 ),
                 const SizedBox(
                   height: 15,
@@ -335,24 +350,25 @@ class _SettingsProfilePageState extends State<SettingsProfilePage> {
                       fontWeight: FontWeight.bold),
                 ),
                 TextField(
-                    style: const TextStyle(color: Colors.white),
-                    decoration: InputDecoration(
-                      labelText: settings.phonenumber!.isEmpty
-                          ? 'Phone number'
-                          : settings.phonenumber.toString(),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15.0),
-                        borderSide:
-                            const BorderSide(width: 1, color: kDefaultcolor),
-                      ),
-                      border: InputBorder.none,
-                      labelStyle:
-                          TextStyle(color: Colors.white.withOpacity(0.6)),
-                      filled: true,
-                      fillColor: kcolor3,
+                  style: const TextStyle(color: Colors.white),
+                  keyboardType: TextInputType.number,
+                  decoration: InputDecoration(
+                    labelText: settings.phonenumber!.isEmpty
+                        ? 'Phone number'
+                        : settings.phonenumber.toString(),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15.0),
+                      borderSide:
+                          const BorderSide(width: 1, color: kDefaultcolor),
                     ),
-                    controller: phonenumbercontroller,
-                    onSubmitted: (_) => null),
+                    border: InputBorder.none,
+                    labelStyle: const TextStyle(color: Colors.white),
+                    filled: true,
+                    fillColor: kcolor3,
+                  ),
+                  controller: phonenumbercontroller,
+                  onSubmitted: (_) => _submitData2(settingsList[0]),
+                ),
                 const SizedBox(
                   height: 15,
                 ),
@@ -366,6 +382,7 @@ class _SettingsProfilePageState extends State<SettingsProfilePage> {
                 ),
                 TextField(
                   style: const TextStyle(color: Colors.white),
+                  keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
                     labelText: settings.email!.isEmpty
                         ? 'Email'
@@ -376,16 +393,21 @@ class _SettingsProfilePageState extends State<SettingsProfilePage> {
                           const BorderSide(width: 1, color: kDefaultcolor),
                     ),
                     border: InputBorder.none,
-                    labelStyle: TextStyle(color: Colors.white.withOpacity(0.6)),
+                    labelStyle: const TextStyle(color: Colors.white),
                     filled: true,
                     fillColor: kcolor3,
                   ),
                   controller: emailcontroller,
-                  onSubmitted: (_) => null,
+                  onSubmitted: (_) => _submitData2(settingsList[0]),
                 ),
+                Padding(
+                    padding: EdgeInsets.only(
+                        bottom: MediaQuery.of(context).viewInsets.bottom))
               ],
             );
-          });
+          },
+        ),
+      );
     }
 
     Size size = MediaQuery.of(context).size;
@@ -394,7 +416,8 @@ class _SettingsProfilePageState extends State<SettingsProfilePage> {
         body: SingleChildScrollView(
           reverse: true,
           child: Padding(
-              padding: const EdgeInsets.only(left: 15, right: 15, top: 10),
+              padding: const EdgeInsets.only(
+                  left: 15, right: 15, top: 10, bottom: 60),
               child: boxSettings.isEmpty ? _buildFormBoxEmpty() : _buildForm()),
         ),
         bottomNavigationBar: _saveSettings(size));

@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:medicalnote/models/listpatient.dart';
 
@@ -52,22 +49,22 @@ class _NoteListState extends State<NoteList> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(e.title.toString(),
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 21)),
-                              SizedBox(
+                              const SizedBox(
                                 height: 10,
                               ),
                               Text(
                                 e.note.toString(),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 17,
                               ),
                               Column(
                                 children: [
                                   e.conclusion.toString().isEmpty
-                                      ? Text('')
+                                      ? const Text('')
                                       : Column(
                                           children: [
                                             const Text(

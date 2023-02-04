@@ -15,7 +15,6 @@ class NewNoteController extends StatefulWidget {
 class _NewNoteControllerState extends State<NewNoteController> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     boxPatient = Hive.box('Patient');
   }
@@ -70,8 +69,8 @@ class _NewNoteControllerState extends State<NewNoteController> {
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      const Text(
+                    children: const <Widget>[
+                       Text(
                         'New Note',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
@@ -87,7 +86,7 @@ class _NewNoteControllerState extends State<NewNoteController> {
                     child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                             backgroundColor: kDefaultcolor, elevation: 0),
-                        child: Text(
+                        child: const Text(
                           'Done',
                           style: TextStyle(color: Colors.white, fontSize: 15),
                         ),

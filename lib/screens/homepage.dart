@@ -56,7 +56,7 @@ class _HomePageState extends State<HomePage> {
                                     : settingsList[0].name.toString() +
                                         ' ' +
                                         settingsList[0].firstname.toString(),
-                                style: TextStyle(
+                                style: const TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 18,
@@ -84,7 +84,8 @@ class _HomePageState extends State<HomePage> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => SettingsPage()),
+                                      builder: (context) =>
+                                          const SettingsPage()),
                                 );
                               },
                               icon: SvgPicture.asset(
@@ -105,7 +106,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
-      body: PatientList(),
+      body: const PatientList(),
     );
     //bottomNavigationBar: BuildBottomnav(),
   }

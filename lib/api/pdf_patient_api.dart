@@ -65,7 +65,6 @@ class PdfPatientApi {
             Text('Phone number: ' + patients.phonenumber.toString()),
             SizedBox(height: 0.5 * PdfPageFormat.mm),
             Text('Email: ' + patients.email.toString()),
-            SizedBox(height: 0.5 * PdfPageFormat.mm),
             Text('Age: ' + patients.dateofbirth.toString()),
           ]);
   static Widget buildContent(Patients patients) => ListView(
@@ -83,10 +82,17 @@ class PdfPatientApi {
                   textAlign: TextAlign.left,
                 ),
                 SizedBox(height: 0.3 * PdfPageFormat.cm),
-                Text(
-                  e.conclusion.toString(),
-                  textAlign: TextAlign.left,
-                ),
+                Column(children: <Widget>[
+                  if (e.conclusion!.isNotEmpty)
+                    Center(
+                        child: Text('Conclusion',
+                            style: TextStyle(fontWeight: FontWeight.bold))),
+                  SizedBox(height: 0.9 * PdfPageFormat.mm),
+                  Text(
+                    e.conclusion.toString(),
+                    textAlign: TextAlign.left,
+                  ),
+                ]),
                 SizedBox(height: 1 * PdfPageFormat.cm),
               ],
             ),
@@ -103,7 +109,7 @@ class PdfPatientApi {
           ),
           SizedBox(height: 1 * PdfPageFormat.mm),
           Text('Phone Number: ' + settings.phonenumber.toString(),
-              style: TextStyle(fontSize: 9)),
+              style: const TextStyle(fontSize: 9)),
           SizedBox(height: 1 * PdfPageFormat.mm),
           Text('Mail: ' + settings.email.toString(),
               style: const TextStyle(fontSize: 9)),

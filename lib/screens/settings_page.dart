@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:medicalnote/models/listpatient.dart';
 import 'package:medicalnote/screens/faq_page.dart';
 import 'package:medicalnote/controller/Settings_Profile_Controller.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -99,21 +97,18 @@ class _SettingsState extends State<SettingsPage> {
             const SizedBox(
               height: 10,
             ),
-            Container(
+            SizedBox(
               height: 50,
               child: ValueListenableBuilder(
                 valueListenable: boxSettings.listenable(),
                 builder: (context, Box<Settings> box, _) {
-                  List<Settings> settingsList = box.values.toList().cast();
-                  Settings settings;
-                  boxSettings.isEmpty ? print('VOID') : print('NOT VOID');
                   return ElevatedButton(
                     style: ElevatedButton.styleFrom(backgroundColor: kcolor3),
                     onPressed: () {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => SettingsProfilePage()));
+                              builder: (context) => const SettingsProfilePage()));
                     },
                     child: Padding(
                       padding: const EdgeInsets.only(left: 15, right: 10),
@@ -219,7 +214,7 @@ class _SettingsState extends State<SettingsPage> {
                 children: [
                   TextButton(
                     onPressed: _LaunchUrl,
-                    child: Text(
+                    child: const Text(
                       'Developed by Halleux Arnaud',
                       style: TextStyle(
                         color: Colors.white,

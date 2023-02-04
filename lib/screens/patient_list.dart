@@ -58,7 +58,7 @@ class _PatientListState extends State<PatientList> {
                 left: 20,
                 right: 20,
               ),
-              child: Container(
+              child: SizedBox(
                 width: size.width,
                 height: 65,
                 child: Padding(
@@ -86,7 +86,7 @@ class _PatientListState extends State<PatientList> {
                                 context,
                                 MaterialPageRoute(
                                     builder: ((context) =>
-                                        NewPatientController())));
+                                       const  NewPatientController())));
                           }),
                     ],
                   ),
@@ -115,7 +115,6 @@ class _PatientListState extends State<PatientList> {
                         child: GestureDetector(
                           onTap: (() {
                             if (settings.isEmpty) {
-                              print('Remplissage');
                               final allSettings = Settings(
                                 name: 'Name',
                                 firstname: 'Firstname',
