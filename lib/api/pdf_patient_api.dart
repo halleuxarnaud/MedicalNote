@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:flutter_svg/svg.dart';
 import 'package:medicalnote/api/pdf_api.dart';
 import 'package:medicalnote/models/listpatient.dart';
 import 'package:medicalnote/models/listsettings.dart';
@@ -45,11 +46,6 @@ class PdfPatientApi {
             style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
-            ),
-          ),
-          Container(
-            child: Center(
-              child: Text('Image MedicalNote'),
             ),
           ),
         ],
