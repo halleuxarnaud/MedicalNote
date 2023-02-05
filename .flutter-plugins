@@ -1,10 +1,10 @@
 # This is a generated file; do not edit or check into version control.
-open_file=C:\\DEV\\flutter\\.pub-cache\\hosted\\pub.dev\\open_file-3.2.1\\
-path_provider=C:\\DEV\\flutter\\.pub-cache\\hosted\\pub.dev\\path_provider-2.0.12\\
-path_provider_android=C:\\DEV\\flutter\\.pub-cache\\hosted\\pub.dev\\path_provider_android-2.0.22\\
-path_provider_foundation=C:\\DEV\\flutter\\.pub-cache\\hosted\\pub.dev\\path_provider_foundation-2.1.1\\
-path_provider_linux=C:\\DEV\\flutter\\.pub-cache\\hosted\\pub.dev\\path_provider_linux-2.1.7\\
-path_provider_windows=C:\\DEV\\flutter\\.pub-cache\\hosted\\pub.dev\\path_provider_windows-2.0.7\\
-url_launcher=C:\\DEV\\flutter\\.pub-cache\\hosted\\pub.dev\\url_launcher-5.4.0\\
-url_launcher_macos=C:\\DEV\\flutter\\.pub-cache\\hosted\\pub.dev\\url_launcher_macos-0.0.1+9\\
-url_launcher_web=C:\\DEV\\flutter\\.pub-cache\\hosted\\pub.dev\\url_launcher_web-0.1.1+5\\
+open_file=/Users/arnaudhallerux/.pub-cache/hosted/pub.dev/open_file-3.2.1/
+path_provider=/Users/arnaudhallerux/.pub-cache/hosted/pub.dev/path_provider-2.0.12/
+path_provider_android=/Users/arnaudhallerux/.pub-cache/hosted/pub.dev/path_provider_android-2.0.22/
+path_provider_foundation=/Users/arnaudhallerux/.pub-cache/hosted/pub.dev/path_provider_foundation-2.1.1/
+path_provider_linux=/Users/arnaudhallerux/.pub-cache/hosted/pub.dev/path_provider_linux-2.1.7/
+path_provider_windows=/Users/arnaudhallerux/.pub-cache/hosted/pub.dev/path_provider_windows-2.0.7/
+url_launcher=/Users/arnaudhallerux/.pub-cache/hosted/pub.dev/url_launcher-5.4.0/
+url_launcher_macos=/Users/arnaudhallerux/.pub-cache/hosted/pub.dev/url_launcher_macos-0.0.1+9/
+url_launcher_web=/Users/arnaudhallerux/.pub-cache/hosted/pub.dev/url_launcher_web-0.1.1+5/
