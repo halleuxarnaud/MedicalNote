@@ -15,7 +15,6 @@ class NewPatientController extends StatefulWidget {
 class _NewPatientControllerState extends State<NewPatientController> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     boxPatient = Hive.box('Patient');
   }
@@ -56,7 +55,6 @@ class _NewPatientControllerState extends State<NewPatientController> {
       //listOfNotes: [],
     );
     boxPatient.add(newPT);
-    Navigator.pop(context);
   }
 
   @override
@@ -102,6 +100,7 @@ class _NewPatientControllerState extends State<NewPatientController> {
                   ),
                   onPressed: (() {
                     _submitData();
+                    Navigator.pop(context);
                   })),
             )
           ],

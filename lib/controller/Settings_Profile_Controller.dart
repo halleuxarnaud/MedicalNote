@@ -49,7 +49,7 @@ class _SettingsProfilePageState extends State<SettingsProfilePage> {
       email: enteredemail,
     );
 
-    boxSettings.putAt(0, firstSettings);
+    boxSettings.add(firstSettings);
     Navigator.pop(context);
   }
 
