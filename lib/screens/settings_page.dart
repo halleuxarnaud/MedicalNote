@@ -108,7 +108,8 @@ class _SettingsState extends State<SettingsPage> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const SettingsProfilePage()));
+                              builder: (context) =>
+                                  const SettingsProfilePage()));
                     },
                     child: Padding(
                       padding: const EdgeInsets.only(left: 15, right: 10),
@@ -150,6 +151,7 @@ class _SettingsState extends State<SettingsPage> {
             const Divider(
               height: 2,
             ),
+            /*
             const Padding(
               padding: EdgeInsets.only(left: 15, top: 25),
               child: Text(
@@ -205,6 +207,7 @@ class _SettingsState extends State<SettingsPage> {
                 ),
               ),
             ),
+            */
             const Divider(
               height: 2,
             ),
@@ -214,11 +217,20 @@ class _SettingsState extends State<SettingsPage> {
                 children: [
                   TextButton(
                     onPressed: _LaunchUrl,
-                    child: const Text(
-                      'Developed by Halleux Arnaud',
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
+                    child: Row(
+                      children: [
+                        const Text(
+                          'Developed by ',
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                        Text(
+                          'Halleux Arnaud',
+                          style: TextStyle(
+                              color: Colors.white, fontWeight: FontWeight.bold),
+                        ),
+                      ],
                     ),
                   ),
                   IconButton(
