@@ -45,9 +45,9 @@ $~$
 <br />
 <div align="center">
   <a href="https://github.com/Buubulle/MedicalNote">
-    <img src="srcgit/1.png" alt="Logo" width="300" height="568">
-    <img src="srcgit/2.png" alt="Logo" width="300" height="568">
-    <img src="srcgit/3.png" alt="Logo" width="300" height="568">
+    <img src="srcgit/1.png">
+    <img src="srcgit/2.png">
+    <img src="srcgit/3.png">
   </a>
 </div>
 
