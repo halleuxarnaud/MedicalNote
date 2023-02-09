@@ -78,17 +78,27 @@ class PdfPatientApi {
                   textAlign: TextAlign.left,
                 ),
                 SizedBox(height: 0.3 * PdfPageFormat.cm),
-                Column(children: <Widget>[
-                  if (e.conclusion!.isNotEmpty)
-                    Center(
-                        child: Text('Conclusion',
-                            style: TextStyle(fontWeight: FontWeight.bold))),
-                  SizedBox(height: 0.9 * PdfPageFormat.mm),
-                  Text(
-                    e.conclusion.toString(),
-                    textAlign: TextAlign.left,
-                  ),
-                ]),
+                e.conclusion!.isNotEmpty
+                    ? Column(children: <Widget>[
+                        Center(
+                            child: Text('Conclusion',
+                                style: TextStyle(fontWeight: FontWeight.bold))),
+                        SizedBox(height: 0.9 * PdfPageFormat.mm),
+                        Text(
+                          e.conclusion.toString(),
+                          textAlign: TextAlign.left,
+                        ),
+                      ])
+                    : Column(children: <Widget>[
+                        Center(
+                            child: Text('',
+                                style: TextStyle(fontWeight: FontWeight.bold))),
+                        SizedBox(height: 0.9 * PdfPageFormat.mm),
+                        Text(
+                          e.conclusion.toString(),
+                          textAlign: TextAlign.left,
+                        ),
+                      ]),
                 SizedBox(height: 1 * PdfPageFormat.cm),
               ],
             ),
