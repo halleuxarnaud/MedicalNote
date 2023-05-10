@@ -9,7 +9,7 @@
   <h3 align="center">MedicalNote</h3>
 
   <p align="center">
-    1st 100% local medical note taking application
+    1st 100% local medical note taking application 
   </p>
   <p align="center">
     No Playstore / Appstore distribution yet but it will come
