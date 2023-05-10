@@ -6,6 +6,7 @@ import 'models/listsettings.dart';
 import 'screens/homepage.dart';
 
 void main() async {
+
   await Hive.initFlutter();
   Hive.registerAdapter(SettingsAdapter());
   Hive.registerAdapter(PatientsAdapter());
@@ -27,7 +28,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'MedicalNote',
+      title: 'MedicalNote ',
       theme: ThemeData(scaffoldBackgroundColor: kDefaultcolor),
       home: const HomePage(),
     );
